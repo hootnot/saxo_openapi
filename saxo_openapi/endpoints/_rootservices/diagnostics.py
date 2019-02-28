@@ -18,7 +18,7 @@ class Get(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Get()
+        >>> r = rs.diagnostics.Get()
         >>> rv = client.request(r)
         """
         super(Get, self).__init__()
@@ -36,7 +36,7 @@ class Post(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Post()
+        >>> r = rs.diagnostics.Post()
         >>> rv = client.request(r)
         """
         super(Post, self).__init__()
@@ -54,7 +54,7 @@ class Put(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Put()
+        >>> r = rs.diagnostics.Put()
         >>> rv = client.request(r)
         """
         super(Put, self).__init__()
@@ -72,7 +72,7 @@ class Delete(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Delete()
+        >>> r = rs.diagnostics.Delete()
         >>> rv = client.request(r)
         """
         super(Delete, self).__init__()
@@ -90,7 +90,7 @@ class Patch(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Patch()
+        >>> r = rs.diagnostics.Patch()
         >>> rv = client.request(r)
         """
         super(Patch, self).__init__()
@@ -108,7 +108,7 @@ class Head(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Head()
+        >>> r = rs.diagnostics.Head()
         >>> rv = client.request(r)
         """
         super(Head, self).__init__()
@@ -126,7 +126,7 @@ class Options(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Options()
+        >>> r = rs.diagnostics.Options()
         >>> rv = client.request(r)
         """
         super(Options, self).__init__()
@@ -146,7 +146,7 @@ class Echo(RootService):
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rs.Echo()
+        >>> r = rs.diagnostics.Echo()
         >>> rv = client.request(r)
 
         """

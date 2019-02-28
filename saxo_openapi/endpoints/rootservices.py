@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from ._rootservices.diagnostics import (
-    Get,
-    Post,
-    Put,
-    Delete,
-    Patch,
-    Head,
-    Options,
-    Echo)
+from ._rootservices import diagnostics
+from ._rootservices import features

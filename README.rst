@@ -18,6 +18,55 @@ SAXO Bank organizes the endpoints in groups/subgroups, see:
    :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
    :alt: Coverage
 
+
+Install
+-------
+
+.. code-block:: bash
+
+   $ pip install git+https://github.com/hootnot/saxo_openapi.git
+
+Only python3 is supported.
+
+Example:
+
+.. code-block:: python
+
+   import saxo_openapi import API
+   import saxo_openapi.endpoints.rootservices as rs
+   from pprint import pprint
+
+   token = "... the token you can obtain at the developer portal ..."
+   client = API(access_token=token)
+
+   # lets make a diagnostics request, it should return '' with a state 200
+   r = rs.diagnostics.Get()
+   print("request is: ", r)
+   rv = client.request(r)
+   assert rv == '' and r.status_code == 200
+
+   # request available rootservices-features
+   r = rs.features.Availability()
+   rv = client.request(r)
+   print("request: ", r)
+   print("response: ")
+   pprint(rv, indent=2)
+   print(r.status_code)
+
+
+Output:
+
+ ::
+
+  request:  openapi/root/v1/features/availability/
+  response:
+  [ {'Available': True, 'Feature': 'News'},
+    {'Available': True, 'Feature': 'GainersLosers'},
+    {'Available': True, 'Feature': 'Calendar'},
+    {'Available': True, 'Feature': 'Chart'}]
+  200
+
+
 States:
 
   + [ ] not covered yet

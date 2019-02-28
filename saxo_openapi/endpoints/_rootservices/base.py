@@ -7,13 +7,17 @@ from abc import abstractmethod
 
 
 class RootService(APIRequest):
-    """RootService - class to handle the rootservice endpoints."""
+    """RootService - baseclass to handle the rootservice endpoints."""
 
     ENDPOINT = ""
     METHOD = "GET"
+    EXPECTED_STATUS = 0
 
     @abstractmethod
-    def __init__(self):
+    def __init__(self, ContextId=None, ReferenceId=None):
         """Instantiate a RootService APIRequest instance."""
-        endpoint = self.ENDPOINT.format()
-        super(RootService, self).__init__(endpoint, method=self.METHOD)
+        endpoint = self.ENDPOINT.format(ContextId=ContextId,
+                                        ReferenceId=ReferenceId)
+        super(RootService, self).__init__(endpoint,
+                                          method=self.METHOD,
+                                          expected_status=self.EXPECTED_STATUS)

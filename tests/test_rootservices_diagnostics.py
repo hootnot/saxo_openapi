@@ -46,14 +46,14 @@ class TestSaxo_RootServices_Diagnostics(unittest.TestCase):
         """Tear down test fixtures, if any."""
 
     @parameterized.expand([
-        (rs.Get,),
-        (rs.Post,),
-        (rs.Put,),
-        (rs.Delete,),
-        (rs.Patch,),
-        (rs.Head,),
-        (rs.Options,),
-        (rs.Echo,),
+        (rs.diagnostics.Get,),
+        (rs.diagnostics.Post,),
+        (rs.diagnostics.Put,),
+        (rs.diagnostics.Delete,),
+        (rs.diagnostics.Patch,),
+        (rs.diagnostics.Head,),
+        (rs.diagnostics.Options,),
+        (rs.diagnostics.Echo,),
       ])
     @requests_mock.Mocker(kw='mock')
     def test_rs_ep(self, cls, **kwargs):
