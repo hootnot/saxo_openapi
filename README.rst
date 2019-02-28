@@ -14,6 +14,10 @@ SAXO Bank organizes the endpoints in groups/subgroups, see:
 
 .. _`https://www.developer.saxo/openapi/referencedocs`: https://www.developer.saxo/openapi/referencedocs
 
+.. image:: https://coveralls.io/repos/github/hootnot/saxo_openapi/badge.svg?branch=master
+   :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
+   :alt: Coverage
+
 States:
 
   + [ ] not covered yet
