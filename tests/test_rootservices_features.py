@@ -78,11 +78,7 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         """test the Remove Subscription Availability request."""
         import saxo_openapi.endpoints.rootservices as rs
         tid = "_v3_availability_subscr_remove"
-        resp, data = fetchTestData(rs.features.responses, tid)
-        params = {
-           'ContextId': rs.features.responses[tid]['ContextId'],
-           'ReferenceId': rs.features.responses[tid]['ReferenceId'],
-        }
+        resp, data, params = fetchTestData(rs.features.responses, tid)
         r = rs.features.RemoveAvailabilitySubscription(**params)
         mock_req.register_uri('DELETE',
                               "{}/sim/{}".format(api.api_url, r),
