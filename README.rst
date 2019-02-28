@@ -5,15 +5,6 @@ Python wrapper for SAXO Bank OpenAPI REST-API.
 
 Currently this is code under development. There is no pypi-package yet.
 
-Covered endpoints
------------------
-
-SAXO Bank organizes the endpoints in groups/subgroups, see:
-`https://www.developer.saxo/openapi/referencedocs`_
-
-
-.. _`https://www.developer.saxo/openapi/referencedocs`: https://www.developer.saxo/openapi/referencedocs
-
 .. image:: https://coveralls.io/repos/github/hootnot/saxo_openapi/badge.svg?branch=master
    :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
    :alt: Coverage
@@ -66,6 +57,15 @@ Output:
     {'Available': True, 'Feature': 'Chart'}]
   200
 
+
+Covered endpoints
+-----------------
+
+SAXO Bank organizes the endpoints in groups/subgroups, see:
+`https://www.developer.saxo/openapi/referencedocs`_
+
+
+.. _`https://www.developer.saxo/openapi/referencedocs`: https://www.developer.saxo/openapi/referencedocs
 
 States:
 
@@ -155,6 +155,9 @@ States:
        ECHO test endpoint     [x]
 
      Features
+       Get availability of all features           [x]
+       Create a feature availability subscription [x]
+       Remove a feature availability subscription [x]
      Sessions
      Subscriptions
      User
