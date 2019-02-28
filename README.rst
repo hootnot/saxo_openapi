@@ -96,14 +96,14 @@ States:
 
    Root Services
      Diagnostics
-       GET test endpoint
-       POST test endpoint
-       PUT test endpoint
-       DELETE test endpoint
-       PATCH test endpoint
-       HEAD test endpoint
-       OPTIONS test endpoint
-       ECHO test endpoint
+       GET test endpoint      [x]
+       POST test endpoint     [x]
+       PUT test endpoint      [x]
+       DELETE test endpoint   [x]
+       PATCH test endpoint    [x]
+       HEAD test endpoint     [x]
+       OPTIONS test endpoint  [x]
+       ECHO test endpoint     [x]
 
      Features
      Sessions
