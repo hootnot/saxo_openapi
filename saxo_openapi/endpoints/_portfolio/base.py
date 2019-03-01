@@ -9,15 +9,10 @@ class Portfolio(APIRequest):
 
     ENDPOINT = ""
     METHOD = "GET"
+    EXPECTED_STATUS = 0
 
     @abstractmethod
-    def __init__(self,
-                 AccountKey=None,
-                 AccountGroupKey=None,
-                 ClientKey=None,
-                 ContextId=None,
-                 OrderId=None,
-                 ReferenceId=None):
+    def __init__(self, **kwargs):
         """Instantiate a Portfolio APIRequest instance.
 
         Parameters
@@ -40,10 +35,7 @@ class Portfolio(APIRequest):
         ReferenceId : string
             the ReferenceId.
         """
-        endpoint = self.ENDPOINT.format(AccountKey=AccountKey,
-                                        AccountGroupKey=AccountGroupKey,
-                                        ClientKey=ClientKey,
-                                        ContextId=ContextId,
-                                        OrderId=OrderId,
-                                        ReferenceId=ReferenceId)
-        super(Portfolio, self).__init__(endpoint, method=self.METHOD)
+        endpoint = self.ENDPOINT.format(**kwargs)
+        super(Portfolio, self).__init__(endpoint,
+                                        method=self.METHOD,
+                                        expected_status=self.EXPECTED_STATUS)

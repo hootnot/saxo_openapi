@@ -68,7 +68,7 @@ class TestSaxo_openapi(unittest.TestCase):
         text = "No connection " \
                "adapters were found for " \
                "'ttps://test.com/sim/openapi/port/v1/accounts/me'"
-        r = pf.AccountList()
+        r = pf.accounts.AccountList()
         with self.assertRaises(RequestException) as oErr:
             api.request(r)
 
