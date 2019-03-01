@@ -115,7 +115,17 @@ States:
 
    Portfolio
      AccountGroups
-     Accounts          [.]
+
+     Accounts
+       AccountDetails           [x]
+       AccountList              [x]
+       AccountListByClient      [x]
+       AccountUpdate            [x]
+       Accountreset             [x]
+       SubscriptionCreate       [x]
+       SubscriptionRemoveByTag  [x]
+       SubscriptionRemoveById   [x]
+
      Balances
      Clients
      ClosedPositions
