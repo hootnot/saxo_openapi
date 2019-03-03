@@ -141,21 +141,23 @@ States:
 
    Reference Data
      AlgoStrategies
-       Get all strategies
-       Get details about a specific strategy
-     Countries
-     Cultures
-     Currencies
+       Get all strategies                         [x]
+       Get details about a specific strategy      [x]
+     Countries                                    [x]
+     Cultures                                     [x]
+     Currencies                                   [x]
      Exchanges
-       Get all exchanges
-       Get details about a specific exchange
+       Get all exchanges                          [x]
+       Get details about a specific exchange      [x]
      Instruments
-       ...
-     Languages
+       Instruments                                [x]
+       InstrumentsDetails                         [x]
+       InstrumentDetails                          [x]
+     Languages                                    [x]
      StandardDates
-       Get a list of forward tenor dates
-       Get a list of FX option expiry dates
-     TimeZones
+       Get a list of forward tenor dates          [x]
+       Get a list of FX option expiry dates       [x]
+     TimeZones                                    [x]
 
    Root Services
      Diagnostics
