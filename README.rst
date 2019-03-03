@@ -115,6 +115,10 @@ States:
 
    Portfolio
      AccountGroups
+       AccountGroupDetails      [x]
+       AccountGroupsMe          [x]
+       AccountGroupsList        [x]
+       AccountGroupUpdate       [x]
 
      Accounts
        AccountDetails           [x]
