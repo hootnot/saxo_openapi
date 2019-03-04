@@ -193,6 +193,10 @@ States:
      OptionChain
      v1 Orders
      v2 Orders
+       Place a new order                         [x]
+       Change one or more existing orders        [x]
+       Cancel one or more orders                 [x]
+       Precheck a single order                   [x]
      Positions
      Prices
 
