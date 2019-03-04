@@ -137,6 +137,14 @@ States:
      NetPositions
      Orders
      Positions
+       Get a single position                                            [x]
+       Get detailed information for a single position                   [x]
+       Get positions for the logged-in client                           [x]
+       Get positions for a client, account group, account or a position [x]
+       Create a subscription on a list of positions and make it active  [x]
+       Change the subscription page size                                [x]
+       Remove multiple subscriptions                                    [x]
+       Remove a subscription                                            [x]
      Users
 
    Reference Data
