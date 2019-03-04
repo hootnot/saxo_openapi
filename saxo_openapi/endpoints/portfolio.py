@@ -3,3 +3,4 @@
 from ._portfolio import accountgroups
 from ._portfolio import accounts
 from ._portfolio import positions
+from ._portfolio import netpositions

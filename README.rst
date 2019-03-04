@@ -135,6 +135,13 @@ States:
      ClosedPositions
      Exposure
      NetPositions
+       Get a single netposition                                            [x]
+       Get detailed information for a single netposition                   [x]
+       Get netpositions for the logged-in client                           [x]
+       Get netpositions for a client, account group, account or a position [x]
+       Create a netsubscription on a list of positions and make it active  [x]
+       Remove multiple subscriptions                                       [x]
+       Remove a subscription                                               [x]
      Orders
      Positions
        Get a single position                                            [x]
