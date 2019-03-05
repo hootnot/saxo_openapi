@@ -57,6 +57,153 @@ Output:
     {'Available': True, 'Feature': 'Chart'}]
   200
 
+Some Trading
+------------
+
+.. code-block:: python
+
+   from saxo_openapi import API
+   import saxo_openapi.endpoints.trading as tr
+   import saxo_openapi.endpoints.portfolio as pf
+   import json
+
+   # Place your token in a file named: tok.txt
+   tok = ""
+   with open("tok.txt") as I:
+       tok = I.read().strip()
+
+   # Our client to process the requests
+   client = API(access_token=tok)
+
+   # Positions, probably none, but maybe you see positions
+   # that you created by the explorer
+   r = pf.positions.PositionsMe()
+   rv = client.request(r)
+   print(json.dumps(rv, indent=2))
+
+   # Place some market orders
+   MO = [
+   {
+       "AccountKey": "Cf4xZWiYL6W1nMKpygBLLA==",
+       "Amount": "100000",
+       "AssetType": "FxSpot",
+       "BuySell": "Sell",
+       "OrderType": "Market",
+       "Uic": 21   # EURUSD
+   },
+   {
+       "AccountKey": "Cf4xZWiYL6W1nMKpygBLLA==",
+       "Amount": "80000",
+       "AssetType": "FxSpot",
+       "BuySell": "Buy",
+       "OrderType": "Market",
+       "Uic": 23   # GBPCAD
+   },
+   ]
+
+   # create Order requests and process them
+   for r in [tr.orders.Order(data=orderspec) for orderspec in MO]:
+       client.request(r)
+
+   # check for positions again
+   r = pf.positions.PositionsMe()
+   rv = client.request(r)
+   print(json.dumps(rv, indent=2))
+
+
+Output:
+
+.. code-block:: python
+
+   {
+     "__count": 0,
+     "Data": []
+   }
+
+.. code-block:: python
+
+   {
+     "__count": 2,
+     "Data": [
+       {
+         "NetPositionId": "GBPCAD__FxSpot",
+         "PositionBase": {
+           "Uic": 23,
+           "AccountId": "9226397",
+           "Amount": 80000.0,
+           "CanBeClosed": true,
+           "SourceOrderId": "76306670",
+           "ExecutionTimeOpen": "2019-03-05T22:39:43.738721Z",
+           "Status": "Open",
+           "IsMarketOpen": true,
+           "CorrelationKey": "244b083d-7bce-4e4b-a01c-5117e5860321",
+           "CloseConversionRateSettled": false,
+           "ClientId": "9226397",
+           "OpenPrice": 1.75937,
+           "RelatedOpenOrders": [],
+           "ValueDate": "2019-03-08T00:00:00.000000Z",
+           "SpotDate": "2019-03-08",
+           "AssetType": "FxSpot"
+         },
+         "PositionView": {
+           "Exposure": 80000.0,
+           "InstrumentPriceDayPercentChange": -0.04,
+           "ConversionRateCurrent": 0.662245,
+           "TradeCostsTotal": -14.07,
+           "ExposureInBaseCurrency": 93196.8,
+           "CurrentPriceType": "Bid",
+           "TradeCostsTotalInBaseCurrency": -9.32,
+           "ProfitLossOnTradeInBaseCurrency": -49.27,
+           "CurrentPriceDelayMinutes": 0,
+           "ConversionRateOpen": 0.662245,
+           "ProfitLossOnTrade": -74.4,
+           "ExposureCurrency": "GBP",
+           "CurrentPrice": 1.75844,
+           "CalculationReliability": "Ok"
+         },
+         "PositionId": "212702698"
+       },
+       {
+         "NetPositionId": "EURUSD__FxSpot",
+         "PositionBase": {
+           "Uic": 21,
+           "AccountId": "9226397",
+           "Amount": -100000.0,
+           "CanBeClosed": true,
+           "SourceOrderId": "76306669",
+           "ExecutionTimeOpen": "2019-03-05T22:39:43.546536Z",
+           "Status": "Open",
+           "IsMarketOpen": true,
+           "CorrelationKey": "4dab5814-8b84-421e-859b-dfdbdbec06ec",
+           "CloseConversionRateSettled": false,
+           "ClientId": "9226397",
+           "OpenPrice": 1.13054,
+           "RelatedOpenOrders": [],
+           "ValueDate": "2019-03-08T00:00:00.000000Z",
+           "SpotDate": "2019-03-08",
+           "AssetType": "FxSpot"
+         },
+         "PositionView": {
+           "Exposure": -100000.0,
+           "InstrumentPriceDayPercentChange": -0.01,
+           "ConversionRateCurrent": 0.884455,
+           "TradeCostsTotal": -11.3,
+           "ExposureInBaseCurrency": -100000.0,
+           "CurrentPriceType": "Ask",
+           "TradeCostsTotalInBaseCurrency": -9.99,
+           "ProfitLossOnTradeInBaseCurrency": -17.69,
+           "CurrentPriceDelayMinutes": 0,
+           "ConversionRateOpen": 0.884455,
+           "ProfitLossOnTrade": -20.0,
+           "ExposureCurrency": "EUR",
+           "CurrentPrice": 1.13074,
+           "CalculationReliability": "Ok"
+         },
+         "PositionId": "212702696"
+       }
+     ]
+   }
+
 
 Covered endpoints
 -----------------
