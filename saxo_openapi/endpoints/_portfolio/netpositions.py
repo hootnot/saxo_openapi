@@ -157,7 +157,7 @@ class NetPositionSubscriptionRemoveMultiple(Portfolio):
     """Remove multiple all subscriptions for the current session on this
     resource, and frees all resources on the server.
     """
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = 'text'
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
@@ -187,7 +187,7 @@ class NetPositionSubscriptionRemove(Portfolio):
     """Removes subscription for the current session identified by
     subscription id.
     """
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = 'text'
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
