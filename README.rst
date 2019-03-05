@@ -131,6 +131,13 @@ States:
        SubscriptionRemoveById   [x]
 
      Balances
+       AccountBalancesMe                 [x]
+       AccountBalances                   [x]
+       MarginOverview                    [x]
+       BalanceSubscriptionCreate         [x]
+       BalanceSubscriptionRemoveByTag    [x]
+       BalanceSubscriptionRemoveById     [x]
+
      Clients
      ClosedPositions
      Exposure
