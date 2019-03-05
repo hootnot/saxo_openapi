@@ -139,6 +139,12 @@ States:
        BalanceSubscriptionRemoveById     [x]
 
      Clients
+       ClientDetailsMe                   [x]
+       ClientDetails                     [x]
+       ClientDetailsUpdate               [x]
+       ClientDetailsByOwner              [x]
+       ClientSwitchPosNettingMode        [x]
+
      ClosedPositions
      Exposure
      NetPositions
