@@ -6,3 +6,4 @@ from ._portfolio import positions
 from ._portfolio import netpositions
 from ._portfolio import balances
 from ._portfolio import clients
+from ._portfolio import users

@@ -313,6 +313,10 @@ States:
        Remove multiple subscriptions                                    [x]
        Remove a subscription                                            [x]
      Users
+       UsersMe                                    [x]
+       Users                                      [x]
+       UserDetails                                [x]
+       UserUpdate                                 [x]
 
    Reference Data
      AlgoStrategies
