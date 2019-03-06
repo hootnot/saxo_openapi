@@ -6,9 +6,8 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_acctdetails": {
+    "_v3_AccountDetails": {
         "url": "/openapi/port/v1/accounts/{AccountKey}",
-        "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
             "CreationDate": "2019-02-02T10:47:42.313000Z",
             "CanUseCashPositionsAsMarginCollateral": True,
@@ -43,8 +42,9 @@ responses = {
             "Currency": "EUR"
         }
     },
-    "_v3_acctlist": {
+    "_v3_AccountsMe": {
         "url": "/openapi/port/v1/accounts/me",
+        "params": {},
         "response": {
             "Data": [
                 {
@@ -83,7 +83,7 @@ responses = {
             ]
         }
     },
-    "_v3_acctlistbyclient": {
+    "_v3_AccountListByClient": {
         "url": "/openapi/port/v1/accounts/me",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
@@ -124,12 +124,12 @@ responses = {
             ]
         }
     },
-    "_v3_acctupdate": {
+    "_v3_AccountUpdate": {
         "url": "/openapi/port/v1/accounts/{AccountKey}",
         "body": {'DisplayName': 'MyTestName'},
         "response": ''
     },
-    "_v3_acctsubscrcreate": {
+    "_v3_SubscriptionCreate": {
         "url": "/openapi/port/v1/accounts/subscriptions",
         "body": {
             "Arguments": {

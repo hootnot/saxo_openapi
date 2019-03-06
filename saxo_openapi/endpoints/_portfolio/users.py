@@ -39,6 +39,11 @@ class Users(Portfolio):
     def __init__(self, params):
         """Instantiate a Users request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -64,6 +69,11 @@ class UserDetails(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, UserKey):
         """Instantiate a UserDetails request.
+
+        Parameters
+        ----------
+        UserKey: string (required)
+            the UserKey
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -91,6 +101,11 @@ class UserUpdate(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, data):
         """Instantiate a UserUpdate request.
+
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf

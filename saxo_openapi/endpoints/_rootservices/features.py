@@ -24,7 +24,7 @@ class Availability(RootService):
         >>> print(rv)
 
         ::
-            {_v3_availability_resp}
+            {_v3_Availability_resp}
 
         """
         super(Availability, self).__init__()
@@ -38,26 +38,24 @@ class CreateAvailabilitySubscription(RootService):
 
     @dyndoc_insert(responses)
     def __init__(self, data):
-        """Instantiate an AvailabilitySubscription request.
+        """Instantiate an CreateAvailabilitySubscription request.
 
         Parameters
         ----------
         data : JSON (required)
             json body to send
 
-        data example::
-            {_v3_availability_subscr_body}
-
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.rootservices.features as rsft
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
+        >>> data =  {_v3_CreateAvailabilitySubscription_body}
         >>> r = rsft.CreateAvailabilitySubscription(data=data)
         >>> rv = client.request(r)
         >>> print(rv)
 
         ::
-            {_v3_availability_subscr_resp}
+            {_v3_CreateAvailabilitySubscription_resp}
 
         """
         super(CreateAvailabilitySubscription, self).__init__()
@@ -88,9 +86,12 @@ class RemoveAvailabilitySubscription(RootService):
         >>> import saxo_openapi.endpoints.rootservices.features as rsft
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_availability_subscr_remove_params}
-        >>> r = rsft.RemoveAvailabilitySubscription(**params)
+        >>> ContextId = '...'
+        >>> ReferenceId = '...'
+        >>> r = rsft.RemoveAvailabilitySubscription(ContextId=ContextId,
+        ...                                         ReferenceId=ReferenceId)
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
 
         Response is empty text string, status_code = 202 when accepted.
 

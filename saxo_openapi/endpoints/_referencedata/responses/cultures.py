@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_cultures": {
+    "_v3_Cultures": {
         "url": "/openapi/ref/v1/cultures",
         "response": {
             "Data": [

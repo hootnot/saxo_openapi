@@ -25,7 +25,7 @@ class TimeZones(ReferenceData):
 
         ::
 
-            {_v3_timezones_resp}
+            {_v3_Timezones_resp}
 
         """
         super(TimeZones, self).__init__()

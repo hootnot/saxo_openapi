@@ -6,6 +6,7 @@ from ..decorators import dyndoc_insert, endpoint
 from .base import ReferenceData
 from .responses.countries import responses
 
+
 @endpoint("openapi/ref/v1/countries/")
 class Countries(ReferenceData):
     """Retrieve a list all the countries supported by Saxo Bank."""
@@ -24,7 +25,7 @@ class Countries(ReferenceData):
 
         ::
 
-            {_v3_countries_resp}
+            {_v3_Countries_resp}
 
         """
         super(Countries, self).__init__()

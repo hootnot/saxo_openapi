@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_forwardtenordt": {
+    "_v3_ForwardTenorDates": {
         "url": "/openapi/ref/v1/standarddates/forwardtenor/{Uic}",
         "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
@@ -64,7 +64,7 @@ responses = {
             ]
         }
     },
-    "_v3_fxoptionexpirydt": {
+    "_v3_FXOptionExpiryDates": {
         "url": "/openapi/ref/v1/standarddates/forwardtenor/{Uic}",
         "response": {
             "Data": [

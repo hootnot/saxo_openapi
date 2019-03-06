@@ -46,9 +46,9 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         """Tear down test fixtures, if any."""
 
     @requests_mock.Mocker()
-    def test__pf_singleposition(self, mock_req):
+    def test__pf_SinglePosition(self, mock_req):
         """test the SinglePosition request."""
-        tid = "_v3_singleposition"
+        tid = "_v3_SinglePosition"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
         PositionId = 212561926
         r = pf.positions.SinglePosition(PositionId=PositionId, params=params)
@@ -59,9 +59,9 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_singlepositiondetails(self, mock_req):
+    def test__pf_SinglePositionDetails(self, mock_req):
         """test the SinglePositionDetails request."""
-        tid = "_v3_singlepositiondetails"
+        tid = "_v3_SinglePositionDetails"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
         PositionId = 212561926
         r = pf.positions.SinglePositionDetails(PositionId=PositionId,
@@ -73,9 +73,9 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_positionsme(self, mock_req):
+    def test__pf_PositionsMe(self, mock_req):
         """test the PositionsMe request."""
-        tid = "_v3_positionsme"
+        tid = "_v3_PositionsMe"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
         r = pf.positions.PositionsMe(params=params)
         mock_req.register_uri('GET',
@@ -85,9 +85,9 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_positionsquery(self, mock_req):
+    def test__pf_PositionsQuery(self, mock_req):
         """test the PositionsQuery request."""
-        tid = "_v3_positionsquery"
+        tid = "_v3_PositionsQuery"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
         r = pf.positions.PositionsQuery(params=params)
         mock_req.register_uri('GET',
@@ -97,7 +97,7 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_positionlistsubscription(self, mock_req):
+    def test__pf_PositionListSubscription(self, mock_req):
         """test the PositionListSubscription request."""
         tid = "_v3_PositionListSubscription"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
@@ -110,7 +110,7 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_positionsubscriptionpagesize(self, mock_req):
+    def test__pf_PositionSubscriptionPageSize(self, mock_req):
         """test the PositionSubscriptionPageSize request."""
         tid = "_v3_PositionSubscriptionPageSize"
         resp, data = fetchTestData(pf.positions.responses, tid)
@@ -127,7 +127,7 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(r.status_code == r.expected_status)
 
     @requests_mock.Mocker()
-    def test__pf_positionsubscriptionremovemultiple(self, mock_req):
+    def test__pf_PositionSubscriptionRemoveMultiple(self, mock_req):
         """test the PositionSubscriptionRemoveMultiple request."""
         tid = "_v3_PositionSubscriptionRemoveMultiple"
         resp, data, params = fetchTestData(pf.positions.responses, tid)
@@ -144,7 +144,7 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
         self.assertTrue(r.status_code == r.expected_status)
 
     @requests_mock.Mocker()
-    def test__pf_positionsubscriptionremove(self, mock_req):
+    def test__pf_PositionSubscriptionRemove(self, mock_req):
         """test the PositionSubscriptionRemove request."""
         tid = "_v3_PositionSubscriptionRemove"
         resp, data = fetchTestData(pf.positions.responses, tid)

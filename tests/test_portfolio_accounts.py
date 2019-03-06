@@ -22,7 +22,7 @@ access_token = None
 api = None
 
 
-class TestSaxo_RootServices_Features(unittest.TestCase):
+class TestSaxo_Portfolio_Accounts(unittest.TestCase):
     """Tests for `portfolio-accounts` endpoints."""
 
     def setUp(self):
@@ -46,23 +46,12 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         """Tear down test fixtures, if any."""
 
     @requests_mock.Mocker()
-    def test__pf_accountdetails(self, mock_req):
+    def test__pf_AccountDetails(self, mock_req):
         """test the AccountDetails request."""
-        tid = "_v3_acctdetails"
-        resp, data, params = fetchTestData(pf.accounts.responses, tid)
-        r = pf.accounts.AccountDetails(**params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_accountlist(self, mock_req):
-        """test the AccountList request."""
-        tid = "_v3_acctlist"
+        tid = "_v3_AccountDetails"
         resp, data = fetchTestData(pf.accounts.responses, tid)
-        r = pf.accounts.AccountList()
+        AccountKey = "f4xZWiYL6W1nMKpygBLLA=="
+        r = pf.accounts.AccountDetails(AccountKey=AccountKey)
         mock_req.register_uri('GET',
                               "{}/sim/{}".format(api.api_url, r),
                               text=json.dumps(resp))
@@ -70,9 +59,21 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_accountlistbyclient(self, mock_req):
+    def test__pf_AccountsMe(self, mock_req):
+        """test the AccountsMe request."""
+        tid = "_v3_AccountsMe"
+        resp, data, params = fetchTestData(pf.accounts.responses, tid)
+        r = pf.accounts.AccountsMe(params=params)
+        mock_req.register_uri('GET',
+                              "{}/sim/{}".format(api.api_url, r),
+                              text=json.dumps(resp))
+        result = api.request(r)
+        self.assertTrue(result == resp)
+
+    @requests_mock.Mocker()
+    def test__pf_AccountListByClient(self, mock_req):
         """test the AccountListByClient request."""
-        tid = "_v3_acctlistbyclient"
+        tid = "_v3_AccountListByClient"
         resp, data, params = fetchTestData(pf.accounts.responses, tid)
         r = pf.accounts.AccountListByClient(params=params)
         mock_req.register_uri('GET',
@@ -82,9 +83,9 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_accountupdate(self, mock_req):
+    def test__pf_AccountUpdate(self, mock_req):
         """test the AccountUpdate request."""
-        tid = "_v3_acctupdate"
+        tid = "_v3_AccountUpdate"
         AccountKey = "Cf4xZWiYL6W1nMKpygBLLA=="
         resp, data = fetchTestData(pf.accounts.responses, tid)
         r = pf.accounts.AccountUpdate(AccountKey=AccountKey, data=data)
@@ -95,9 +96,9 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         self.assertTrue(r.status_code == r.expected_status)
 
     @requests_mock.Mocker()
-    def test__pf_accountsubscr_create(self, mock_req):
+    def test__pf_SubscriptionCreate(self, mock_req):
         """test the SubscriptionCreate request."""
-        tid = "_v3_acctsubscrcreate"
+        tid = "_v3_SubscriptionCreate"
         resp, data = fetchTestData(pf.accounts.responses, tid)
         r = pf.accounts.SubscriptionCreate(data=data)
         mock_req.register_uri('POST',
@@ -108,9 +109,9 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_accountsubscr_rembytag(self, mock_req):
+    def test__pf_SubscriptionRemoveByTag(self, mock_req):
         """test the SubscriptionRemoveByTag request."""
-        # tid = "_v3_acctsubscrrembytag"
+        # tid = "_v3_SubscriptionRemoveByTag"
         # resp, data = fetchTestData(pf.accounts.responses, tid)
         ContextId = 'explorer_1551455553043'
         params = {'Tag': 'SomeTag'}
@@ -122,9 +123,9 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
         self.assertTrue(r.status_code == r.expected_status)
 
     @requests_mock.Mocker()
-    def test__pf_accountsubscr_rembyid(self, mock_req):
+    def test__pf_SubscriptionRemoveById(self, mock_req):
         """test the SubscriptionRemoveById request."""
-        # tid = "_v3_acctsubscrrembytag"
+        # tid = "_v3_SubscriptionRemoveById"
         # resp, data = fetchTestData(pf.accounts.responses, tid)
         ContextId = 'explorer_1551455553043'
         ReferenceId = 'Z_721'

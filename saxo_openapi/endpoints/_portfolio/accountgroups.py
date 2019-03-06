@@ -26,14 +26,16 @@ class AccountGroupDetails(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = 'ClientKey': '...'
-        >>> r = pf.accountgroups.AccountGroupDetails(AccountGroupKey="...",
-        ...                                          params=params)
+        >>> params = {_v3_AccountGroupDetails_params}
+        >>> AccountGroupKey = '...'
+        >>> r = pf.accountgroups.AccountGroupDetails(
+        ...             AccountGroupKey=AccountGroupKey,
+        ...             params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
-            {_v3_acctgrpdetails_resp}
+            {_v3_AccountGroupDetails_resp}
 
         """
         super(AccountGroupDetails, self).__init__(
@@ -48,25 +50,25 @@ class AccountGroupsMe(Portfolio):
     """
 
     @dyndoc_insert(responses)
-    def __init__(self, params):
-        """Instantiate an AccountGroups request.
+    def __init__(self, params=None):
+        """Instantiate an AccountGroupsMe request.
 
         Parameters
         ----------
-        params: dict (required)
+        params: dict (optional)
             dict with querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = dict()
-        >>> r = pf.accountgroups.AccountGroups(params=params)
+        >>> params = {_v3_AccountGroupsMe_params}
+        >>> r = pf.accountgroups.AccountGroupsMe(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
-            {_v3_acctgrpmelist_resp}
+            {_v3_AccountGroupsMe_resp}
 
         """
         super(AccountGroupsMe, self).__init__()
@@ -90,13 +92,13 @@ class AccountGroupsList(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_acctgrplist_params}
+        >>> params = {_v3_AccountGroupsList_params}
         >>> r = pf.accountgroups.AccountGroupsList(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
-            {_v3_acctgrplist_resp}
+            {_v3_AccountGroupsList_resp}
 
         """
         super(AccountGroupsList, self).__init__()
@@ -110,13 +112,15 @@ class AccountGroupUpdate(Portfolio):
     """
 
     @dyndoc_insert(responses)
-    def __init__(self, AccountGroupKey, data):
+    def __init__(self, AccountGroupKey, params, data):
         """Instantiate an AccountGroupUpdate request.
 
         Parameters
         ----------
         AccountGroupKey: string (required)
             the accountGroupKey
+        params: dict (required)
+            dict with attributes
         data: dict (required)
             dict with attributes
 
@@ -124,16 +128,20 @@ class AccountGroupUpdate(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> data = {_v3_acctgrpupdate_body}
-        >>> r = pf.accountgroups.AccountGroupUpdate(AccountGroupKey="...",
-        ...                                         data=data)
+        >>> params = {_v3_AccountGroupUpdate_params}
+        >>> data = {_v3_AccountGroupUpdate_body}
+        >>> r = pf.accountgroups.AccountGroupUpdate(
+        ...            AccountGroupKey=AccountGroupKey,
+        ...            params=params,
+        ...            data=data)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
-            {_v3_acctgrpupdate_resp}
+            {_v3_AccountGroupUpdate_resp}
 
         """
         super(AccountGroupUpdate, self).__init__(
             AccountGroupKey=AccountGroupKey)
+        self.params = params
         self.data = data

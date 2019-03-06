@@ -15,6 +15,13 @@ class SingleNetPosition(Portfolio):
     def __init__(self, NetPositionId, params):
         """Instantiate a SingleNetPosition request.
 
+        Parameters
+        ----------
+        NetPositionId: string (required)
+            the NetPositionId
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -43,14 +50,22 @@ class SingleNetPositionDetails(Portfolio):
     def __init__(self, NetPositionId, params):
         """Instantiate a SingleNetPositionDetails request.
 
+        Parameters
+        ----------
+        NetPositionId: string (required)
+            the NetPositionId
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> params = {_v3_SingleNetPositionDetails_params}
         >>> NetPositionId = "GBPCAD__FxSpot"
-        >>> r = pf.positions.SingleNetPositionDetails(NetPositionId=NetPositionId,
-        ...                                           params=params)
+        >>> r = pf.positions.SingleNetPositionDetails(
+        ...          NetPositionId=NetPositionId,
+        ...          params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
@@ -59,7 +74,8 @@ class SingleNetPositionDetails(Portfolio):
             {_v3_SingleNetPositionDetails_resp}
 
         """
-        super(SingleNetPositionDetails, self).__init__(NetPositionId=NetPositionId)
+        super(SingleNetPositionDetails, self).__init__(
+            NetPositionId=NetPositionId)
         self.params = params
 
 
@@ -70,6 +86,11 @@ class NetPositionsMe(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, params=None):
         """Instantiate a NetPositionsMe request.
+
+        Parameters
+        ----------
+        params: dict (optional)
+            dict representing the querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -98,8 +119,13 @@ class NetPositionsQuery(Portfolio):
     """
 
     @dyndoc_insert(responses)
-    def __init__(self, params=None):
+    def __init__(self, params):
         """Instantiate a NetPositionsQuery request.
+
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -128,14 +154,18 @@ class NetPositionListSubscription(Portfolio):
     """
 
     @dyndoc_insert(responses)
-    def __init__(self, data, params=None):
+    def __init__(self, data):
         """Instantiate a NetPositionListSubscription request.
+
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_NetPositionListSubscription_params}
         >>> data = {_v3_NetPositionListSubscription_body}
         >>> r = pf.netpositions.NetPositionListSubscription(data=data)
         >>> client.request(r)
@@ -147,7 +177,6 @@ class NetPositionListSubscription(Portfolio):
 
         """
         super(NetPositionListSubscription, self).__init__()
-        self.params = params
         self.data = data
 
 
@@ -162,6 +191,13 @@ class NetPositionSubscriptionRemoveMultiple(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
         """Instantiate a NetPositionSubscriptionRemoveMultiple request.
+
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        params: dict (required)
+            dict representing the querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -193,13 +229,21 @@ class NetPositionSubscriptionRemove(Portfolio):
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a NetPositionSubscriptionRemove request.
 
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        ReferenceId: string (required)
+            the ReferenceId
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> ContextId = ...
         >>> ReferenceId = ...
-        >>> r = pf.netpositions.NetPositionSubscriptionRemove(ContextId, ReferenceId)
+        >>> r = pf.netpositions.NetPositionSubscriptionRemove(
+        ...         ContextId, ReferenceId)
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
 

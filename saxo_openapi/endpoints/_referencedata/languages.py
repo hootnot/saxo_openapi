@@ -25,7 +25,7 @@ class Languages(ReferenceData):
 
         ::
 
-            {_v3_languages_resp}
+            {_v3_Languages_resp}
 
         """
         super(Languages, self).__init__()

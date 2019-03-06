@@ -408,7 +408,6 @@ responses = {
     },
     "_v3_NetPositionListSubscription": {
         "url": "/openapi/port/v1/netpositions/subscriptions",
-        "params": {},
         "body": {
             "Arguments": {
                 "ClientKey": "Cf4xZWiYL6W1nMKpygBLLA=="

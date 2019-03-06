@@ -15,18 +15,26 @@ class ForwardTenorDates(ReferenceData):
     def __init__(self, Uic, params=None):
         """Instantiate a ForwardTenorDates request.
 
+        Parameters
+        ----------
+        Uic: int (required)
+            the Uic code of the instrument
+        params: dict (required)
+            dict with parameters representing the querystring
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_forwardtenordt_params}
-        >>> r = rd.ForwardTenorDates(Uic=22, params=params)
+        >>> params = {_v3_ForwardTenorDates_params}
+        >>> Uic = 22
+        >>> r = rd.ForwardTenorDates(Uic=Uic, params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-            {_v3_forwardtenordt_resp}
+            {_v3_ForwardTenorDates_resp}
 
         """
         super(ForwardTenorDates, self).__init__(Uic=Uic)
@@ -41,17 +49,23 @@ class FXOptionExpiryDates(ReferenceData):
     def __init__(self, Uic):
         """Instantiate a FXOptionExpiryDates request.
 
+        Parameters
+        ----------
+        Uic: int (required)
+            the Uic code of the instrument
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rd.FXOptionExpiryDates(Uic='...')
+        >>> Uic = 22
+        >>> r = rd.FXOptionExpiryDates(Uic=Uic)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
 
-            {_v3_fxoptionexpirydt_resp}
+            {_v3_FXOptionExpiryDates_resp}
 
         """
         super(FXOptionExpiryDates, self).__init__(Uic=Uic)

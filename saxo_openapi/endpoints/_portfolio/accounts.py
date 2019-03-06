@@ -24,27 +24,28 @@ class AccountDetails(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.accounts.AccountDetails(AccountKey=...)
+        >>> AccountKey = 'f4xZWiYL6W1nMKpygBLLA=='
+        >>> r = pf.accounts.AccountDetails(AccountKey=AccountKey)
         >>> rv = client.request(r)
-        >>> pprint(rv)
+        >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-           {_v3_acctdetails_resp}
+           {_v3_AccountDetails_resp}
 
         """
         super(AccountDetails, self).__init__(AccountKey=AccountKey)
 
 
 @endpoint("openapi/port/v1/accounts/me")
-class AccountList(Portfolio):
+class AccountsMe(Portfolio):
     """Get all accounts under a particular client to which the logged
     in user belongs.
     """
 
     @dyndoc_insert(responses)
     def __init__(self, params=None):
-        """Instantiate an AccountList request.
+        """Instantiate an AccountsMe request.
 
         Parameters
         ----------
@@ -56,16 +57,17 @@ class AccountList(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.accounts.AccountList()
+        >>> params = {_v3_AccountsMe_params}
+        >>> r = pf.accounts.AccountsMe(params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-           {_v3_acctlist_resp}
+           {_v3_AccountsMe_resp}
 
         """
-        super(AccountList, self).__init__()
+        super(AccountsMe, self).__init__()
         self.params = params
 
 
@@ -82,19 +84,18 @@ class AccountListByClient(Portfolio):
         params : dict (required)
              params must contain at least the ClientKey
 
-        params = {_v3_acctlistbyclient_params}
-
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
+        >>> params = {_v3_AccountListByClient_params}
         >>> r = pf.accounts.AccountListByClient(params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-           {_v3_acctlistbyclient_resp}
+           {_v3_AccountListByClient_resp}
 
         """
         super(AccountListByClient, self).__init__()
@@ -112,15 +113,20 @@ class AccountUpdate(Portfolio):
     def __init__(self, AccountKey, data):
         """Instantiate an AccountUpdate request.
 
-        ::
-
-           {_v3_acctupdate_body}
+        Parameters
+        ----------
+        AccountKey : string (required)
+             the AccountKey
+        data : dict (required)
+             dict representing the requestbody.
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.account.AccountUpdate(AccountKey='...', data=data)
+        >>> data = {_v3_AccountUpdate_body}
+        >>> AccountKey = '...'
+        >>> r = pf.account.AccountUpdate(AccountKey=AccountKey, data=data)
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
@@ -137,14 +143,22 @@ class AccountReset(Portfolio):
     def __init__(self, AccountKey, data):
         """Instantiate an AccountReset request.
 
+        Parameters
+        ----------
+        AccountKey : string (required)
+             the AccountKey
+        data : dict (required)
+             dict representing the requestbody.
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> data = {'NewBalance': '1000000'}
+        >>> AccountKey = '...'
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.accounts.AccountReset(AccountKey='...', data=data)
+        >>> r = pf.accounts.AccountReset(AccountKey=AccountKey, data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> print(json.dumps(r.response, indent=4))
         """
         super(AccountReset, self).__init__()
         self.data = data
@@ -158,22 +172,27 @@ class SubscriptionCreate(Portfolio):
 
     HEADERS = {"Content-Type": "application/json"}
 
-    # @dyndoc_insert(responses)  WHY GIVES THIS ONE AN ERROR ?
+    @dyndoc_insert(responses)
     def __init__(self, data):
         """Instantiate a SubscriptionCreate request.
 
+        Parameters
+        ----------
+        data : dict (required)
+             dict representing the requestbody.
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.accounts.SubscriptionCreate(data={...})
+        >>> data = {_v3_SubscriptionCreate_body}
+        >>> r = pf.accounts.SubscriptionCreate(data=data)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
         ::
 
-           {_v3_acctsubscrcreate_resp}
+           {_v3_SubscriptionCreate_resp}
 
         """
         super(SubscriptionCreate, self).__init__()
@@ -192,12 +211,19 @@ class SubscriptionRemoveByTag(Portfolio):
     def __init__(self, ContextId, params):
         """Instantiate a SubscriptionRemoveByTag request.
 
+        Parameters
+        ----------
+        ContextId : string (required)
+             the ContextId
+        params : dict (required)
+             dict with the querystring parameters.
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = pf.accounts.SubscriptionRemoveByTag(ContextId,
-        ...                                         params={'Tag': '...'})
+        >>> params = {_v3_SubscriptionRemoveByTag_params}
+        >>> r = pf.accounts.SubscriptionRemoveByTag(ContextId, params=params)
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
         """
@@ -216,6 +242,13 @@ class SubscriptionRemoveById(Portfolio):
 
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a SubscriptionRemoveById request.
+
+        Parameters
+        ----------
+        ContextId : string (required)
+             the ContextId
+        ReferenceId : string (required)
+             the ReferenceId
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf

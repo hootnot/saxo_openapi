@@ -2,7 +2,7 @@
 
 """Handle referencedata-cultures endpoints."""
 
-from ..decorators import endpoint
+from ..decorators import dyndoc_insert, endpoint
 from .base import ReferenceData
 from .responses.cultures import responses
 
@@ -13,6 +13,7 @@ class Cultures(ReferenceData):
     supported by Saxo Bank.
     """
 
+    @dyndoc_insert(responses)
     def __init__(self):
         """Instantiate a Cultures request.
 
@@ -23,5 +24,10 @@ class Cultures(ReferenceData):
         >>> r = rd.Cultures()
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
+
+        ::
+
+            {_v3_Cultures_resp}
+
         """
         super(Cultures, self).__init__()

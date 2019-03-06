@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_algostrategies": {
+    "_v3_AlgoStrategies": {
         "url": "/openapi/ref/v1/algostrategies",
         "params": {'$top': '...', '$skip': '...'},
         "response": {
@@ -55,7 +55,7 @@ responses = {
             ]
         }
     },
-    "_v3_algostrategybyname": {
+    "_v3_AlgoStrategyDetails": {
         "url": "/openapi/ref/v1/algostrategies/{Name}",
         "response": {
             "Description": "Group of IS strategies",

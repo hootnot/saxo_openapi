@@ -15,6 +15,11 @@ class Order(Trading):
     def __init__(self, data=None):
         """Instantiate an Order request.
 
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body, in this case an order spec
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
@@ -39,6 +44,11 @@ class ChangeOrder(Trading):
     @dyndoc_insert(responses)
     def __init__(self, data=None):
         """Instantiate a ChangeOrder request.
+
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body, in this case an order change spec
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
@@ -68,15 +78,20 @@ class CancelOrders(Trading):
     def __init__(self, OrderIds, params):
         """Instantiate a CancelOrders request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_CancelOrders_params}
         >>> OrderIds="76289286"
+        >>> params = {_v3_CancelOrders_params}
         >>> r = tr.orders.CancelOrders(OrderIds=OrderIds, params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> print(json.dumps(r.response, indent=4))
 
         ::
 
@@ -94,6 +109,11 @@ class PrecheckOrder(Trading):
     @dyndoc_insert(responses)
     def __init__(self, data=None):
         """Instantiate a PrecheckOrder request.
+
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body, in this case an order change spec
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr

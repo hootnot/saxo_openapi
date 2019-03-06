@@ -15,11 +15,18 @@ class SinglePosition(Portfolio):
     def __init__(self, PositionId, params):
         """Instantiate a SinglePosition request.
 
+        Parameters
+        ----------
+        PositionId: string (required)
+            the PositionId
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_singleposition_params}
+        >>> params = {_v3_SinglePosition_params}
         >>> r = pf.positions.SinglePosition(PositionId=212561926,
         ...                                 params=params)
         >>> client.request(r)
@@ -27,7 +34,7 @@ class SinglePosition(Portfolio):
 
         ::
 
-            {_v3_singleposition_resp}
+            {_v3_SinglePosition_resp}
 
         """
         super(SinglePosition, self).__init__(PositionId=PositionId)
@@ -42,11 +49,18 @@ class SinglePositionDetails(Portfolio):
     def __init__(self, PositionId, params):
         """Instantiate a SinglePositionDetails request.
 
+        Parameters
+        ----------
+        PositionId: string (required)
+            the PositionId
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_singlepositiondetails_params}
+        >>> params = {_v3_SinglePositionDetails_params}
         >>> r = pf.positions.SinglePositionDetails(PositionId=212561926,
         ...                                        params=params)
         >>> client.request(r)
@@ -54,7 +68,7 @@ class SinglePositionDetails(Portfolio):
 
         ::
 
-            {_v3_singlepositiondetails_resp}
+            {_v3_SinglePositionDetails_resp}
 
         """
         super(SinglePositionDetails, self).__init__(PositionId=PositionId)
@@ -69,18 +83,23 @@ class PositionsMe(Portfolio):
     def __init__(self, params=None):
         """Instantiate a PositionsMe request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_positionsme_params}
+        >>> params = {_v3_PositionsMe_params}
         >>> r = pf.positions.PositionsMe(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-            {_v3_positionsme_resp}
+            {_v3_PositionsMe_resp}
 
         """
         super(PositionsMe, self).__init__()
@@ -95,21 +114,26 @@ class PositionsQuery(Portfolio):
     """
 
     @dyndoc_insert(responses)
-    def __init__(self, params=None):
+    def __init__(self, params):
         """Instantiate a PositionsQuery request.
+
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_positionsquery_params}
+        >>> params = {_v3_PositionsQuery_params}
         >>> r = pf.positions.PositionsQuery(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-            {_v3_positionsquery_resp}
+            {_v3_PositionsQuery_resp}
 
         """
         super(PositionsQuery, self).__init__()
@@ -126,13 +150,21 @@ class PositionListSubscription(Portfolio):
     def __init__(self, data, params=None):
         """Instantiate a PositionListSubscription request.
 
+        Parameters
+        ----------
+        params: dict (optional)
+            dict representing the querystring parameters
+        data: dict (required)
+            dict representing the data body parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> params = {_v3_PositionListSubscription_params}
         >>> data = {_v3_PositionListSubscription_body}
-        >>> r = pf.positions.PositionListSubscription(data=data)
+        >>> r = pf.positions.PositionListSubscription(data=data,
+        ...                                           params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
@@ -158,6 +190,15 @@ class PositionSubscriptionPageSize(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId, data):
         """Instantiate a PositionSubscriptionPageSize request.
+
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        ReferenceId: string (required)
+            the ReferenceId
+        data: dict (required)
+            dict representing the data body parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -190,6 +231,13 @@ class PositionSubscriptionRemoveMultiple(Portfolio):
     def __init__(self, ContextId, params=None):
         """Instantiate a PositionSubscriptionRemoveMultiple request.
 
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        params: dict (optional)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -218,6 +266,13 @@ class PositionSubscriptionRemove(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a PositionSubscriptionPageSize request.
+
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        ReferenceId: string (required)
+            the ReferenceId
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf

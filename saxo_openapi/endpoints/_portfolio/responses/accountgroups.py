@@ -6,28 +6,28 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_acctgrpdetails": {
+    "_v3_AccountGroupDetails": {
         "url": "/openapi/port/v1/accountgroups/{AccountGroupKey}",
-        "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
+        "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
             "Data": []
         }
     },
-    "_v3_acctgrpmelist": {
+    "_v3_AccountGroupsMe": {
         "url": "/openapi/port/v1/accountgroups/me",
         "params": {},
         "response": {
             "Data": []
         }
     },
-    "_v3_acctgrplist": {
+    "_v3_AccountGroupsList": {
         "url": "/openapi/port/v1/accountgroups",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
             "Data": []
         }
     },
-    "_v3_acctgrpupdate": {
+    "_v3_AccountGroupUpdate": {
         "url": "/openapi/port/v1/accountgroups/{AccountGroupKey}",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "body": {"AccountValueProtectionLimit": 100000.00},

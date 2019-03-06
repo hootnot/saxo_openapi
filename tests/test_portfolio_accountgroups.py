@@ -46,9 +46,9 @@ class TestSaxo_Portfolio_Acctgrps(unittest.TestCase):
         """Tear down test fixtures, if any."""
 
     @requests_mock.Mocker()
-    def test__pf_accountgrp_details(self, mock_req):
+    def test__pf_AccountGroupDetails(self, mock_req):
         """test the AccountGroupDetails request."""
-        tid = "_v3_acctgrpdetails"
+        tid = "_v3_AccountGroupDetails"
         resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
         AGK = 'Cf4xZWiYL6W1nMKpygBLLA=='
         r = pf.accountgroups.AccountGroupDetails(AccountGroupKey=AGK,
@@ -60,9 +60,9 @@ class TestSaxo_Portfolio_Acctgrps(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_accountgrpme_details(self, mock_req):
+    def test__pf_AccountGroupsMe(self, mock_req):
         """test the AccountGroupsMe request."""
-        tid = "_v3_acctgrpmelist"
+        tid = "_v3_AccountGroupsMe"
         resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
         r = pf.accountgroups.AccountGroupsMe(params=params)
         mock_req.register_uri('GET',
@@ -72,9 +72,9 @@ class TestSaxo_Portfolio_Acctgrps(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
-    def test__pf_accountgrp_list(self, mock_req):
+    def test__pf_AccountGroupsList(self, mock_req):
         """test the AccountGroupsList request."""
-        tid = "_v3_acctgrplist"
+        tid = "_v3_AccountGroupsList"
         resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
         r = pf.accountgroups.AccountGroupsList(params=params)
         mock_req.register_uri('GET',
@@ -86,10 +86,11 @@ class TestSaxo_Portfolio_Acctgrps(unittest.TestCase):
     @requests_mock.Mocker()
     def test__pf_accountgrp_update(self, mock_req):
         """test the AccountGroupUpdate request."""
-        tid = "_v3_acctgrpupdate"
+        tid = "_v3_AccountGroupUpdate"
         resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
         AGK = 'Cf4xZWiYL6W1nMKpygBLLA=='
         r = pf.accountgroups.AccountGroupUpdate(AccountGroupKey=AGK,
+                                                params=params,
                                                 data=data)
         mock_req.register_uri('PATCH',
                               "{}/sim/{}".format(api.api_url, r),

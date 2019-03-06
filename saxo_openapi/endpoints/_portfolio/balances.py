@@ -17,6 +17,7 @@ class AccountBalancesMe(Portfolio):
     def __init__(self):
         """Instantiate an AccountBalancesMe request.
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -40,6 +41,11 @@ class AccountBalances(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, params):
         """Instantiate an AccountBalance request.
+
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -67,6 +73,11 @@ class MarginOverview(Portfolio):
     def __init__(self, params):
         """Instantiate an MarginOverview request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -92,6 +103,11 @@ class BalanceSubscriptionCreate(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, data):
         """Instantiate an BalanceSubscriptionCreate request.
+
+        Parameters
+        ----------
+        data: dict (required)
+            dict representing the data body parameters
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -122,6 +138,13 @@ class BalanceSubscriptionRemoveByTag(Portfolio):
     def __init__(self, ContextId, params=None):
         """Instantiate an BalanceSubscriptionRemoveByTag request.
 
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -131,7 +154,7 @@ class BalanceSubscriptionRemoveByTag(Portfolio):
         >>> r = pf.BalanceSubscriptionRemoveByTag(ContextId=ContextId,
         ...                                       params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_code
 
         ::
 
@@ -155,6 +178,13 @@ class BalanceSubscriptionRemoveById(Portfolio):
     def __init__(self, ContextId, ReferenceId):
         """Instantiate an BalanceSubscriptionRemoveById request.
 
+        Parameters
+        ----------
+        ContextId: string (required)
+            the ContextId
+        ReferenceId: string (required)
+            the ReferenceId
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -164,7 +194,7 @@ class BalanceSubscriptionRemoveById(Portfolio):
         >>> r = pf.BalanceSubscriptionRemoveById(ContextId=ContextId,
         ...                                      ReferenceId=ReferenceId)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> assert r.status_code == r.expected_code
 
         ::
 

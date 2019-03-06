@@ -39,6 +39,11 @@ class ClientDetails(Portfolio):
     def __init__(self, ClientKey):
         """Instantiate a ClientDetails request.
 
+        Parameters
+        ----------
+        ClientKey: string (required)
+            the ClientKey
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -66,6 +71,11 @@ class ClientDetailsUpdate(Portfolio):
     def __init__(self, data):
         """Instantiate a ClientDetailsUpdate request.
 
+        Parameters
+        ----------
+        data: dict (required)
+            dict with parameters representing the data body.
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -73,7 +83,7 @@ class ClientDetailsUpdate(Portfolio):
         >>> data = {_v3_ClientDetailsUpdate_body}
         >>> r = pf.clients.ClientDetailsUpdate(data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         ::
 
@@ -91,6 +101,11 @@ class ClientDetailsByOwner(Portfolio):
     @dyndoc_insert(responses)
     def __init__(self, params):
         """Instantiate a ClientDetailsByOwner request.
+
+        Parameters
+        ----------
+        params: dict (required)
+            the dict representing the querystring parameters.
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -121,6 +136,13 @@ class ClientSwitchPosNettingMode(Portfolio):
     def __init__(self, params, data):
         """Instantiate a ClientSwitchPosNettingMode request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            the dict representing the querystring parameters.
+        data: dict (required)
+            the dict representing the data body parameters.
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -129,7 +151,7 @@ class ClientSwitchPosNettingMode(Portfolio):
         >>> data = {_v3_ClientSwitchPosNettingMode_body}
         >>> r = pf.clients.ClientSwitchPosNettingMode(params=params, data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         ::
 

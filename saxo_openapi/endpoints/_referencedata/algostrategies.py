@@ -18,18 +18,23 @@ class AlgoStrategies(ReferenceData):
     def __init__(self, params=None):
         """Instantiate an AlgoStrategies request.
 
+        Parameters
+        ----------
+        params: dict (required)
+            dict representing the querystring parameters
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
         >>> client = saxo_openapi.API(access_token=...)
-        >>> params = {_v3_algostrategies_params}
+        >>> params = {_v3_AlgoStrategies_params}
         >>> r = rd.algostrategies.AlgoStrategies(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
         ::
 
-            {_v3_algostrategies_resp}
+            {_v3_AlgoStrategies_resp}
 
         """
         super(AlgoStrategies, self).__init__()
@@ -44,6 +49,11 @@ class AlgoStrategyDetails(ReferenceData):
     def __init__(self, Name):
         """Instantiate an AlgoStrategyDetails request.
 
+        Parameters
+        ----------
+        Name: string (required)
+            Name of the strategy
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -55,7 +65,7 @@ class AlgoStrategyDetails(ReferenceData):
 
         ::
 
-            {_v3_algostrategybyname_resp}
+            {_v3_AlgoStrategyDetails_resp}
 
         """
         super(AlgoStrategyDetails, self).__init__(Name=Name)

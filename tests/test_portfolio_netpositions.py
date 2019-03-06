@@ -52,7 +52,7 @@ class TestSaxo_Portfolio_NetPositions(unittest.TestCase):
         resp, data, params = fetchTestData(pf.netpositions.responses, tid)
         NetPositionId = "GBPCAD__FxSpot"
         r = pf.netpositions.SingleNetPosition(NetPositionId=NetPositionId,
-                                           params=params)
+                                              params=params)
         mock_req.register_uri('GET',
                               "{}/sim/{}".format(api.api_url, r),
                               text=json.dumps(resp))
@@ -65,8 +65,9 @@ class TestSaxo_Portfolio_NetPositions(unittest.TestCase):
         tid = "_v3_SingleNetPositionDetails"
         resp, data, params = fetchTestData(pf.netpositions.responses, tid)
         NetPositionId = "GBPCAD__FxSpot"
-        r = pf.netpositions.SingleNetPositionDetails(NetPositionId=NetPositionId,
-                                                     params=params)
+        r = pf.netpositions.SingleNetPositionDetails(
+               NetPositionId=NetPositionId,
+               params=params)
         mock_req.register_uri('GET',
                               "{}/sim/{}".format(api.api_url, r),
                               text=json.dumps(resp))
@@ -101,8 +102,8 @@ class TestSaxo_Portfolio_NetPositions(unittest.TestCase):
     def test__pf_NetPositionListSubscription(self, mock_req):
         """test the NetPositionListSubscription request."""
         tid = "_v3_NetPositionListSubscription"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        r = pf.netpositions.NetPositionListSubscription(data=data, params=params)
+        resp, data = fetchTestData(pf.netpositions.responses, tid)
+        r = pf.netpositions.NetPositionListSubscription(data=data)
         mock_req.register_uri('POST',
                               "{}/sim/{}".format(api.api_url, r),
                               text=json.dumps(resp),

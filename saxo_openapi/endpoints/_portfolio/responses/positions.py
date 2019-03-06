@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_singleposition": {
+    "_v3_SinglePosition": {
         "url": "/openapi/port/v1/positions/{PositionId}",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
@@ -48,7 +48,7 @@ responses = {
             }
         }
     },
-    "_v3_singlepositiondetails": {
+    "_v3_SinglePositionDetails": {
         "url": "/openapi/port/v1/positions/{PositionId}/details",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA==',
                    'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
@@ -121,7 +121,7 @@ responses = {
             }
         }
     },
-    "_v3_positionsme": {
+    "_v3_PositionsMe": {
         "url": "/openapi/port/v1/positions/me",
         "params": {},
         "response": {
@@ -282,7 +282,7 @@ responses = {
             ]
         }
     },
-    "_v3_positionsquery": {
+    "_v3_PositionsQuery": {
         "url": "/openapi/port/v1/positions/",
         "params": {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {

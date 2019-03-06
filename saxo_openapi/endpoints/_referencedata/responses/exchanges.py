@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_exchangelist": {
+    "_v3_ExchangeList": {
         "url": "/openapi/ref/v1/exchanges",
         "response": {
             "__count": 181,
@@ -117,7 +117,7 @@ responses = {
               }]
         }
     },
-    "_v3_exchangedetails": {
+    "_v3_ExchangeDetails": {
         "url": "/openapi/ref/v1/exchanges/{ExchangeId}",
         "response": {
             "AllDay": False,

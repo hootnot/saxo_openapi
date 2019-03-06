@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
+
 """Handle referencedata-exchanges endpoints."""
-from ..decorators import endpoint
+
+from ..decorators import dyndoc_insert, endpoint
 from .base import ReferenceData
 from .responses.exchanges import responses
 
@@ -12,6 +14,7 @@ class ExchangeList(ReferenceData):
     trade statuses.
     """
 
+    @dyndoc_insert(responses)
     def __init__(self, params=None):
         """Instantiate an ExchangeList request.
 
@@ -22,6 +25,11 @@ class ExchangeList(ReferenceData):
         >>> r = rd.ExchangeList()
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
+
+        ::
+
+            {_v3_ExchangeList_resp}
+
         """
         super(ExchangeList, self).__init__()
         self.params = params
@@ -31,16 +39,27 @@ class ExchangeList(ReferenceData):
 class ExchangeDetails(ReferenceData):
     """Retrieves detailed information about a specific exchange."""
 
+    @dyndoc_insert(responses)
     def __init__(self, ExchangeId):
         """Instantiate an ExchangeDetails request.
+
+        Parameters
+        ----------
+        ExchangeId: string (required)
+            the ExchangeId
 
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
         >>> client = saxo_openapi.API(access_token=...)
-        >>> r = rd.ExchangeDetails(ExchangeId='...')
+        >>> ExchangeId = '...'
+        >>> r = rd.ExchangeDetails(ExchangeId=ExchangeId)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
+
+        ::
+
+            {_v3_ExchangeDetails_resp}
 
         """
         super(ExchangeDetails, self).__init__(ExchangeId=ExchangeId)

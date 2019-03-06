@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_availability": {
+    "_v3_Availability": {
         "url": "/openapi/root/v1/features/availability",
         "response": [
            {'Available': True, 'Feature': 'News'},
@@ -15,7 +15,7 @@ responses = {
            {'Available': True, 'Feature': 'Chart'}
         ]
     },
-    "_v3_availability_subscr": {
+    "_v3_CreateAvailabilitySubscription": {
         "url": "/openapi/root/v1/features/availability/subscriptions",
         "body": {
             'RefreshRate': 5000,
@@ -35,8 +35,9 @@ responses = {
             'State': 'Active'
         },
     },
-    "_v3_availability_subscr_remove": {
-        "url": "/openapi/root/v1/features/availability/subscriptions/{ContextId}/{ReferenceId}",
+    "_v3_RemoveAvailabilitySubscription": {
+        "url": "/openapi/root/v1/features/availability/subscriptions/"
+               "{ContextId}/{ReferenceId}",
         "params": {
             "ContextId": '20190209072629616',
             "ReferenceId": 'Features',

@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_instruments": {
+    "_v3_Instruments": {
         "url": "/openapi/ref/v1/instruments",
         "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA==',
                    'Uics': '12,22,23'},
@@ -66,7 +66,7 @@ responses = {
             ]
         }
     },
-    "_v3_instrumentsdetails": {
+    "_v3_InstrumentsDetails": {
         "url": "/openapi/ref/v1/instruments/details",
         "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA==', 'Uics': '23'},
         "response": {
@@ -498,7 +498,7 @@ responses = {
             ]
           }
     },
-    "_v3_instrumentdetails": {
+    "_v3_InstrumentDetails": {
         "url": "/openapi/ref/v1/instruments/details/{Uic}/{AssetType}",
         "params": {'AccountKey': 'Cf4xZWiYL6W1nMKpygBLLA=='},
         "response": {
