@@ -38,7 +38,7 @@ setup(
     include_package_data=True,
     keywords='saxo_openapi',
     name='saxo_openapi',
-    packages=find_packages(include=['saxo_openapi']),
+    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
