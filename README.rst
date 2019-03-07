@@ -293,6 +293,14 @@ States:
        ClientSwitchPosNettingMode        [x]
 
      ClosedPositions
+       ClosedPositionList                     [x]
+       ClosedPositionById                     [x]
+       ClosedPositionDetails                  [x]
+       ClosedPositionsMe                      [x]
+       ClosedPositionSubscription             [x]
+       ClosedPositionSubscriptionUpdate       [x]
+       ClosedPositionSubscriptionsRemove      [x]
+       ClosedPositionSubscriptionRemoveById   [x]
      Exposure
      NetPositions
        Get a single netposition                                            [x]

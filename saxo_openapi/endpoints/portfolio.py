@@ -7,3 +7,4 @@ from ._portfolio import netpositions
 from ._portfolio import balances
 from ._portfolio import clients
 from ._portfolio import users
+from ._portfolio import closedpositions
