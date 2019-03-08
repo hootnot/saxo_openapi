@@ -340,6 +340,9 @@ States:
        Instruments                                [x]
        InstrumentsDetails                         [x]
        InstrumentDetails                          [x]
+       ContractoptionSpaces                       [ ]
+       FuturesSpaces                              [ ]
+       TradingSchedule                            [x]
      Languages                                    [x]
      StandardDates
        Get a list of forward tenor dates          [x]

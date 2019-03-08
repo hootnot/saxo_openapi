@@ -575,5 +575,30 @@ responses = {
             "TradingSignals": "NotAllowed",
             "Uic": 23
         }
+    },
+    "_v3_TradingSchedule": {
+        "url": "/openapi/ref/v1/instruments/tradingschedule/{Uic}/{AssetType}",
+        "response": {
+           "Sessions": [
+             {
+               "EndTime": "2019-03-08T21:59:00.000000Z",
+               "StartTime": "2019-03-07T22:04:00.000000Z",
+               "State": "AutomatedTrading"
+             },
+             {
+               "EndTime": "2019-03-10T18:04:00.000000Z",
+               "StartTime": "2019-03-08T21:59:00.000000Z",
+               "State": "Closed"
+             },
+             {
+               "EndTime": "2019-03-11T20:59:00.000000Z",
+               "StartTime": "2019-03-10T18:04:00.000000Z",
+               "State": "AutomatedTrading"
+             }
+           ],
+           "TimeZone": 3,
+           "TimeZoneAbbreviation": "EST",
+           "TimeZoneOffset": "-05:00:00"
+        }
     }
 }

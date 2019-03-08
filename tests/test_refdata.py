@@ -216,6 +216,19 @@ class TestSaxo_Referencedata(unittest.TestCase):
         result = api.request(r)
         self.assertTrue(result == resp)
 
+    @requests_mock.Mocker()
+    def test__rd_TradingSchedule(self, mock_req):
+        """test the TradingSchedule request."""
+        tid = "_v3_TradingSchedule"
+        resp, data = fetchTestData(rd.instruments.responses, tid)
+        r = rd.instruments.TradingSchedule(Uic=21,
+                                           AssetType="FxSpot")
+        mock_req.register_uri('GET',
+                              "{}/sim/{}".format(api.api_url, r),
+                              text=json.dumps(resp))
+        result = api.request(r)
+        self.assertTrue(result == resp)
+
 
 if __name__ == "__main__":
 

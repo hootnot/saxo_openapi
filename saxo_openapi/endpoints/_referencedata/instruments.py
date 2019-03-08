@@ -109,3 +109,112 @@ class InstrumentDetails(ReferenceData):
         super(InstrumentDetails, self).__init__(Uic=Uic,
                                                 AssetType=AssetType)
         self.params = params
+
+
+@endpoint("openapi/ref/v1/instruments/contractoptionspaces/{OptionRootId}")
+class ContractoptionSpaces(ReferenceData):
+    """Get contractoption data."""
+
+    # @dyndoc_insert(responses)
+    def __init__(self, OptionRootId, params=None):
+        """Instantiate a ContractoptionSpaces request.
+
+        Parameters
+        ----------
+        OptionRootId: string (required)
+            the OptionRootId
+        params: dict (optional)
+            dict representing querystring parameters
+
+        >>> import json
+        >>> import saxo_openapi
+        >>> import saxo_openapi.endpoints.referencedata as rd
+        >>> client = saxo_openapi.API(access_token=...)
+        >>> OptionRootId = '...'
+        >>> params = {_v3_ContractoptionSpaces_params}
+        >>> r = rd.instruments.ContractoptionSpaces(
+        ...                          OptionRootId=OptionRootId,
+        ...                          params=params)
+        >>> client.request(r)
+        >>> print(json.dumps(r.response, indent=4))
+
+        ::
+
+            {_v3_ContractoptionSpaces_resp}
+
+        """
+        super(ContractoptionSpaces, self).__init__(
+            OptionRootId=OptionRootId)
+        self.params = params
+
+
+@endpoint("openapi/ref/v1/instruments/futuresspaces/{ContinuousFuturesUic}")
+class FuturesSpaces(ReferenceData):
+    """Get futures spaces data."""
+
+    # @dyndoc_insert(responses)
+    def __init__(self, ContinuousFuturesUic):
+        """Instantiate a ContractoptionSpaces request.
+
+        Parameters
+        ----------
+        ContinuousFuturesUic: string (required)
+            the ContinuousFuturesUic
+
+        >>> import json
+        >>> import saxo_openapi
+        >>> import saxo_openapi.endpoints.referencedata as rd
+        >>> client = saxo_openapi.API(access_token=...)
+        >>> ContinuousFuturesUic = '...'
+        >>> r = rd.instruments.FuturesSpaces(
+        ...                   ContinuousFuturesUic=ContinuousFuturesUic)
+        >>> client.request(r)
+        >>> print(json.dumps(r.response, indent=4))
+
+        ::
+
+            {_v3_FuturesSpaces_resp}
+
+        """
+        super(FuturesSpaces, self).__init__(
+            ContinuousFuturesUic=ContinuousFuturesUic)
+
+
+@endpoint("openapi/ref/v1/instruments/tradingschedule/{Uic}/{AssetType}")
+class TradingSchedule(ReferenceData):
+    """Get TradingSchedule data."""
+
+    # @dyndoc_insert(responses)
+    def __init__(self, Uic, AssetType):
+        """Instantiate a TradingSchedule request.
+
+        Parameters
+        ----------
+        Uic: string (required)
+            the Uic of the instrument
+        AssetType: string (required)
+            the AssetType of the instrument
+
+        For one Uic multiple assettypes can be available trading
+        on different times.
+
+        >>> import json
+        >>> import saxo_openapi
+        >>> import saxo_openapi.endpoints.referencedata as rd
+        >>> client = saxo_openapi.API(access_token=...)
+        >>> Uic = 21
+        >>> AssetType = "FxSpot"
+        >>> r = rd.instruments.ContractoptionSpaces(
+        ...                          Uic=Uic,
+        ...                          AssetType=AssetType)
+        >>> client.request(r)
+        >>> print(json.dumps(r.response, indent=4))
+
+        ::
+
+            {_v3_TradingSchedule_resp}
+
+        """
+        super(TradingSchedule, self).__init__(
+            Uic=Uic,
+            AssetType=AssetType)
