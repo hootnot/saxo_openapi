@@ -320,7 +320,16 @@ States:
        Create a netsubscription on a list of positions and make it active  [x]
        Remove multiple subscriptions                                       [x]
        Remove a subscription                                               [x]
+
      Orders
+       GetOpenOrder                               [x]
+       GetOpenOrdersMe                            [x]
+       OrderDetails                               [x]
+       GetAllOpenOrders                           [x]
+       CreateOpenOrdersSubscription               [x]
+       RemoveOpenOrderSubscriptionsByTag          [x]
+       RemoveOpenOrderSubscription                [x]
+
      Positions
        Get a single position                                            [x]
        Get detailed information for a single position                   [x]
@@ -330,6 +339,7 @@ States:
        Change the subscription page size                                [x]
        Remove multiple subscriptions                                    [x]
        Remove a subscription                                            [x]
+
      Users
        UsersMe                                    [x]
        Users                                      [x]
