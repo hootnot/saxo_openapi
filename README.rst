@@ -302,6 +302,16 @@ States:
        ClosedPositionSubscriptionsRemove      [x]
        ClosedPositionSubscriptionRemoveById   [x]
      Exposure
+       NetInstrumentsExposureMe                  [x]
+       NetInstrumentsExposure                    [x]
+       CreateExposureSubscription                [x]
+       RemoveExposureSubscriptionsByTag          [x]
+       RemoveExposureSubscription                [x]
+       CurrencyExposureMe                        [x]
+       CurrencyExposureSpecific                  [x]
+       FxSpotExposureMe                          [x]
+       FxSpotExposurSpecific                     [x]
+
      NetPositions
        Get a single netposition                                            [x]
        Get detailed information for a single netposition                   [x]
