@@ -108,6 +108,7 @@ class RemoveExposureSubscriptionsByTag(Portfolio):
 
     RESPONSE_TYPE = 'text'
 
+    @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
         """Instantiate a RemoveExposureSubscriptionsByTag request.
 
@@ -148,6 +149,7 @@ class RemoveExposureSubscription(Portfolio):
 
     RESPONSE_TYPE = 'text'
 
+    @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a RemoveExposureSubscription request.
 
@@ -180,6 +182,7 @@ class RemoveExposureSubscription(Portfolio):
 class CurrencyExposureMe(Portfolio):
     """Returns a list of currencies and net exposures."""
 
+    @dyndoc_insert(responses)
     def __init__(self):
         """Instantiate a CurrencyExposureMe request.
 
@@ -207,6 +210,7 @@ class CurrencyExposureMe(Portfolio):
 class CurrencyExposureSpecific(Portfolio):
     """Returns a list of currencies in which there is an exposure."""
 
+    @dyndoc_insert(responses)
     def __init__(self, params):
         """Instantiate a CurrencyExposureSpecific request.
 
@@ -237,6 +241,7 @@ class CurrencyExposureSpecific(Portfolio):
 class FxSpotExposureMe(Portfolio):
     """Returns a list of currencies and net exposures."""
 
+    @dyndoc_insert(responses)
     def __init__(self):
         """Instantiate a FxSpotExposureMe request.
 
@@ -264,6 +269,7 @@ class FxSpotExposureMe(Portfolio):
 class FxSpotExposureSpecific(Portfolio):
     """Returns a list of currencies in which there is an exposure."""
 
+    @dyndoc_insert(responses)
     def __init__(self, params):
         """Instantiate a FxSpotExposureSpecific request.
 
