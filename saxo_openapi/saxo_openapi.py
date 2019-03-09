@@ -126,8 +126,8 @@ class API(object):
         func = getattr(self.client, method)
         headers = headers if headers else {}
         response = None
+        logger.info("performing (%s) request %s", method, url)
         try:
-            logger.info("performing request %s", url)
             response = func(url, stream=stream, headers=headers,
                             **request_args)
         except requests.RequestException as err:
@@ -188,8 +188,10 @@ class API(object):
             headers = getattr(endpoint, "HEADERS")
 
         request_args = {}
-        if method == 'get':
+
+        if method in ['get', 'delete', 'patch']:
             request_args['params'] = params
+
         elif hasattr(endpoint, "data") and endpoint.data:
             request_args['json'] = endpoint.data
 
