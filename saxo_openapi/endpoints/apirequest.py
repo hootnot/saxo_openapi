@@ -2,12 +2,10 @@
 
 """Handling of API requests."""
 
-import six
 from abc import ABCMeta, abstractmethod
 
 
-@six.add_metaclass(ABCMeta)
-class APIRequest(object):
+class APIRequest(metaclass=ABCMeta):
     """Base Class for API-request classes."""
 
     @abstractmethod
