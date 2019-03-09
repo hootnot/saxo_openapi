@@ -224,8 +224,11 @@ States:
 
    Account History
      Account Values
+        AccountSummary          [x]
      HistoricalPositions
+        HistoricalPositions     [x]
      Performance
+        AccountPerformance      [x]
 
    Auto Trading
      Investments
