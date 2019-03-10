@@ -44,6 +44,7 @@ class ClientDetails(Portfolio):
         ClientKey: string (required)
             the ClientKey
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -76,6 +77,7 @@ class ClientDetailsUpdate(Portfolio):
         data: dict (required)
             dict with parameters representing the data body.
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -85,10 +87,7 @@ class ClientDetailsUpdate(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        ::
-
-            {_v3_ClientDetailsUpdate_resp}
-
+        No data is returned.
         """
         super(ClientDetailsUpdate, self).__init__()
         self.data = data
@@ -106,6 +105,7 @@ class ClientDetailsByOwner(Portfolio):
         ----------
         params: dict (required)
             the dict representing the querystring parameters.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -140,8 +140,10 @@ class ClientSwitchPosNettingMode(Portfolio):
         ----------
         params: dict (required)
             the dict representing the querystring parameters.
+
         data: dict (required)
             the dict representing the data body parameters.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -153,10 +155,7 @@ class ClientSwitchPosNettingMode(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        ::
-
-            {_v3_ClientSwitchPosNettingMode_resp}
-
+        No data is returned.
         """
         super(ClientSwitchPosNettingMode, self).__init__()
         self.params = params

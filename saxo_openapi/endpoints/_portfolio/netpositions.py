@@ -19,8 +19,10 @@ class SingleNetPosition(Portfolio):
         ----------
         NetPositionId: string (required)
             the NetPositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -33,7 +35,7 @@ class SingleNetPosition(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_SingleNetPosition_resp}
 
@@ -54,8 +56,10 @@ class SingleNetPositionDetails(Portfolio):
         ----------
         NetPositionId: string (required)
             the NetPositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -69,7 +73,7 @@ class SingleNetPositionDetails(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_SingleNetPositionDetails_resp}
 
@@ -92,6 +96,7 @@ class NetPositionsMe(Portfolio):
         params: dict (optional)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -101,7 +106,7 @@ class NetPositionsMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_NetPositionsMe_resp}
 
@@ -127,6 +132,7 @@ class NetPositionsQuery(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -136,7 +142,7 @@ class NetPositionsQuery(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_NetPositionsQuery_resp}
 
@@ -162,6 +168,7 @@ class NetPositionListSubscription(Portfolio):
         data: dict (required)
             dict representing the data body parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -171,7 +178,7 @@ class NetPositionListSubscription(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_NetPositionListSubscription_resp}
 
@@ -196,8 +203,10 @@ class NetPositionSubscriptionRemoveMultiple(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -211,6 +220,7 @@ class NetPositionSubscriptionRemoveMultiple(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
 
+        No data is returned.
         """
         super(NetPositionSubscriptionRemoveMultiple, self).__init__(
             ContextId=ContextId)
@@ -233,8 +243,10 @@ class NetPositionSubscriptionRemove(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -247,6 +259,7 @@ class NetPositionSubscriptionRemove(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
 
+        No data is returned.
         """
         super(NetPositionSubscriptionRemove, self).__init__(
             ContextId=ContextId,

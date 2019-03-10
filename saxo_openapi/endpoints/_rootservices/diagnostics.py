@@ -20,6 +20,7 @@ class Get(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Get()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Get, self).__init__()
 
@@ -38,6 +39,7 @@ class Post(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Post()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Post, self).__init__()
 
@@ -56,6 +58,7 @@ class Put(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Put()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Put, self).__init__()
 
@@ -74,6 +77,7 @@ class Delete(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Delete()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Delete, self).__init__()
 
@@ -92,6 +96,7 @@ class Patch(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Patch()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Patch, self).__init__()
 
@@ -110,6 +115,7 @@ class Head(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Head()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Head, self).__init__()
 
@@ -128,6 +134,7 @@ class Options(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Options()
         >>> rv = client.request(r)
+        >>> assert r.status_code == r.expected_status
         """
         super(Options, self).__init__()
 
@@ -148,6 +155,6 @@ class Echo(RootService):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = rs.diagnostics.Echo()
         >>> rv = client.request(r)
-
+        >>> assert r.status_code == r.expected_status
         """
         super(Echo, self).__init__()

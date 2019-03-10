@@ -18,6 +18,12 @@ class ExchangeList(ReferenceData):
     def __init__(self, params=None):
         """Instantiate an ExchangeList request.
 
+        Parameters
+        ----------
+        params: dict (optional)
+            dict representing querystring parameters
+
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -26,7 +32,7 @@ class ExchangeList(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_ExchangeList_resp}
 
@@ -48,6 +54,7 @@ class ExchangeDetails(ReferenceData):
         ExchangeId: string (required)
             the ExchangeId
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -57,7 +64,7 @@ class ExchangeDetails(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_ExchangeDetails_resp}
 

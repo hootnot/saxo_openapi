@@ -18,8 +18,9 @@ class Trading(APIRequest):
 
         Parameters
         ----------
-        ClientKey : string (optional)
-            the ClientKey
+        kwargs: kwargs (optional)
+            optional keyword arguments to be provided by the derived
+            request class
 
         """
         endpoint = self.ENDPOINT.format(**kwargs)

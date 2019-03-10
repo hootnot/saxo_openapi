@@ -23,6 +23,7 @@ class AlgoStrategies(ReferenceData):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -32,7 +33,7 @@ class AlgoStrategies(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_AlgoStrategies_resp}
 
@@ -54,6 +55,7 @@ class AlgoStrategyDetails(ReferenceData):
         Name: string (required)
             Name of the strategy
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -63,7 +65,7 @@ class AlgoStrategyDetails(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_AlgoStrategyDetails_resp}
 

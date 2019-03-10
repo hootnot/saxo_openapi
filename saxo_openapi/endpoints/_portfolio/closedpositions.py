@@ -22,6 +22,7 @@ class ClosedPositionList(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -52,8 +53,10 @@ class ClosedPositionById(Portfolio):
         ----------
         ClosedPositionId: string (required)
             the ClosedPositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -91,8 +94,10 @@ class ClosedPositionDetails(Portfolio):
         ----------
         ClosedPositionId: string (required)
             the ClosedPositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -131,6 +136,7 @@ class ClosedPositionsMe(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -163,8 +169,10 @@ class ClosedPositionSubscription(Portfolio):
         ----------
         data: dict (required)
             dict representing the parameters of the data body
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -202,11 +210,14 @@ class ClosedPositionSubscriptionUpdate(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
         data: dict (required)
             dict representing the parameters of the data body
-kkk
+
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -221,6 +232,7 @@ kkk
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
+        No data is returned.
         """
         super(ClosedPositionSubscriptionUpdate, self).__init__(
             ContextId=ContextId,
@@ -245,8 +257,10 @@ class ClosedPositionSubscriptionsRemove(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         params: dict (required)
             dict representing the parameters of the querystring
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -258,6 +272,7 @@ class ClosedPositionSubscriptionsRemove(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
+        No data is returned.
         """
         super(ClosedPositionSubscriptionsRemove, self).__init__(
             ContextId=ContextId)
@@ -281,8 +296,10 @@ class ClosedPositionSubscriptionRemoveById(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -294,6 +311,7 @@ class ClosedPositionSubscriptionRemoveById(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
+        No data is returned.
         """
         super(ClosedPositionSubscriptionRemoveById, self).__init__(
             ContextId=ContextId,

@@ -19,8 +19,10 @@ class SinglePosition(Portfolio):
         ----------
         PositionId: string (required)
             the PositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -53,8 +55,10 @@ class SinglePositionDetails(Portfolio):
         ----------
         PositionId: string (required)
             the PositionId
+
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -85,15 +89,17 @@ class PositionsMe(Portfolio):
 
         Parameters
         ----------
-        params: dict (required)
+        params: dict (optional)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> params = {_v3_PositionsMe_params}
-        >>> r = pf.positions.PositionsMe(params=params)
+        >>> r = pf.positions.PositionsMe()
+        >>> # or with params: pf.positions.PositionsMe(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
@@ -121,6 +127,7 @@ class PositionsQuery(Portfolio):
         ----------
         params: dict (required)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -154,8 +161,10 @@ class PositionListSubscription(Portfolio):
         ----------
         params: dict (optional)
             dict representing the querystring parameters
+
         data: dict (required)
             dict representing the data body parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -165,6 +174,7 @@ class PositionListSubscription(Portfolio):
         >>> data = {_v3_PositionListSubscription_body}
         >>> r = pf.positions.PositionListSubscription(data=data,
         ...                                           params=params)
+        >>> # without params: pf.positions.PositionListSubscription(data=data)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
@@ -195,10 +205,13 @@ class PositionSubscriptionPageSize(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
         data: dict (required)
             dict representing the data body parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -212,6 +225,8 @@ class PositionSubscriptionPageSize(Portfolio):
         ...                                               data=data)
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
+
+        No data is returned.
         """
         super(PositionSubscriptionPageSize, self).__init__(
             ContextId=ContextId,
@@ -235,8 +250,10 @@ class PositionSubscriptionRemoveMultiple(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         params: dict (optional)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -249,6 +266,7 @@ class PositionSubscriptionRemoveMultiple(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
 
+        No data is returned.
         """
         super(PositionSubscriptionRemoveMultiple, self).__init__(
             ContextId=ContextId)
@@ -271,8 +289,10 @@ class PositionSubscriptionRemove(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -284,6 +304,7 @@ class PositionSubscriptionRemove(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code = r.expected_status
 
+        No data is returned.
         """
         super(PositionSubscriptionRemove, self).__init__(
             ContextId=ContextId,

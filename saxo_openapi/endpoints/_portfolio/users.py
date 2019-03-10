@@ -23,7 +23,7 @@ class UsersMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_UsersMe_resp}
 
@@ -44,6 +44,7 @@ class Users(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -53,7 +54,7 @@ class Users(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_Users_resp}
 
@@ -75,6 +76,7 @@ class UserDetails(Portfolio):
         UserKey: string (required)
             the UserKey
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -84,7 +86,7 @@ class UserDetails(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_UserDetails_resp}
 
@@ -107,6 +109,7 @@ class UserUpdate(Portfolio):
         data: dict (required)
             dict representing the data body parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -114,12 +117,9 @@ class UserUpdate(Portfolio):
         >>> data = {_v3_UserUpdate_body}
         >>> r = pf.users.UserUpdate(data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
-        ::
-
-            {_v3_UserUpdate_resp}
-
+        No data is returned.
         """
         super(UserUpdate, self).__init__()
         self.data = data

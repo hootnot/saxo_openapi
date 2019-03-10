@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
+
 """Handle portfolio endpoints."""
+
 from ..apirequest import APIRequest
 from abc import abstractmethod
 
@@ -17,23 +19,10 @@ class Portfolio(APIRequest):
 
         Parameters
         ----------
-        AccountKey : string
-            the AccountKey.
+        kwargs: kwargs (optional)
+            optional keyword arguments to be provided by the derived
+            request class
 
-        AccountGroupKey : string
-            the AccountGroupKey.
-
-        ClientKey : string
-            the ClientKey.
-
-        ContextId : string
-            the ContextId.
-
-        OrderId : string
-            the OrderId.
-
-        ReferenceId : string
-            the ReferenceId.
         """
         endpoint = self.ENDPOINT.format(**kwargs)
         super(Portfolio, self).__init__(endpoint,

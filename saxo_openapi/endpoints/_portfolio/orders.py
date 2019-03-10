@@ -21,8 +21,10 @@ class GetOpenOrder(Portfolio):
         ----------
         ClientKey: string (required)
              the ClientKey
+
         OrderId: string (required)
              the OrderId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -37,7 +39,7 @@ class GetOpenOrder(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_GetOpenOrder_resp}
 
@@ -62,6 +64,7 @@ class GetOpenOrdersMe(Portfolio):
         params: dict (optional)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -71,7 +74,7 @@ class GetOpenOrdersMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_GetOpenOrdersMe_resp}
 
@@ -94,8 +97,10 @@ class OrderDetails(Portfolio):
         ----------
         OrderId: string (required)
             the OrderId
+
         params: dict (optional)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -107,7 +112,7 @@ class OrderDetails(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_OrderDetails_resp}
 
@@ -129,6 +134,7 @@ class GetAllOpenOrders(Portfolio):
         params: dict (optional)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -138,7 +144,7 @@ class GetAllOpenOrders(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_GetAllOpenOrders_resp}
 
@@ -162,6 +168,7 @@ class CreateOpenOrdersSubscription(Portfolio):
         data: dict (optional)
             dict representing the body with request parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -171,7 +178,7 @@ class CreateOpenOrdersSubscription(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_CreateOpenOrdersSubscription_resp}
 
@@ -195,8 +202,10 @@ class RemoveOpenOrderSubscriptionsByTag(Portfolio):
         ----------
         ContextId: string (required)
            the ContextId
+
         params: dict (optional)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -209,6 +218,7 @@ class RemoveOpenOrderSubscriptionsByTag(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
+        No data is returned.
         """
         super(RemoveOpenOrderSubscriptionsByTag, self).__init__(
             ContextId=ContextId)
@@ -231,8 +241,10 @@ class RemoveOpenOrderSubscription(Portfolio):
         ----------
         ContextId: string (required)
            the ContextId
+
         ReferenceId: string (required)
            the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -244,6 +256,7 @@ class RemoveOpenOrderSubscription(Portfolio):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
+        No data is returned.
         """
         super(RemoveOpenOrderSubscription, self).__init__(
             ContextId=ContextId,

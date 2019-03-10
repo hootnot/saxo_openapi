@@ -19,21 +19,21 @@ class AccountSummary(AccountHistory):
         ----------
         ClientKey: string (required)
             the ClientKey
+
         params: dict (optional)
             dict with parameters representing the queringstring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.accounthistory as ah
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> ClientKey = 'Cf4xZWiYL6W1nMKpygBLLA=='
-        >>> params = {_v3_AccountSummary_params}
-        >>> r = ah.accountvalues.AccountSummary(ClientKey=ClientKey,
-        ...                                     params=params)
+        >>> r = ah.accountvalues.AccountSummary(ClientKey=ClientKey)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_AccountSummary_resp}
 

@@ -19,6 +19,7 @@ class NetInstrumentsExposureMe(Portfolio):
         ----------
         None
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -27,7 +28,7 @@ class NetInstrumentsExposureMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_NetInstrumentsExposureMe_resp}
 
@@ -48,6 +49,7 @@ class NetInstrumentExposureSpecific(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -57,7 +59,7 @@ class NetInstrumentExposureSpecific(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_NetInstrumentExposureSpecific_resp}
 
@@ -81,6 +83,7 @@ class CreateExposureSubscription(Portfolio):
         data: dict (required)
             dict representing the body with request parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -90,7 +93,7 @@ class CreateExposureSubscription(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_CreateExposureSubscription_resp}
 
@@ -116,8 +119,10 @@ class RemoveExposureSubscriptionsByTag(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         params: dict (optional)
             dict representing the querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -130,10 +135,7 @@ class RemoveExposureSubscriptionsByTag(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
-
-            {_v3_RemoveExposureSubscriptionsByTag_resp}
-
+        No data returned.
         """
         super(RemoveExposureSubscriptionsByTag, self).__init__(
             ContextId=ContextId)
@@ -157,8 +159,10 @@ class RemoveExposureSubscription(Portfolio):
         ----------
         ContextId: string (required)
             the ContextId
+
         ReferenceId: string (required)
             the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -168,10 +172,7 @@ class RemoveExposureSubscription(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
-
-            {_v3_RemoveExposureSubscription_resp}
-
+        No data returned.
         """
         super(RemoveExposureSubscription, self).__init__(
             ContextId=ContextId,
@@ -190,6 +191,7 @@ class CurrencyExposureMe(Portfolio):
         ----------
         None
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -198,7 +200,7 @@ class CurrencyExposureMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_CurrencyExposureMe_resp}
 
@@ -219,6 +221,7 @@ class CurrencyExposureSpecific(Portfolio):
         params: dict (optional)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -228,7 +231,7 @@ class CurrencyExposureSpecific(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_CurrencyExposureSpecific_resp}
 
@@ -249,6 +252,7 @@ class FxSpotExposureMe(Portfolio):
         ----------
         None
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -257,7 +261,7 @@ class FxSpotExposureMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_FxSpotExposureMe_resp}
 
@@ -278,6 +282,7 @@ class FxSpotExposureSpecific(Portfolio):
         params: dict (required)
             dict representing the querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -287,7 +292,7 @@ class FxSpotExposureSpecific(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_FxSpotExposureSpecific_resp}
 

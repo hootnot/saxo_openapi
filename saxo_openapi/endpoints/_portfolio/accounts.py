@@ -20,6 +20,7 @@ class AccountDetails(Portfolio):
         AccountKey : string (required)
             Account key to perform the request on.
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -29,9 +30,9 @@ class AccountDetails(Portfolio):
         >>> rv = client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
-           {_v3_AccountDetails_resp}
+            {_v3_AccountDetails_resp}
 
         """
         super(AccountDetails, self).__init__(AccountKey=AccountKey)
@@ -62,9 +63,9 @@ class AccountsMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
-           {_v3_AccountsMe_resp}
+            {_v3_AccountsMe_resp}
 
         """
         super(AccountsMe, self).__init__()
@@ -84,6 +85,7 @@ class AccountListByClient(Portfolio):
         params : dict (required)
              params must contain at least the ClientKey
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -93,9 +95,9 @@ class AccountListByClient(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
-           {_v3_AccountListByClient_resp}
+            {_v3_AccountListByClient_resp}
 
         """
         super(AccountListByClient, self).__init__()
@@ -117,8 +119,10 @@ class AccountUpdate(Portfolio):
         ----------
         AccountKey : string (required)
              the AccountKey
+
         data : dict (required)
              dict representing the requestbody.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -140,6 +144,8 @@ class AccountUpdate(Portfolio):
 class AccountReset(Portfolio):
     """Reset the trial account. Cannot be used in live environment."""
 
+    RESPONSE_DATA = "text"
+
     def __init__(self, AccountKey, data):
         """Instantiate an AccountReset request.
 
@@ -147,8 +153,10 @@ class AccountReset(Portfolio):
         ----------
         AccountKey : string (required)
              the AccountKey
+
         data : dict (required)
              dict representing the requestbody.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -159,6 +167,8 @@ class AccountReset(Portfolio):
         >>> r = pf.accounts.AccountReset(AccountKey=AccountKey, data=data)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
+
+        No response data is returned.
         """
         super(AccountReset, self).__init__()
         self.data = data
@@ -179,7 +189,8 @@ class SubscriptionCreate(Portfolio):
         Parameters
         ----------
         data : dict (required)
-             dict representing the requestbody.
+            dict representing the requestbody.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -190,7 +201,7 @@ class SubscriptionCreate(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
            {_v3_SubscriptionCreate_resp}
 
@@ -214,9 +225,11 @@ class SubscriptionRemoveByTag(Portfolio):
         Parameters
         ----------
         ContextId : string (required)
-             the ContextId
+            the ContextId
+
         params : dict (required)
-             dict with the querystring parameters.
+            dict with the querystring parameters.
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -226,6 +239,8 @@ class SubscriptionRemoveByTag(Portfolio):
         >>> r = pf.accounts.SubscriptionRemoveByTag(ContextId, params=params)
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
+
+        No response data is returned.
         """
         super(SubscriptionRemoveByTag, self).__init__(ContextId=ContextId)
         self.params = params
@@ -247,8 +262,10 @@ class SubscriptionRemoveById(Portfolio):
         ----------
         ContextId : string (required)
              the ContextId
+
         ReferenceId : string (required)
              the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -257,6 +274,8 @@ class SubscriptionRemoveById(Portfolio):
         >>> r = pf.accounts.SubscriptionRemoveById(ContextId, ReferenceId)
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
+
+        No response data is returned.
         """
         super(SubscriptionRemoveById, self).__init__(ContextId=ContextId,
                                                      ReferenceId=ReferenceId)

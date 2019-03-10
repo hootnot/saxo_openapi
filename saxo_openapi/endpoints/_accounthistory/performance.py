@@ -23,8 +23,10 @@ class AccountPerformance(AccountHistory):
         ----------
         ClientKey: string (required)
             the ClientKey
+
         params: dict (optional)
             dict with parameters representing the queringstring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.accounthistory as ah
@@ -37,7 +39,7 @@ class AccountPerformance(AccountHistory):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_AccountPerformance_resp}
 

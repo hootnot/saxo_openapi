@@ -23,7 +23,8 @@ class Availability(RootService):
         >>> rv = client.request(r)
         >>> print(rv)
 
-        ::
+        Output::
+
             {_v3_Availability_resp}
 
         """
@@ -45,6 +46,7 @@ class CreateAvailabilitySubscription(RootService):
         data : JSON (required)
             json body to send
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.rootservices.features as rsft
         >>> import json
@@ -54,7 +56,8 @@ class CreateAvailabilitySubscription(RootService):
         >>> rv = client.request(r)
         >>> print(rv)
 
-        ::
+        Output::
+
             {_v3_CreateAvailabilitySubscription_resp}
 
         """
@@ -79,8 +82,10 @@ class RemoveAvailabilitySubscription(RootService):
         ----------
         ContextId : string (required)
             the context-id
+
         ReferenceId : string (required)
             the reference-id
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.rootservices.features as rsft
@@ -93,8 +98,7 @@ class RemoveAvailabilitySubscription(RootService):
         >>> rv = client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        Response is empty text string, status_code = 202 when accepted.
-
+        No data is returned.
         """
         super(RemoveAvailabilitySubscription, self).__init__(
             ContextId=ContextId,

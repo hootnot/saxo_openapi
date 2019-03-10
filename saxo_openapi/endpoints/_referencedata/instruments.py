@@ -22,6 +22,7 @@ class Instruments(ReferenceData):
         params: dict (required)
             dict reppresenting the querystring parameters
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -31,7 +32,7 @@ class Instruments(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_Instruments_resp}
 
@@ -53,6 +54,7 @@ class InstrumentsDetails(ReferenceData):
         params: dict (required)
             dict reppresenting the querystring parameters
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -62,7 +64,7 @@ class InstrumentsDetails(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_InstrumentsDetails_resp}
 
@@ -83,10 +85,13 @@ class InstrumentDetails(ReferenceData):
         ----------
         Uic: int (required)
             the Uic of the instrument
+
         AssetType: string (required)
             the AssetType specification
+
         params: dict (optional)
             dict representing querystring parameters
+
 
         >>> import json
         >>> import saxo_openapi
@@ -101,7 +106,7 @@ class InstrumentDetails(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_InstrumentDetails_resp}
 
@@ -123,8 +128,10 @@ class ContractoptionSpaces(ReferenceData):
         ----------
         OptionRootId: string (required)
             the OptionRootId
+
         params: dict (optional)
             dict representing querystring parameters
+
 
         >>> import json
         >>> import saxo_openapi
@@ -138,7 +145,7 @@ class ContractoptionSpaces(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_ContractoptionSpaces_resp}
 
@@ -161,6 +168,7 @@ class FuturesSpaces(ReferenceData):
         ContinuousFuturesUic: string (required)
             the ContinuousFuturesUic
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -171,7 +179,7 @@ class FuturesSpaces(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_FuturesSpaces_resp}
 
@@ -192,11 +200,13 @@ class TradingSchedule(ReferenceData):
         ----------
         Uic: string (required)
             the Uic of the instrument
+
         AssetType: string (required)
             the AssetType of the instrument
 
         For one Uic multiple assettypes can be available trading
         on different times.
+
 
         >>> import json
         >>> import saxo_openapi
@@ -210,7 +220,7 @@ class TradingSchedule(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_TradingSchedule_resp}
 

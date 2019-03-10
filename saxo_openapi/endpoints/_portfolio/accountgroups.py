@@ -19,8 +19,10 @@ class AccountGroupDetails(Portfolio):
         ----------
         AccountGroupKey: string (required)
             the accountGroupKey
-        params: dict (required)
+
+        params : dict (required)
             dict with querystring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -34,7 +36,8 @@ class AccountGroupDetails(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
+
             {_v3_AccountGroupDetails_resp}
 
         """
@@ -58,6 +61,7 @@ class AccountGroupsMe(Portfolio):
         params: dict (optional)
             dict with querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -67,7 +71,8 @@ class AccountGroupsMe(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
+
             {_v3_AccountGroupsMe_resp}
 
         """
@@ -88,6 +93,7 @@ class AccountGroupsList(Portfolio):
         params: dict (required)
             dict with querystring parameters
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
@@ -97,7 +103,8 @@ class AccountGroupsList(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
+
             {_v3_AccountGroupsList_resp}
 
         """
@@ -119,10 +126,13 @@ class AccountGroupUpdate(Portfolio):
         ----------
         AccountGroupKey: string (required)
             the accountGroupKey
+
         params: dict (required)
             dict with attributes
+
         data: dict (required)
             dict with attributes
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.portfolio as pf
@@ -137,7 +147,8 @@ class AccountGroupUpdate(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
+
             {_v3_AccountGroupUpdate_resp}
 
         """

@@ -22,8 +22,10 @@ class HistoricalPositions(AccountHistory):
         ----------
         ClientKey: string (required)
             the ClientKey
+
         params: dict (required)
             dict with parameters representing the queringstring parameters
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.accounthistory as ah
@@ -36,7 +38,7 @@ class HistoricalPositions(AccountHistory):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_HistoricalPositions_resp}
 

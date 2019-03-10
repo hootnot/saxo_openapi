@@ -19,8 +19,10 @@ class ForwardTenorDates(ReferenceData):
         ----------
         Uic: int (required)
             the Uic code of the instrument
+
         params: dict (required)
             dict with parameters representing the querystring
+
 
         >>> import json
         >>> import saxo_openapi
@@ -32,7 +34,7 @@ class ForwardTenorDates(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
-        ::
+        Output::
 
             {_v3_ForwardTenorDates_resp}
 
@@ -54,6 +56,7 @@ class FXOptionExpiryDates(ReferenceData):
         Uic: int (required)
             the Uic code of the instrument
 
+
         >>> import json
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
@@ -63,7 +66,7 @@ class FXOptionExpiryDates(ReferenceData):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=2))
 
-        ::
+        Output::
 
             {_v3_FXOptionExpiryDates_resp}
 
