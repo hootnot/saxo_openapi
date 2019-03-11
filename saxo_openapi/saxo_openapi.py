@@ -207,11 +207,16 @@ class API(object):
                                       url,
                                       request_args,
                                       headers=headers)
-            content = response.content.decode('utf-8')
-            if not (hasattr(endpoint, "RESPONSE_DATA") and
+            if (hasattr(endpoint, "RESPONSE_DATA") and
+                getattr(endpoint, "RESPONSE_DATA") == None):
+                content = None
+            elif not (hasattr(endpoint, "RESPONSE_DATA") and
                     getattr(endpoint, "RESPONSE_DATA") == 'text'):
                 # if not explicitely set to 'text' asume JSON
+                content = response.content.decode('utf-8')
                 content = json.loads(content)
+            else:
+                content = response.content.decode('utf-8')
 
             # update endpoint
             endpoint.response = content
