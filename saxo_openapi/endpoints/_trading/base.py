@@ -11,6 +11,7 @@ class Trading(APIRequest):
 
     ENDPOINT = ""
     METHOD = "GET"
+    EXPECTED_STATUS = 0
 
     @abstractmethod
     def __init__(self, **kwargs):
@@ -24,4 +25,6 @@ class Trading(APIRequest):
 
         """
         endpoint = self.ENDPOINT.format(**kwargs)
-        super(Trading, self).__init__(endpoint, method=self.METHOD)
+        super(Trading, self).__init__(endpoint,
+                                      expected_status=self.EXPECTED_STATUS,
+                                      method=self.METHOD)

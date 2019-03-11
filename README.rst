@@ -411,6 +411,10 @@ States:
        Precheck a single order                   [x]
      Positions
      Prices
+       CreatePriceSubscriptions                  [x]
+       RequestMarginImpact                       [x]
+       RemovePriceSubscriptionByTag              [x]
+       RemovePriceSubscription                   [x]
 
    Value Add
      PriceAlerts

@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ._trading import orders
+from ._trading import (
+    orders,
+    prices
+)
