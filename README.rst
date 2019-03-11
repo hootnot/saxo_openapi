@@ -9,6 +9,9 @@ Currently this is code under development. There is no pypi-package yet.
    :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
    :alt: Coverage
 
+.. image:: https://readthedocs.org/projects/saxo-openapi/badge/?version=latest
+   :target: https://saxo-openapi.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 Install
 -------
