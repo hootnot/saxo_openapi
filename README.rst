@@ -5,13 +5,17 @@ Python wrapper for SAXO Bank OpenAPI REST-API.
 
 Currently this is code under development. There is no pypi-package yet.
 
-.. image:: https://coveralls.io/repos/github/hootnot/saxo_openapi/badge.svg?branch=master
-   :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
-   :alt: Coverage
+.. image:: https://travis-ci.org/hootnot/saxo_openapi.svg?branch=master
+   :target: https://travis-ci.org/hootnot/saxo_openapi
 
 .. image:: https://readthedocs.org/projects/saxo-openapi/badge/?version=latest
    :target: https://saxo-openapi.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
+
+.. image:: https://coveralls.io/repos/github/hootnot/saxo_openapi/badge.svg?branch=master
+   :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
+   :alt: Coverage
+
 
 Install
 -------
