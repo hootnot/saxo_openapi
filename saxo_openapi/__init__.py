@@ -2,9 +2,12 @@
 
 """Top-level package for SAXO OpenAPI."""
 
+__title__ = "Saxo OpenAPI API Wrapper"
 __author__ = """Feite Brekeveld"""
 __email__ = 'f.brekeveld@gmail.com'
 __version__ = '0.1.0'
+__copyright__ = "Copyright 2019 Feite Brekeveld"
+
 
 # Version synonym
 VERSION = __version__
