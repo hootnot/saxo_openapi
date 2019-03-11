@@ -1,0 +1,20 @@
+Trading
+~~~~~~~
+
+.. autoclass:: saxo_openapi.endpoints._trading.orders.Order
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :special-members: __init__
+
+.. autoclass:: saxo_openapi.endpoints._trading.orders.ChangeOrder
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :special-members: __init__
+
+.. autoclass:: saxo_openapi.endpoints._trading.orders.CancelOrders
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :special-members: __init__

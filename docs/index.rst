@@ -7,6 +7,7 @@ Welcome to SAXO Bank OpenAPI's documentation
 
    installation
 
+   saxo_openapi
 
 Indices and tables
 ==================
