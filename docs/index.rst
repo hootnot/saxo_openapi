@@ -9,6 +9,8 @@ Welcome to SAXO Bank OpenAPI's documentation
 
    saxo_openapi
 
+   saxo_openapi.endpoints
+
 Indices and tables
 ==================
 * :ref:`genindex`
