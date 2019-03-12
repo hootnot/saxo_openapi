@@ -109,7 +109,7 @@ class AccountUpdate(Portfolio):
     """Update account details. Particularly the user account shield value,
     the benchmark instrument or the account display name.
     """
-    RESPONSE_DATA = "text"
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, AccountKey, data):
@@ -144,7 +144,7 @@ class AccountUpdate(Portfolio):
 class AccountReset(Portfolio):
     """Reset the trial account. Cannot be used in live environment."""
 
-    RESPONSE_DATA = "text"
+    RESPONSE_DATA = None
 
     def __init__(self, AccountKey, data):
         """Instantiate an AccountReset request.
@@ -217,7 +217,7 @@ class SubscriptionRemoveByTag(Portfolio):
     marked with a specific tag, and frees all resources on the server.
     """
 
-    RESPONSE_DATA = "text"
+    RESPONSE_DATA = None
 
     def __init__(self, ContextId, params):
         """Instantiate a SubscriptionRemoveByTag request.
@@ -253,7 +253,7 @@ class SubscriptionRemoveById(Portfolio):
     subscription Id.
     """
 
-    RESPONSE_DATA = "text"
+    RESPONSE_DATA = None
 
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a SubscriptionRemoveById request.

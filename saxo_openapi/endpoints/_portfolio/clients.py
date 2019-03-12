@@ -130,7 +130,7 @@ class ClientSwitchPosNettingMode(Portfolio):
     """Enables IB to switch position netting mode and change account
     value protection limit on behalf of its clients.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, params, data):

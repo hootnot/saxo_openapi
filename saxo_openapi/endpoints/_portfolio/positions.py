@@ -195,7 +195,7 @@ class PositionSubscriptionPageSize(Portfolio):
     running positions subscription. When expanding the page size, the new
     positions are streamed so to avoid race conditions.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId, data):
@@ -240,7 +240,7 @@ class PositionSubscriptionRemoveMultiple(Portfolio):
     """Remove multiple subscriptions for the given ContextId, optionally
     marked with a specific tag.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
@@ -279,7 +279,7 @@ class PositionSubscriptionRemove(Portfolio):
     """Removes subscription for the current session identified by
     subscription id.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):

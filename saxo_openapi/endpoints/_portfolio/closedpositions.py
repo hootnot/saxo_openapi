@@ -200,7 +200,7 @@ class ClosedPositionSubscriptionUpdate(Portfolio):
     the subsequent closed positions are streamed so to avoid race conditions.
     """
 
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId, data):
@@ -247,7 +247,7 @@ class ClosedPositionSubscriptionsRemove(Portfolio):
     resource, and frees all resources on the server.
     """
 
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
@@ -286,7 +286,7 @@ class ClosedPositionSubscriptionRemoveById(Portfolio):
     subscription id.
     """
 
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):

@@ -98,7 +98,7 @@ class UserDetails(Portfolio):
 class UserUpdate(Portfolio):
     """Enables the user to update preferred language, culture and timezone."""
 
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, data):

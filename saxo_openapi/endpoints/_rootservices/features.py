@@ -72,7 +72,7 @@ class RemoveAvailabilitySubscription(RootService):
     (and streaming context id).
     """
     # this endpoint returns an empty string as data: ''
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):

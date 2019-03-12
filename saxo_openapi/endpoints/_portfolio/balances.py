@@ -135,7 +135,7 @@ class BalanceSubscriptionRemoveByTag(Portfolio):
     """Remove multiple subscriptions for the current session on this
     resource and frees all resources on the server.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params):
@@ -174,7 +174,7 @@ class BalanceSubscriptionRemoveById(Portfolio):
     """Removes subscription for the current session identified by
     subscription id.
     """
-    RESPONSE_DATA = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):

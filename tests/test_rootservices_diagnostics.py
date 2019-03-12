@@ -62,10 +62,9 @@ class TestSaxo_RootServices_Diagnostics(unittest.TestCase):
         r = cls()
         kwargs['mock'].register_uri(r.METHOD,
                                     "{}/sim/{}".format(api.api_url, r),
-                                    text="",
                                     status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
+        api.request(r)
+        self.assertTrue(r.status_code == r.expected_status)
 
 
 if __name__ == "__main__":
