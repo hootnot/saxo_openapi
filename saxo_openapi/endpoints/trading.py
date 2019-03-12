@@ -2,5 +2,6 @@
 
 from ._trading import (
     orders,
-    prices
+    prices,
+    positions
 )

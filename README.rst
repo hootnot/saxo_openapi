@@ -410,6 +410,10 @@ States:
        Cancel one or more orders                 [x]
        Precheck a single order                   [x]
      Positions
+       Create pos by quote                       [x]
+       Update a position                         [x]
+       Exercise a position                       [x]
+       Exercise an amount                        [x]
      Prices
        CreatePriceSubscriptions                  [x]
        RequestMarginImpact                       [x]
