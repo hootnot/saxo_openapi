@@ -41,9 +41,12 @@ class CreatePriceSubscription(Trading):
         self.data = data
 
 
-@endpoint("openapi/trade/v1/prices/subscriptions/{ContextId}/{ReferenceId}", "PUT", 204)
+@endpoint("openapi/trade/v1/prices/subscriptions/{ContextId}/{ReferenceId}",
+          "PUT", 204)
 class MarginImpactRequest(Trading):
-    """Request margin impact to come on one of the next following price updates."""
+    """Request margin impact to come on one of the next following price
+    updates.
+    """
 
     RESPONSE_DATA = None
 
@@ -83,7 +86,7 @@ class PriceSubscriptionRemoveByTag(Trading):
     """Remove multiple subscriptions for the given ContextId, optionally
     marked with a specific tag.
     """
-    RESPONSE_DATA = None 
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):

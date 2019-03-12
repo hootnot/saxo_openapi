@@ -12,8 +12,8 @@ responses = {
                 "Uic": 45,
                 "AssetType": "FxSpot"
             },
-	    "ContextId": "explorer_1552305379377",
-	    "ReferenceId": "USDSGD"
+            "ContextId": "explorer_1552305379377",
+            "ReferenceId": "USDSGD"
         },
         "response": {
            "ContextId": "explorer_1552305379377",
@@ -42,7 +42,8 @@ responses = {
         }
     },
     "_v3_MarginImpactRequest": {
-        "url": "/openapi/trade/v1/prices/subscriptions/{ContextId}/{ReferenceId}",
+        "url": "/openapi/trade/v1/prices/subscriptions/"
+               "{ContextId}/{ReferenceId}",
         "response": ''
     },
     "_v3_PriceSubscriptionRemoveByTag": {
@@ -51,7 +52,8 @@ responses = {
         "response": ''
     },
     "_v3_PriceSubscriptionRemove": {
-        "url": "/openapi/trade/v1/prices/subscriptions/{ContextId}/{ReferenceId}",
+        "url": "/openapi/trade/v1/prices/subscriptions/"
+               "{ContextId}/{ReferenceId}",
         "response": ''
     }
 }
