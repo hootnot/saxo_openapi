@@ -9,7 +9,7 @@ class APIRequest(metaclass=ABCMeta):
     """Base Class for API-request classes."""
 
     @abstractmethod
-    def __init__(self, endpoint, method="GET", expected_status=200):
+    def __init__(self, endpoint, expected_status, method="GET"):
         """Instantiate an API request.
 
         Parameters

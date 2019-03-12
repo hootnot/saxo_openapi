@@ -9,6 +9,7 @@ class ReferenceData(APIRequest):
 
     ENDPOINT = ""
     METHOD = "GET"
+    EXPECTED_STATUS = 0
 
     @abstractmethod
     def __init__(self, **kwargs):
@@ -19,4 +20,6 @@ class ReferenceData(APIRequest):
         all parameters that get passed by the derived class __init__
         """
         endpoint = self.ENDPOINT.format(**kwargs)
-        super(ReferenceData, self).__init__(endpoint, method=self.METHOD)
+        super(ReferenceData, self).__init__(endpoint,
+                                            expected_status=self.EXPECTED_STATUS,
+                                            method=self.METHOD)
