@@ -422,3 +422,10 @@ States:
 
    Value Add
      PriceAlerts
+       Get all price alert definitions                   [x]
+       Get a specific price alert definition             [x]
+       Create a new price alert definition               [x]
+       Update an existing price alert def.               [x]
+       Delete price alert definitions                    [x]
+       Get the current users's notification settings     [x]
+       Modify the current users's notification settings  [x]
