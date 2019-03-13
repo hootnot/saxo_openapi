@@ -57,7 +57,7 @@ Output:
  ::
 
     request is:  openapi/root/v1/diagnostics/get/
-    Diagnostics passed
+    diagnostics passed
     request is:  openapi/root/v1/features/availability/
     response:
     [ {'Available': True, 'Feature': 'News'},
