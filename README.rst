@@ -30,7 +30,7 @@ Example:
 
 .. code-block:: python
 
-   import saxo_openapi import API
+   from saxo_openapi import API
    import saxo_openapi.endpoints.rootservices as rs
    from pprint import pprint
 
@@ -41,7 +41,7 @@ Example:
    r = rs.diagnostics.Get()
    print("request is: ", r)
    rv = client.request(r)
-   assert rv == '' and r.status_code == 200
+   assert rv is None and r.status_code == 200
 
    # request available rootservices-features
    r = rs.features.Availability()
