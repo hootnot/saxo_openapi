@@ -34,7 +34,7 @@ Example:
     import saxo_openapi.endpoints.rootservices as rs
     from pprint import pprint
 
-    token = " ... [You access token - create a 24-hour token on developer.saxo] ... "
+    token = " ... [Paste your access token here - create a 24-hour token for testing on developer.saxo] ... "
     client = API(access_token=token)
 
     # lets make a diagnostics request, it should return '' with a state 200
