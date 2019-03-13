@@ -30,39 +30,41 @@ Example:
 
 .. code-block:: python
 
-   import saxo_openapi import API
-   import saxo_openapi.endpoints.rootservices as rs
-   from pprint import pprint
+    from saxo_openapi import API
+    import saxo_openapi.endpoints.rootservices as rs
+    from pprint import pprint
 
-   token = "... the token you can obtain at the developer portal ..."
-   client = API(access_token=token)
+    token = " ... [You access token - create a 24-hour token on developer.saxo] ... "
+    client = API(access_token=token)
 
-   # lets make a diagnostics request, it should return '' with a state 200
-   r = rs.diagnostics.Get()
-   print("request is: ", r)
-   rv = client.request(r)
-   assert rv == '' and r.status_code == 200
+    # lets make a diagnostics request, it should return '' with a state 200
+    r = rs.diagnostics.Get()
+    print("request is: ", r)
+    rv = client.request(r)
+    assert rv is None and r.status_code == 200
+    print('diagnostics passed')
 
-   # request available rootservices-features
-   r = rs.features.Availability()
-   rv = client.request(r)
-   print("request: ", r)
-   print("response: ")
-   pprint(rv, indent=2)
-   print(r.status_code)
-
+    # request available rootservices-features
+    r = rs.features.Availability()
+    rv = client.request(r)
+    print("request is: ", r)
+    print("response: ")
+    pprint(rv, indent=2)
+    print(r.status_code)
 
 Output:
 
  ::
 
-  request:  openapi/root/v1/features/availability/
-  response:
-  [ {'Available': True, 'Feature': 'News'},
-    {'Available': True, 'Feature': 'GainersLosers'},
-    {'Available': True, 'Feature': 'Calendar'},
-    {'Available': True, 'Feature': 'Chart'}]
-  200
+    request is:  openapi/root/v1/diagnostics/get/
+    Diagnostics passed
+    request is:  openapi/root/v1/features/availability/
+    response:
+    [ {'Available': True, 'Feature': 'News'},
+      {'Available': True, 'Feature': 'GainersLosers'},
+      {'Available': True, 'Feature': 'Calendar'},
+      {'Available': True, 'Feature': 'Chart'}]
+    200
 
 Some Trading
 ------------
