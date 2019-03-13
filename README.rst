@@ -1,7 +1,8 @@
 saxo_openapi
 ============
 
-Python wrapper for Saxo Bank OpenAPI REST-API (see `here <https://www.developer.saxo/openapi/learn>`)
+Python wrapper for Saxo Bank OpenAPI REST-API (see `here
+<https://www.developer.saxo/openapi/learn>`_)
 
 Currently this is code under development. There is no pypi-package yet.
 
