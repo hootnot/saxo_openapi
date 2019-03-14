@@ -217,6 +217,20 @@ class TestSaxo_Referencedata(unittest.TestCase):
         self.assertTrue(result == resp)
 
     @requests_mock.Mocker()
+    def test__rd_ContractoptionSpaces(self, mock_req):
+        """test the ContractoptionSpaces request."""
+        tid = "_v3_ContractoptionSpaces"
+        resp, data, params = fetchTestData(rd.instruments.responses, tid)
+        OptionRootId = 231
+        r = rd.instruments.ContractoptionSpaces(OptionRootId=OptionRootId,
+                                                params=params)
+        mock_req.register_uri('GET',
+                              "{}/sim/{}".format(api.api_url, r),
+                              text=json.dumps(resp))
+        result = api.request(r)
+        self.assertTrue(result == resp)
+
+    @requests_mock.Mocker()
     def test__rd_TradingSchedule(self, mock_req):
         """test the TradingSchedule request."""
         tid = "_v3_TradingSchedule"

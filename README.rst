@@ -373,7 +373,7 @@ States:
        Instruments                                [x]
        InstrumentsDetails                         [x]
        InstrumentDetails                          [x]
-       ContractoptionSpaces                       [ ]
+       ContractoptionSpaces                       [x]
        FuturesSpaces                              [ ]
        TradingSchedule                            [x]
      Languages                                    [x]

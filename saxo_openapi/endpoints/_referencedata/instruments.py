@@ -120,7 +120,7 @@ class InstrumentDetails(ReferenceData):
 class ContractoptionSpaces(ReferenceData):
     """Get contractoption data."""
 
-    # @dyndoc_insert(responses)
+    @dyndoc_insert(responses)
     def __init__(self, OptionRootId, params=None):
         """Instantiate a ContractoptionSpaces request.
 
@@ -137,7 +137,7 @@ class ContractoptionSpaces(ReferenceData):
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.referencedata as rd
         >>> client = saxo_openapi.API(access_token=...)
-        >>> OptionRootId = '...'
+        >>> OptionRootId = 231
         >>> params = {_v3_ContractoptionSpaces_params}
         >>> r = rd.instruments.ContractoptionSpaces(
         ...                          OptionRootId=OptionRootId,
