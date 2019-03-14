@@ -36,15 +36,21 @@ class TestData(object):
 
     @property
     def resp(self):
-        return self._responses['response']
+        if 'resp' in self._responses:
+            return self._responses['response']
+        return None
 
     @property
     def body(self):
-        return self._responses['body']
+        if 'body' in self._responses:
+            return self._responses['body']
+        return None
 
     @property
     def params(self):
-        return self._responses['params']
+        if 'params' in self._responses:
+            return self._responses['params']
+        return None
 
 
 def auth():
