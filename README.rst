@@ -1,8 +1,7 @@
 saxo_openapi
 ============
 
-Python wrapper for Saxo Bank OpenAPI REST-API (see `here
-<https://www.developer.saxo/openapi/learn>`_)
+Python wrapper for SAXO Bank OpenAPI REST-API.
 
 Currently this is code under development. There is no pypi-package yet.
 
@@ -31,41 +30,39 @@ Example:
 
 .. code-block:: python
 
-    from saxo_openapi import API
-    import saxo_openapi.endpoints.rootservices as rs
-    from pprint import pprint
+   import saxo_openapi import API
+   import saxo_openapi.endpoints.rootservices as rs
+   from pprint import pprint
 
-    token = " ... [Paste your access token here - create a 24-hour token for testing on developer.saxo] ... "
-    client = API(access_token=token)
+   token = "... the token you can obtain at the developer portal ..."
+   client = API(access_token=token)
 
-    # lets make a diagnostics request, it should return '' with a state 200
-    r = rs.diagnostics.Get()
-    print("request is: ", r)
-    rv = client.request(r)
-    assert rv is None and r.status_code == 200
-    print('diagnostics passed')
+   # lets make a diagnostics request, it should return '' with a state 200
+   r = rs.diagnostics.Get()
+   print("request is: ", r)
+   rv = client.request(r)
+   assert rv == '' and r.status_code == 200
 
-    # request available rootservices-features
-    r = rs.features.Availability()
-    rv = client.request(r)
-    print("request is: ", r)
-    print("response: ")
-    pprint(rv, indent=2)
-    print(r.status_code)
+   # request available rootservices-features
+   r = rs.features.Availability()
+   rv = client.request(r)
+   print("request: ", r)
+   print("response: ")
+   pprint(rv, indent=2)
+   print(r.status_code)
+
 
 Output:
 
  ::
 
-    request is:  openapi/root/v1/diagnostics/get/
-    diagnostics passed
-    request is:  openapi/root/v1/features/availability/
-    response:
-    [ {'Available': True, 'Feature': 'News'},
-      {'Available': True, 'Feature': 'GainersLosers'},
-      {'Available': True, 'Feature': 'Calendar'},
-      {'Available': True, 'Feature': 'Chart'}]
-    200
+  request:  openapi/root/v1/features/availability/
+  response:
+  [ {'Available': True, 'Feature': 'News'},
+    {'Available': True, 'Feature': 'GainersLosers'},
+    {'Available': True, 'Feature': 'Calendar'},
+    {'Available': True, 'Feature': 'Chart'}]
+  200
 
 Some Trading
 ------------
