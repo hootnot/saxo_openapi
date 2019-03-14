@@ -6,7 +6,7 @@ responses serve both testing purpose aswell as dynamic docstring replacement.
 """
 
 responses = {
-    "_v3_Timezones": {
+    "_v3_TimeZones": {
         "url": "/openapi/ref/v1/timezones",
         "response": {
             "Data": [
