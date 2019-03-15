@@ -17,6 +17,9 @@ Currently this is code under development. There is no pypi-package yet.
    :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
    :alt: Coverage
 
+.. image:: https://api.codacy.com/project/badge/Grade/edcfcf6a416a4f94bb710413a35daa83
+   :target: https://www.codacy.com/app/hootnot/saxo_openapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hootnot/saxo_openapi&amp;utm_campaign=Badge_Grade
+
 
 Install
 -------
