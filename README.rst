@@ -1,6 +1,10 @@
 saxo_openapi
 ============
 
+.. image:: https://api.codacy.com/project/badge/Grade/4dc8432d94f94d00a3040de03d3449ab
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/app/hootnot/saxo_openapi?utm_source=github.com&utm_medium=referral&utm_content=hootnot/saxo_openapi&utm_campaign=Badge_Grade_Dashboard
+
 Python wrapper for Saxo Bank OpenAPI REST-API (see `here
 <https://www.developer.saxo/openapi/learn>`_)
 
