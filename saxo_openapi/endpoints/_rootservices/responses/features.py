@@ -38,7 +38,7 @@ responses = {
     "_v3_RemoveAvailabilitySubscription": {
         "url": "/openapi/root/v1/features/availability/subscriptions/"
                "{ContextId}/{ReferenceId}",
-        "params": {
+        "route": {
             "ContextId": '20190209072629616',
             "ReferenceId": 'Features',
         },
