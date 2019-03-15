@@ -2,6 +2,9 @@
 
 """initialization of unittests and data for unittests."""
 
+import json
+
+
 environment = "simulation"
 
 
@@ -51,6 +54,56 @@ class TestData(object):
         if 'params' in self._responses:
             return self._responses['params']
         return None
+
+    @property
+    def route(self):
+        if 'route' in self._responses:
+            return self._responses['route']
+        return None
+
+
+def test_generic(self, api, _mod, clsNm, route, **kwargs):
+    if hasattr(_mod, "responses"):
+        tdata = TestData(getattr(_mod, "responses"), "_v3_"+clsNm)
+    else:
+        tdata = TestData(dict({"_v3_"+clsNm: {}}), "_v3_"+clsNm)
+
+    cls = getattr(_mod, clsNm)
+
+    stuf = dict()
+    out = dict()
+    if tdata.params:
+        stuf.update({'params': tdata.params})
+    if tdata.body:
+        stuf.update({'data': tdata.body})
+    if tdata.route:
+        stuf.update(tdata.route)
+    elif route:
+        stuf.update(route)
+
+    try:
+        r = cls(**stuf)
+    except Exception as e:
+        raise ValueError("FAILURE instantiating {}: {}".format(clsNm, stuf))
+
+    if hasattr(r, "RESPONSE_DATA"):
+        if r.RESPONSE_DATA is not None:
+            out.update({'text': tdata.resp})
+
+    else:
+        out.update({'text': json.dumps(tdata.resp)})
+
+    out.update({'status_code': r.expected_status})
+
+    kwargs['mock'].register_uri(r.method,
+                                "{}/sim/{}".format(api.api_url, r),
+                                **out)
+    api.request(r)
+    if 'text' in out:
+        self.assertTrue(r.response == tdata.resp and
+                        r.status_code == r.expected_status)
+    else:
+        self.assertTrue(r.status_code == r.expected_status)
 
 
 def auth():
