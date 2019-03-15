@@ -44,6 +44,9 @@ def dyndoc_insert(src):
                 if "params" == k:
                     docsub.update({"{}_params".format(v):
                                    mkblock(src[v]["params"])})
+                if "route" == k:
+                    docsub.update({"{}_route".format(v):
+                                   mkblock(src[v]["route"])})
                 if "ciresp" == k:
                     docsub.update({"{}_ciresp".format(v):
                                    mkblock(src[v]["response"], 1)})
