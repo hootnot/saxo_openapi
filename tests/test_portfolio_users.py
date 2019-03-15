@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
@@ -45,42 +44,14 @@ class TestSaxo_Portfolio_Users(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_UsersMe(self, mock_req):
-        """test the UsersMe request."""
-        tid = "_v3_UsersMe"
-        resp, data = fetchTestData(pf.users.responses, tid)
-        r = pf.users.UsersMe()
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_Users(self, mock_req):
-        """test the Users request."""
-        tid = "_v3_Users"
-        resp, data, params = fetchTestData(pf.users.responses, tid)
-        r = pf.users.Users(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_UserUpdate(self, mock_req):
-        """test the UserUpdate request."""
-        tid = "_v3_UserUpdate"
-        resp, data = fetchTestData(pf.users.responses, tid)
-        r = pf.users.UserUpdate(data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.users, "UsersMe", {}),
+        (pf.users, "Users", {}),
+        (pf.users, "UserUpdate", {}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__pf_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

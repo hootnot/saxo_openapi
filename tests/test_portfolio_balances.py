@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
@@ -45,85 +44,20 @@ class TestSaxo_Portfolio_Balances(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_AccountBalancesMe(self, mock_req):
-        """test the AccountBalancesMe request."""
-        tid = "_v3_AccountBalancesMe"
-        resp, data = fetchTestData(pf.balances.responses, tid)
-        r = pf.balances.AccountBalancesMe()
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_AccountBalances(self, mock_req):
-        """test the AccountBalances request."""
-        tid = "_v3_AccountBalances"
-        resp, data, params = fetchTestData(pf.balances.responses, tid)
-        r = pf.balances.AccountBalances(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_MarginOverview(self, mock_req):
-        """test the MarginOverview request."""
-        tid = "_v3_MarginOverview"
-        resp, data, params = fetchTestData(pf.balances.responses, tid)
-        r = pf.balances.MarginOverview(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_BalanceSubscriptionCreate(self, mock_req):
-        """test the BalanceSubscriptionCreate request."""
-        tid = "_v3_BalanceSubscriptionCreate"
-        resp, data = fetchTestData(pf.balances.responses, tid)
-        r = pf.balances.BalanceSubscriptionCreate(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_BalanceSubscriptionRemoveByTag(self, mock_req):
-        """test the BalanceSubscriptionRemoveByTag request."""
-        tid = "_v3_BalanceSubscriptionRemoveByTag"
-        resp, data, params = fetchTestData(pf.balances.responses, tid)
-        ContextId = "explorer_1551792578055"
-        r = pf.balances.BalanceSubscriptionRemoveByTag(ContextId=ContextId,
-                                                       params=params)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_BalanceSubscriptionRemoveById(self, mock_req):
-        """test the BalanceSubscriptionRemoveById request."""
-        tid = "_v3_BalanceSubscriptionRemoveById"
-        resp, data = fetchTestData(pf.balances.responses, tid)
-        ContextId = "explorer_1551792578055"
-        ReferenceId = "O_697"
-        r = pf.balances.BalanceSubscriptionRemoveById(ContextId=ContextId,
-                                                      ReferenceId=ReferenceId)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.balances, "AccountBalancesMe", {}),
+        (pf.balances, "AccountBalances", {}),
+        (pf.balances, "MarginOverview", {}),
+        (pf.balances, "BalanceSubscriptionCreate", {}),
+        (pf.balances, "BalanceSubscriptionRemoveByTag",
+                      {'ContextId': 'explorer_1551792578055'}),
+        (pf.balances, "BalanceSubscriptionRemoveById",
+                      {'ContextId': 'explorer_1551792578055',
+                       'ReferenceId': 'O_697'}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

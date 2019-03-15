@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, TestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.referencedata as rd
 import requests_mock
@@ -67,32 +66,7 @@ class TestSaxo_Referencedata(unittest.TestCase):
       ])
     @requests_mock.Mocker(kw='mock')
     def test__rd_all(self, _mod, clsNm, route, **kwargs):
-        tdata = TestData(getattr(_mod, "responses"), "_v3_"+clsNm)
-        cls = getattr(_mod, clsNm)
-
-        stuf = dict()
-        out = dict()
-        if tdata.params:
-            stuf.update({'params': tdata.params})
-        if tdata.body:
-            stuf.update({'data': tdata.body})
-        if route:
-            stuf.update(route)
-
-        r = cls(**stuf)
-        if hasattr(r, "RESPONSE_DATA"):
-            if r.RESPONSE_DATA is not None:
-                out.update({'text': tdata.resp})
-
-        else:
-            out.update({'text': json.dumps(tdata.resp)})
-
-        kwargs['mock'].register_uri(r.method,
-                                    "{}/sim/{}".format(api.api_url, r),
-                                    **out)
-        result = api.request(r)
-        self.assertTrue(result == tdata.resp and
-                        r.status_code == r.expected_status)
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

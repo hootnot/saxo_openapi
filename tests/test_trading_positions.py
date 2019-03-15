@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.trading as tr
 import requests_mock
@@ -45,60 +44,15 @@ class TestSaxo_Trading_Positions(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__tr_PositionByQuote(self, mock_req):
-        """test the PositionByQuote request."""
-        tid = "_v3_PositionByQuote"
-        resp, data = fetchTestData(tr.positions.responses, tid)
-        r = tr.positions.PositionByQuote(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        rv = api.request(r)
-        self.assertTrue(rv == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_UpdatePosition(self, mock_req):
-        """test the UpdatePosition request."""
-        tid = "_v3_UpdatePosition"
-        resp, data = fetchTestData(tr.positions.responses, tid)
-        PositionId = 1019942426
-        r = tr.positions.UpdatePosition(PositionId=PositionId, data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        rv = api.request(r)
-        self.assertTrue(rv == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_ExercisePosition(self, mock_req):
-        """test the ExercisePosition request."""
-        tid = "_v3_ExercisePosition"
-        resp, data = fetchTestData(tr.positions.responses, tid)
-        PositionId = 1019942426
-        r = tr.positions.ExercisePosition(PositionId=PositionId, data=data)
-        mock_req.register_uri('PUT',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        rv = api.request(r)
-        self.assertTrue(rv == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_ExerciseAmount(self, mock_req):
-        """test the ExerciseAmount request."""
-        tid = "_v3_ExerciseAmount"
-        resp, data = fetchTestData(tr.positions.responses, tid)
-        PositionId = 1019942426
-        r = tr.positions.ExerciseAmount(data=data)
-        mock_req.register_uri('PUT',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        rv = api.request(r)
-        self.assertTrue(rv == resp)
+    @parameterized.expand([
+        (tr.positions, "PositionByQuote", {}),
+        (tr.positions, "UpdatePosition", {'PositionId': '1019942426'}),
+        (tr.positions, "ExercisePosition", {'PositionId': '1019942426'}),
+        (tr.positions, "ExerciseAmount", {}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

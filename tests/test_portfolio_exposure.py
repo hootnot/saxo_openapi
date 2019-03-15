@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
@@ -45,120 +44,23 @@ class TestSaxo_Portfolio_Exposure(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_NetInstrumentsExposureMe(self, mock_req):
-        """test the NetInstrumentsExposureMe request."""
-        tid = "_v3_NetInstrumentsExposureMe"
-        resp, data = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.NetInstrumentsExposureMe()
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_NetInstrumentExposureSpecific(self, mock_req):
-        """test the NetInstrumentExposureSpecific request."""
-        tid = "_v3_NetInstrumentExposureSpecific"
-        resp, data, params = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.NetInstrumentExposureSpecific(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_CreateExposureSubscription(self, mock_req):
-        """test the CreateExposureSubscription request."""
-        tid = "_v3_CreateExposureSubscription"
-        resp, data = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.CreateExposureSubscription(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_RemoveExposureSubscriptionsByTag(self, mock_req):
-        """test the RemoveExposureSubscriptionsByTag request."""
-        tid = "_v3_RemoveExposureSubscriptionsByTag"
-        resp, data, params = fetchTestData(pf.exposure.responses, tid)
-        ContextId = 'explorer_1552035128308'
-        r = pf.exposure.RemoveExposureSubscriptionsByTag(ContextId,
-                                                         params=params)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_RemoveExposureSubscription(self, mock_req):
-        """test the RemoveExposureSubscription request."""
-        tid = "_v3_RemoveExposureSubscription"
-        resp, data, params = fetchTestData(pf.exposure.responses, tid)
-        ContextId = 'explorer_1552035128308'
-        ReferenceId = 'Z_807'
-        r = pf.exposure.RemoveExposureSubscription(ContextId, ReferenceId)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_CurrencyExposureMe(self, mock_req):
-        """test the CurrencyExposureMe request."""
-        tid = "_v3_CurrencyExposureMe"
-        resp, data = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.CurrencyExposureMe()
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_CurrencyExposureSpecific(self, mock_req):
-        """test the CurrencyExposureSpecific request."""
-        tid = "_v3_CurrencyExposureSpecific"
-        resp, data, params = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.CurrencyExposureSpecific(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_FxSpotExposureMe(self, mock_req):
-        """test the FxSpotExposureMe request."""
-        tid = "_v3_FxSpotExposureMe"
-        resp, data = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.FxSpotExposureMe()
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_FxSpotExposureSpecific(self, mock_req):
-        """test the FxSpotExposureSpecific request."""
-        tid = "_v3_FxSpotExposureSpecific"
-        resp, data, params = fetchTestData(pf.exposure.responses, tid)
-        r = pf.exposure.FxSpotExposureSpecific(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
+    @parameterized.expand([
+        (pf.exposure, "NetInstrumentsExposureMe", {}),
+        (pf.exposure, "NetInstrumentExposureSpecific", {}),
+        (pf.exposure, "CreateExposureSubscription", {}),
+        (pf.exposure, "RemoveExposureSubscriptionsByTag",
+                      {'ContextId': 'explorer_1552035128308'}),
+        (pf.exposure, "RemoveExposureSubscription",
+                      {'ContextId': 'explorer_1552035128308',
+                       'ReferenceId': 'Z_807'}),
+        (pf.exposure, "CurrencyExposureMe", {}),
+        (pf.exposure, "CurrencyExposureSpecific", {}),
+        (pf.exposure, "FxSpotExposureMe", {}),
+        (pf.exposure, "FxSpotExposureSpecific", {}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

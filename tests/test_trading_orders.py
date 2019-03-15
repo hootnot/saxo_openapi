@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.trading as tr
 import requests_mock
@@ -45,57 +44,15 @@ class TestSaxo_Trading_Orders(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__tr_Order(self, mock_req):
-        """test the Order request."""
-        tid = "_v3_Order"
-        resp, data = fetchTestData(tr.orders.responses, tid)
-        r = tr.orders.Order(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_ChangeOrder(self, mock_req):
-        """test the ChangeOrder request."""
-        tid = "_v3_ChangeOrder"
-        resp, data = fetchTestData(tr.orders.responses, tid)
-        r = tr.orders.ChangeOrder(data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_CancelOrders(self, mock_req):
-        """test the CancelOrders request."""
-        tid = "_v3_CancelOrders"
-        resp, data, params = fetchTestData(tr.orders.responses, tid)
-        r = tr.orders.CancelOrders(OrderIds="76289286", params=params)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__tr_PrecheckOrder(self, mock_req):
-        """test the PrecheckOrder request."""
-        tid = "_v3_PrecheckOrder"
-        resp, data = fetchTestData(tr.orders.responses, tid)
-        r = tr.orders.PrecheckOrder(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
+    @parameterized.expand([
+        (tr.orders, "Order", {}),
+        (tr.orders, "ChangeOrder", {}),
+        (tr.orders, "CancelOrders", {'OrderIds': '6289286'}),
+        (tr.orders, "PrecheckOrder", {})
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

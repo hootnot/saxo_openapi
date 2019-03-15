@@ -6,7 +6,7 @@
 import sys
 import unittest
 from . import unittestsetup
-from .unittestsetup import environment, mock_env
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.rootservices as rs
 import requests_mock
@@ -46,25 +46,18 @@ class TestSaxo_RootServices_Diagnostics(unittest.TestCase):
         """Tear down test fixtures, if any."""
 
     @parameterized.expand([
-        (rs.diagnostics.Get,),
-        (rs.diagnostics.Post,),
-        (rs.diagnostics.Put,),
-        (rs.diagnostics.Delete,),
-        (rs.diagnostics.Patch,),
-        (rs.diagnostics.Head,),
-        (rs.diagnostics.Options,),
-        (rs.diagnostics.Echo,),
+        (rs.diagnostics, "Get", {}),
+        (rs.diagnostics, "Post", {}),
+        (rs.diagnostics, "Put", {}),
+        (rs.diagnostics, "Delete", {}),
+        (rs.diagnostics, "Patch", {}),
+        (rs.diagnostics, "Head", {}),
+        (rs.diagnostics, "Options", {}),
+        (rs.diagnostics, "Echo", {}),
       ])
     @requests_mock.Mocker(kw='mock')
-    def test_rs_ep(self, cls, **kwargs):
-        """rootservices.diagnostics..."""
-        resp = ""
-        r = cls()
-        kwargs['mock'].register_uri(r.METHOD,
-                                    "{}/sim/{}".format(api.api_url, r),
-                                    status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

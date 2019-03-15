@@ -5,9 +5,8 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
@@ -45,106 +44,23 @@ class TestSaxo_Portfolio_NetPositions(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_SingleNetPosition(self, mock_req):
-        """test the SingleNetPosition request."""
-        tid = "_v3_SingleNetPosition"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        NetPositionId = "GBPCAD__FxSpot"
-        r = pf.netpositions.SingleNetPosition(NetPositionId=NetPositionId,
-                                              params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_SingleNetPositionDetails(self, mock_req):
-        """test the SingleNetPositionDetails request."""
-        tid = "_v3_SingleNetPositionDetails"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        NetPositionId = "GBPCAD__FxSpot"
-        r = pf.netpositions.SingleNetPositionDetails(
-               NetPositionId=NetPositionId,
-               params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_NetPositionsMe(self, mock_req):
-        """test the NetPositionsMe request."""
-        tid = "_v3_NetPositionsMe"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        r = pf.netpositions.NetPositionsMe(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_NetPositionsQuery(self, mock_req):
-        """test the NetPositionsQuery request."""
-        tid = "_v3_NetPositionsQuery"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        r = pf.netpositions.NetPositionsQuery(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_NetPositionListSubscription(self, mock_req):
-        """test the NetPositionListSubscription request."""
-        tid = "_v3_NetPositionListSubscription"
-        resp, data = fetchTestData(pf.netpositions.responses, tid)
-        r = pf.netpositions.NetPositionListSubscription(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_positionsubscriptionremovemultiple(self, mock_req):
-        """test the NetPositionSubscriptionRemoveMultiple request."""
-        tid = "_v3_NetPositionSubscriptionRemoveMultiple"
-        resp, data, params = fetchTestData(pf.netpositions.responses, tid)
-        ContextId = 'explorer_1551702571343'
-        r = pf.netpositions.NetPositionSubscriptionRemoveMultiple(
-            ContextId=ContextId,
-            params=params)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_positionsubscriptionremove(self, mock_req):
-        """test the NetPositionSubscriptionRemove request."""
-        tid = "_v3_NetPositionSubscriptionRemove"
-        resp, data = fetchTestData(pf.netpositions.responses, tid)
-        ContextId = 'explorer_1551702571343'
-        ReferenceId = 'C_702'
-        r = pf.netpositions.NetPositionSubscriptionRemove(
-           ContextId=ContextId,
-           ReferenceId=ReferenceId)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.netpositions, "SingleNetPosition",
+                          {'NetPositionId': 'GBPCAD__FxSpot'}),
+        (pf.netpositions, "SingleNetPositionDetails",
+                          {'NetPositionId': 'GBPCAD__FxSpot'}),
+        (pf.netpositions, "NetPositionsMe", {}),
+        (pf.netpositions, "NetPositionsQuery", {}),
+        (pf.netpositions, "NetPositionListSubscription", {}),
+        (pf.netpositions, "NetPositionSubscriptionRemoveMultiple",
+                          {'ContextId': 'explorer_1551702571343'}),
+        (pf.netpositions, "NetPositionSubscriptionRemove",
+                          {'ContextId': 'explorer_1551702571343',
+                           'ReferenceId': 'C_702'}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":
