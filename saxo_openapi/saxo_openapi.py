@@ -138,7 +138,8 @@ class API(object):
         if response.status_code >= 400:
             logger.error("request %s failed [%d,%s]",
                          url,
-                         response.status_code)
+                         response.status_code,
+                         response.content.decode('utf-8'))
             raise OpenAPIError(response.status_code,
                                response.reason,
                                response.content.decode('utf-8'))
