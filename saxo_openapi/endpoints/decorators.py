@@ -96,10 +96,9 @@ def abstractclass(cls):
     def wrapInit(self, *args, **kwargs):
         # when the class is instantiated we can check for bases
         # we don't want it to be the base class
-        try:
-            assert self.__class__.__bases__[-1].__name__ != self._ISNEVER
+        if self.__class__.__bases__[-1].__name__ != self._ISNEVER:
             origInit(self, *args, **kwargs)
-        except AssertionError:
+        else:
             raise TypeError("Use of abstract base class")
 
     # replace the original __init__
