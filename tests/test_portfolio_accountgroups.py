@@ -5,18 +5,13 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
+from nose_parameterized import parameterized
 
-try:
-    from nose_parameterized import parameterized
-except:
-    print("*** Please install 'nose_parameterized' to run these tests ***")
-    exit(0)
 
 access_token = None
 api = None
@@ -45,59 +40,17 @@ class TestSaxo_Portfolio_Acctgrps(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_AccountGroupDetails(self, mock_req):
-        """test the AccountGroupDetails request."""
-        tid = "_v3_AccountGroupDetails"
-        resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
-        AGK = 'Cf4xZWiYL6W1nMKpygBLLA=='
-        r = pf.accountgroups.AccountGroupDetails(AccountGroupKey=AGK,
-                                                 params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_AccountGroupsMe(self, mock_req):
-        """test the AccountGroupsMe request."""
-        tid = "_v3_AccountGroupsMe"
-        resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
-        r = pf.accountgroups.AccountGroupsMe(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_AccountGroupsList(self, mock_req):
-        """test the AccountGroupsList request."""
-        tid = "_v3_AccountGroupsList"
-        resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
-        r = pf.accountgroups.AccountGroupsList(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_accountgrp_update(self, mock_req):
-        """test the AccountGroupUpdate request."""
-        tid = "_v3_AccountGroupUpdate"
-        resp, data, params = fetchTestData(pf.accountgroups.responses, tid)
-        AGK = 'Cf4xZWiYL6W1nMKpygBLLA=='
-        r = pf.accountgroups.AccountGroupUpdate(AccountGroupKey=AGK,
-                                                params=params,
-                                                data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
+    @parameterized.expand([
+        (pf.accountgroups, "AccountGroupDetails",
+                           {'AccountGroupKey': 'Cf4xZWiYL6W1nMKpygBLLA=='}),
+        (pf.accountgroups, "AccountGroupsMe", {}),
+        (pf.accountgroups, "AccountGroupsList", {}),
+        (pf.accountgroups, "AccountGroupUpdate",
+                           {'AccountGroupKey': 'Cf4xZWiYL6W1nMKpygBLLA=='}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

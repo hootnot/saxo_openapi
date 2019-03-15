@@ -5,18 +5,13 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.rootservices as rs
 import requests_mock
+from nose_parameterized import parameterized
 
-try:
-    from nose_parameterized import parameterized
-except:
-    print("*** Please install 'nose_parameterized' to run these tests ***")
-    exit(0)
 
 access_token = None
 api = None
@@ -45,43 +40,14 @@ class TestSaxo_RootServices_Features(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__ft_Availability(self, mock_req):
-        """test the Availability request."""
-        r = rs.features.Availability()
-        tid = "_v3_Availability"
-        resp, data = fetchTestData(rs.features.responses, tid)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__ft_CreateAvailabilitySubscription(self, mock_req):
-        """test the CreateAvailabilitySubscription Subscription request."""
-        tid = "_v3_CreateAvailabilitySubscription"
-        resp, data = fetchTestData(rs.features.responses, tid)
-        r = rs.features.CreateAvailabilitySubscription(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__ft_RemoveAvailabilitySubscription(self, mock_req):
-        """test the RemoveAvailabilitySubscription request."""
-        tid = "_v3_RemoveAvailabilitySubscription"
-        resp, data, params = fetchTestData(rs.features.responses, tid)
-        r = rs.features.RemoveAvailabilitySubscription(**params)
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (rs.features, "Availability", {}),
+        (rs.features, "CreateAvailabilitySubscription", {}),
+        (rs.features, "RemoveAvailabilitySubscription", {}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__ft_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

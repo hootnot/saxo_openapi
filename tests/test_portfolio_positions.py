@@ -5,18 +5,13 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
+from nose_parameterized import parameterized
 
-try:
-    from nose_parameterized import parameterized
-except:
-    print("*** Please install 'nose_parameterized' to run these tests ***")
-    exit(0)
 
 access_token = None
 api = None
@@ -45,120 +40,24 @@ class TestSaxo_Portfolio_Positions(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_SinglePosition(self, mock_req):
-        """test the SinglePosition request."""
-        tid = "_v3_SinglePosition"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        PositionId = 212561926
-        r = pf.positions.SinglePosition(PositionId=PositionId, params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_SinglePositionDetails(self, mock_req):
-        """test the SinglePositionDetails request."""
-        tid = "_v3_SinglePositionDetails"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        PositionId = 212561926
-        r = pf.positions.SinglePositionDetails(PositionId=PositionId,
-                                               params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionsMe(self, mock_req):
-        """test the PositionsMe request."""
-        tid = "_v3_PositionsMe"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        r = pf.positions.PositionsMe(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionsQuery(self, mock_req):
-        """test the PositionsQuery request."""
-        tid = "_v3_PositionsQuery"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        r = pf.positions.PositionsQuery(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionListSubscription(self, mock_req):
-        """test the PositionListSubscription request."""
-        tid = "_v3_PositionListSubscription"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        r = pf.positions.PositionListSubscription(data=data, params=params)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionSubscriptionPageSize(self, mock_req):
-        """test the PositionSubscriptionPageSize request."""
-        tid = "_v3_PositionSubscriptionPageSize"
-        resp, data = fetchTestData(pf.positions.responses, tid)
-        ContextId = 'explorer_1551702571343'
-        ReferenceId = 'C_702'
-        r = pf.positions.PositionSubscriptionPageSize(ContextId=ContextId,
-                                                      ReferenceId=ReferenceId,
-                                                      data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionSubscriptionRemoveMultiple(self, mock_req):
-        """test the PositionSubscriptionRemoveMultiple request."""
-        tid = "_v3_PositionSubscriptionRemoveMultiple"
-        resp, data, params = fetchTestData(pf.positions.responses, tid)
-        ContextId = 'explorer_1551702571343'
-        r = pf.positions.PositionSubscriptionRemoveMultiple(
-            ContextId=ContextId,
-            params=params)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_PositionSubscriptionRemove(self, mock_req):
-        """test the PositionSubscriptionRemove request."""
-        tid = "_v3_PositionSubscriptionRemove"
-        resp, data = fetchTestData(pf.positions.responses, tid)
-        ContextId = 'explorer_1551702571343'
-        ReferenceId = 'C_702'
-        r = pf.positions.PositionSubscriptionRemove(ContextId=ContextId,
-                                                    ReferenceId=ReferenceId)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.positions, "SinglePosition", {'PositionId': 212561926}),
+        (pf.positions, "SinglePositionDetails", {'PositionId': 212561926}),
+        (pf.positions, "PositionsMe", {}),
+        (pf.positions, "PositionsQuery", {}),
+        (pf.positions, "PositionListSubscription", {}),
+        (pf.positions, "PositionSubscriptionPageSize",
+                       {'ContextId': 'explorer_1551702571343',
+                        'ReferenceId': 'C_702'}),
+        (pf.positions, "PositionSubscriptionRemoveMultiple",
+                       {'ContextId': 'explorer_1551702571343'}),
+        (pf.positions, "PositionSubscriptionRemove",
+                       {'ContextId': 'explorer_1551702571343',
+                        'ReferenceId': 'C_702'}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

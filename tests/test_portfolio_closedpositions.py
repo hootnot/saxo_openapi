@@ -5,18 +5,13 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
+from nose_parameterized import parameterized
 
-try:
-    from nose_parameterized import parameterized
-except:
-    print("*** Please install 'nose_parameterized' to run these tests ***")
-    exit(0)
 
 access_token = None
 api = None
@@ -45,89 +40,21 @@ class TestSaxo_Portfolio_ClosedPositions(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionList(self, mock_req):
-        """test the ClosedPositionList request."""
-        tid = "_v3_ClosedPositionList"
-        resp, data, params = fetchTestData(pf.closedpositions.responses, tid)
-        r = pf.closedpositions.ClosedPositionList(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionById(self, mock_req):
-        """test the ClosedPositionById request."""
-        tid = "_v3_ClosedPositionById"
-        resp, data, params = fetchTestData(pf.closedpositions.responses, tid)
-        ClosedPositionId = '212702698-212702774'
-        r = pf.closedpositions.ClosedPositionById(
-                ClosedPositionId=ClosedPositionId,
-                params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionDetails(self, mock_req):
-        """test the ClosedPositionDetails request."""
-        tid = "_v3_ClosedPositionDetails"
-        resp, data, params = fetchTestData(pf.closedpositions.responses, tid)
-        ClosedPositionId = '212702698-212702774'
-        r = pf.closedpositions.ClosedPositionDetails(
-                ClosedPositionId=ClosedPositionId,
-                params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionsMe(self, mock_req):
-        """test the ClosedPositionsMe request."""
-        tid = "_v3_ClosedPositionsMe"
-        resp, data, params = fetchTestData(pf.closedpositions.responses, tid)
-        r = pf.closedpositions.ClosedPositionsMe(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionSubscription(self, mock_req):
-        """test the ClosedPositionSubscription request."""
-        tid = "_v3_ClosedPositionSubscription"
-        resp, data, params = fetchTestData(pf.closedpositions.responses, tid)
-        r = pf.closedpositions.ClosedPositionSubscription(data=data, params=params)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code= r.expected_status)
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_ClosedPositionSubscriptionUpdate(self, mock_req):
-        """test the ClosedPositionSubscriptionUpdate request."""
-        tid = "_v3_ClosedPositionSubscriptionUpdate"
-        resp, data = fetchTestData(pf.closedpositions.responses, tid)
-        ContextId = 'explorer_1551913039211'
-        ReferenceId = 'D_975'
-        r = pf.closedpositions.ClosedPositionSubscriptionUpdate(
-                      ContextId=ContextId,
-                      ReferenceId=ReferenceId,
-                      data=data)
-        mock_req.register_uri('PATCH',
-                              "{}/sim/{}".format(api.api_url, r),
-                              status_code= r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.closedpositions, "ClosedPositionList", {}),
+        (pf.closedpositions, "ClosedPositionById",
+                             {'ClosedPositionId': '212702698-212702774'}),
+        (pf.closedpositions, "ClosedPositionDetails",
+                             {'ClosedPositionId': '212702698-212702774'}),
+        (pf.closedpositions, "ClosedPositionsMe", {}),
+        (pf.closedpositions, "ClosedPositionSubscription", {}),
+        (pf.closedpositions, "ClosedPositionSubscriptionUpdate",
+                             {'ContextId': 'explorer_1551913039211',
+                              'ReferenceId': 'D_975'}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test__rd_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":

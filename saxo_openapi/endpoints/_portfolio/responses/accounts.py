@@ -183,4 +183,13 @@ responses = {
             "State": "Active"
         }
     },
+    "_v3_SubscriptionRemoveByTag": {
+        "url": "/openapi/port/v1/accounts/subscriptions/{ContextId}",
+        "params": {'ClientKey': "Cf4xZWiYL6W1nMKpygBLLA=="},
+        "response": '',
+    },
+    "_v3_SubscriptionRemoveById": {
+        "url": "/openapi/port/v1/accounts/subscriptions/{ContextId}/{ReferenceId}",
+        "response": '',
+    },
 }

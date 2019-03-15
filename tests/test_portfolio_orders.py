@@ -5,18 +5,13 @@
 
 import sys
 import unittest
-import json
 from . import unittestsetup
-from .unittestsetup import environment, mock_env, fetchTestData
+from .unittestsetup import environment, mock_env, test_generic
 from saxo_openapi import API
 import saxo_openapi.endpoints.portfolio as pf
 import requests_mock
+from nose_parameterized import parameterized
 
-try:
-    from nose_parameterized import parameterized
-except:
-    print("*** Please install 'nose_parameterized' to run these tests ***")
-    exit(0)
 
 access_token = None
 api = None
@@ -45,103 +40,22 @@ class TestSaxo_Portfolio_Orders(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    @requests_mock.Mocker()
-    def test__pf_GetOpenOrder(self, mock_req):
-        """test the GetOpenOrder request."""
-        tid = "_v3_GetOpenOrder"
-        resp, data, params = fetchTestData(pf.orders.responses, tid)
-        ClientKey = 'Cf4xZWiYL6W1nMKpygBLLA=='
-        OrderId = '76332324'
-        r = pf.orders.GetOpenOrder(ClientKey, OrderId, params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_GetOpenOrdersMe(self, mock_req):
-        """test the GetOpenOrdersMe request."""
-        tid = "_v3_GetOpenOrdersMe"
-        resp, data, params = fetchTestData(pf.orders.responses, tid)
-        r = pf.orders.GetOpenOrdersMe(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_OrderDetails(self, mock_req):
-        """test the OrderDetails request."""
-        tid = "_v3_OrderDetails"
-        resp, data, params = fetchTestData(pf.orders.responses, tid)
-        OrderId = '76332324'
-        r = pf.orders.OrderDetails(OrderId=OrderId, params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_GetAllOpenOrders(self, mock_req):
-        """test the GetAllOpenOrders request."""
-        tid = "_v3_GetAllOpenOrders"
-        resp, data, params = fetchTestData(pf.orders.responses, tid)
-        r = pf.orders.GetAllOpenOrders(params=params)
-        mock_req.register_uri('GET',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp))
-        result = api.request(r)
-        self.assertTrue(result == resp)
-
-    @requests_mock.Mocker()
-    def test__pf_CreateOpenOrdersSubscription(self, mock_req):
-        """test the CreateOpenOrdersSubscription request."""
-        tid = "_v3_CreateOpenOrdersSubscription"
-        resp, data = fetchTestData(pf.orders.responses, tid)
-        r = pf.orders.CreateOpenOrdersSubscription(data=data)
-        mock_req.register_uri('POST',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_RemoveOpenOrderSubscriptionsByTag(self, mock_req):
-        """test the RemoveOpenOrderSubscriptionsByTag request."""
-        tid = "_v3_RemoveOpenOrderSubscriptionsByTag"
-        resp, data, params = fetchTestData(pf.orders.responses, tid)
-        ContextId = 'explorer_1552035128308'
-        r = pf.orders.RemoveOpenOrderSubscriptionsByTag(
-            ContextId=ContextId,
-            params=params)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
-
-    @requests_mock.Mocker()
-    def test__pf_RemoveOpenOrderSubscription(self, mock_req):
-        """test the RemoveOpenOrderSubscription request."""
-        tid = "_v3_RemoveOpenOrderSubscription"
-        resp, data = fetchTestData(pf.orders.responses, tid)
-        ContextId = 'explorer_1552035128308'
-        ReferenceId = 'C_582'
-        r = pf.orders.RemoveOpenOrderSubscription(ContextId=ContextId,
-                                                  ReferenceId=ReferenceId)
-
-        mock_req.register_uri('DELETE',
-                              "{}/sim/{}".format(api.api_url, r),
-                              text=json.dumps(resp),
-                              status_code=r.expected_status)
-        api.request(r)
-        self.assertTrue(r.status_code == r.expected_status)
+    @parameterized.expand([
+        (pf.orders, "GetOpenOrder", {'ClientKey': 'Cf4xZWiYL6W1nMKpygBLLA==',
+                                     'OrderId': '76332324'}),
+        (pf.orders, "GetOpenOrdersMe", {}),
+        (pf.orders, "OrderDetails", {'OrderId': '76332324'}),
+        (pf.orders, "GetAllOpenOrders", {}),
+        (pf.orders, "CreateOpenOrdersSubscription", {}),
+        (pf.orders, "RemoveOpenOrderSubscriptionsByTag",
+         {'ContextId': 'explorer_1552035128308'}),
+        (pf.orders, "RemoveOpenOrderSubscription",
+                    {'ContextId': 'explorer_1552035128308',
+                     'ReferenceId': 'C_582'}),
+      ])
+    @requests_mock.Mocker(kw='mock')
+    def test_all(self, _mod, clsNm, route, **kwargs):
+        test_generic(self, api, _mod, clsNm, route, **kwargs)
 
 
 if __name__ == "__main__":
