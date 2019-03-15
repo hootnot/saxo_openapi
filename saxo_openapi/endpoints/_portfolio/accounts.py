@@ -271,6 +271,8 @@ class SubscriptionRemoveById(Portfolio):
         >>> import saxo_openapi.endpoints.portfolio as pf
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
+        >>> ContextId = 'ctxt_20190314'
+        >>> ReferenceId = 'sub_1'
         >>> r = pf.accounts.SubscriptionRemoveById(ContextId, ReferenceId)
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
