@@ -59,7 +59,7 @@ class GetAllocationKeyDetails(Trading):
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> AllocationKeyId = '...'
+        >>> AllocationKeyId = 227
         >>> r = tr.allocationkeys.GetAllocationKeyDetails(
         ...     AllocationKeyId=AllocationKeyId)
         >>> client.request(r)
@@ -126,16 +126,11 @@ class DeleteAllocationKey(Trading):
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
-        >>> AllocationKeyId = '...'
+        >>> AllocationKeyId = 227
         >>> r = tr.allocationkeys.DeleteAllocationKey(
         ...     AllocationKeyId=AllocationKeyId)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
-
-        Output::
-
-            {_v3_DeleteAllocationKey_resp}
-
+        >>> assert r.status_code == r.expected_status
         """
         super(DeleteAllocationKey, self).__init__(
             AllocationKeyId=AllocationKeyId)
