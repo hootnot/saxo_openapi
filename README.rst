@@ -440,6 +440,11 @@ States:
        Create an allocation key                  [x]
        Delete an allocation key                  [x]
      InfoPrices
+       Get an info price for a specific instrum. [x]
+       Get info prices for a list of instruments [x]
+       Create info pr subscr. on list of instr.  [x]
+       Remove info pr subscr. on instruments     [x]
+       Remove info pr subscr on an instrument    [x]
      Messages
      OptionChain
      v1 Orders
