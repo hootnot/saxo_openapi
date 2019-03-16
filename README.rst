@@ -431,7 +431,7 @@ States:
        Remove a feature availability subscription [x]
      Sessions
      Subscriptions
-     User
+     User                                        [x]
 
    Trading
      AllocationKeys
