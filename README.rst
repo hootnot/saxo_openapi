@@ -435,6 +435,10 @@ States:
 
    Trading
      AllocationKeys
+       Get a list of existing allocation keys    [x]
+       Get detailed inform. about an alloc. key  [x]
+       Create an allocation key                  [x]
+       Delete an allocation key                  [x]
      InfoPrices
      Messages
      OptionChain
