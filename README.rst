@@ -21,6 +21,35 @@ Currently this is code under development. There is no pypi-package yet.
    :target: https://www.codacy.com/app/hootnot/saxo_openapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hootnot/saxo_openapi&amp;utm_campaign=Badge_Grade
 
 
+Design
+------
+
+The *saxo_openapi* covers each *endpoint* of the SAXO OpenAPI by a
+*request class*.
+Each endpoint applies the following in a consistent way:
+
+  =========================================     =========================
+  Endpoint parameters as documented by SAXO     saxo_openpi request class
+  =========================================     =========================
+  *route* parameters                            named parameters: required
+  *querystring* parameters                      params dict: optional and/or required parameters
+  *body* parameters                             data dict: optional and/or required parameters
+  =========================================     =========================
+
+
+Documentation
+-------------
+
+SAXO Bank has a full documentation of their REST interface available
+on  `https://www.developer.saxo/openapi/referencedocs`_.
+
+The documentation of *saxo_openapi* is on `https://saxo-openapi.readthedocs.io/en/latest`_.
+Each request-class is documented with a straightforward usage example.
+
+.. _`https://www.developer.saxo/openapi/referencedocs`: https://www.developer.saxo/openapi/referencedocs
+.. _`https://saxo-openapi.readthedocs.io/en/latest`: https://saxo-openapi.readthedocs.io/en/latest
+
+
 Install
 -------
 
