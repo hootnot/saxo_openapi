@@ -15,10 +15,12 @@ class TestSaxo_Trading_Orders(ReqMockTest):
         super(TestSaxo_Trading_Orders, self).setUp()
 
     @parameterized.expand([
-        (tr.orders, "Order", {}),
-        (tr.orders, "ChangeOrder", {}),
-        (tr.orders, "CancelOrders", {'OrderIds': '6289286'}),
-        (tr.orders, "PrecheckOrder", {})
+        (tr.allocationkeys, "GetAllocationKeys", {}),
+        (tr.allocationkeys, "GetAllocationKeyDetails",
+                            {'AllocationKeyId': 227}),
+        (tr.allocationkeys, "CreateAllocationKey", {}),
+        (tr.allocationkeys, "DeleteAllocationKey",
+                            {'AllocationKeyId': 227}),
       ])
     @requests_mock.Mocker(kw='mock')
     def test_all(self, _mod, clsNm, route, **kwargs):

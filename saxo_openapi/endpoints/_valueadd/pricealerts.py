@@ -229,7 +229,7 @@ class ModifyUserNotificationSettings(ValueAdd):
         >>> data = {_v3_ModifyUserNotificationSettings_body}
         >>> r = va.pricealerts.ModifyUserNotificationSettings(data=data)
         >>> client.request(r)
-        >>> print(json.dumps(rv, indent=2))
+        >>> assert r.status_code == r.expected_status
 
         No response data is returned.
         """
