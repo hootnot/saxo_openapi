@@ -466,7 +466,7 @@ States:
        Create info pr subscr. on list of instr.  [x]
        Remove info pr subscr. on instruments     [x]
        Remove info pr subscr on an instrument    [x]
-     Messages
+     Messages                                    [x]
      OptionChain
      v1 Orders
      v2 Orders

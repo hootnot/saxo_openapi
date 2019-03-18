@@ -3,6 +3,7 @@
 from ._trading import (
     allocationkeys,
     infoprices,
+    messages,
     orders,
     prices,
     positions
