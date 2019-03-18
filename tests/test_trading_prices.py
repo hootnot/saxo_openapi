@@ -5,7 +5,7 @@
 import requests_mock
 from .unittestsetup import test_generic, ReqMockTest
 import saxo_openapi.endpoints.trading as tr
-from nose_parameterized import parameterized
+from parameterized import parameterized
 
 
 class TestSaxo_Trading_Prices(ReqMockTest):
