@@ -451,6 +451,10 @@ States:
        Create a feature availability subscription [x]
        Remove a feature availability subscription [x]
      Sessions
+       Get Session capabilities                  [x]
+       Change Session capabilities               [x]
+       Create Session capabilities subscr.       [x]
+       Remove Session capabilities subscr.       [x]
      Subscriptions
      User                                        [x]
 
