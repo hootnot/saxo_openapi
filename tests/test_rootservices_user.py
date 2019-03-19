@@ -1,9 +1,7 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """Tests for `saxo_openapi` package."""
 
-import unittest
 import requests_mock
 from .unittestsetup import test_generic, ReqMockTest
 import saxo_openapi.endpoints.rootservices as rs
@@ -21,8 +19,3 @@ class TestSaxo_RootServices_User(ReqMockTest):
     @requests_mock.Mocker(kw='mock')
     def test__ft_all(self, _mod, clsNm, route, **kwargs):
         test_generic(self, _mod, clsNm, route, **kwargs)
-
-
-if __name__ == "__main__":
-
-    unittest.main()

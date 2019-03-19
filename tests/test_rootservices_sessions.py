@@ -2,7 +2,6 @@
 
 """Tests for `saxo_openapi` package."""
 
-import unittest
 import requests_mock
 from .unittestsetup import test_generic, ReqMockTest
 import saxo_openapi.endpoints.rootservices as rs
