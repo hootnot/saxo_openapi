@@ -4,4 +4,5 @@ from ._rootservices import (
     diagnostics,
     features,
     sessions,
+    subscriptions,
     user)

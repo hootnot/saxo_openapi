@@ -456,6 +456,7 @@ States:
        Create Session capabilities subscr.       [x]
        Remove Session capabilities subscr.       [x]
      Subscriptions
+       Rmove multiple active subscr              [x]
      User                                        [x]
 
    Trading
