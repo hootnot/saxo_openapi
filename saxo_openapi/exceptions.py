@@ -14,25 +14,27 @@ class OpenAPIError(Exception):
     to raise an exception representing that error.
     """
 
-    def __init__(self, code, reason, content):
+    def __init__(self, code, reason, content=None):
         """Instantiate an OpenAPIError.
 
         Parameters
         ----------
-        code : int
+        code : int (required)
             the HTTP-code of the response
 
-        msg : str
-            the message returned with the response
+        reason : str (required)
+            the reason of the exceptions
+
+        content : str (optional)
+            the content
         """
         self.code = code
         self.reason = reason
         self.content = content
 
-        if self.content:  # if error content is returned, include in exception
-            message = 'HTTP error: ' + str(code) + ', reason: ' + reason + \
-                      ', errorcontent: ' + content
-        else:
-            message = 'HTTP error: ' + str(code) + ', reason: ' + reason
+        message = 'HTTP error: {}, reason: {}'.format(code, reason)
+        # if error content is returned, include in exception
+        if self.content:
+            message += ', errorcontent: {}'.format(content)
 
         super(OpenAPIError, self).__init__(message)
