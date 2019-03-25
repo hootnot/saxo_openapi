@@ -20,6 +20,17 @@ Currently this is code under development. There is no pypi-package yet.
 .. image:: https://api.codacy.com/project/badge/Grade/edcfcf6a416a4f94bb710413a35daa83
    :target: https://www.codacy.com/app/hootnot/saxo_openapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hootnot/saxo_openapi&amp;utm_campaign=Badge_Grade
 
+Interactive
+-----------
+
+.. image:: https://jupyter.readthedocs.io/en/latest/_static/_images/jupyter.svg
+   :target: ./jupyter
+   :alt: Jupyter
+
+Using the Jupyter `notebook`_ it is easy to experiment with the
+*saxo_openapi* library.
+
+.. _notebook: ./jupyter/index.ipynb
 
 Design
 ------
