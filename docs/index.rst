@@ -10,6 +10,7 @@ Welcome to SAXO Bank OpenAPI's documentation
    saxo_openapi
 
    saxo_openapi.endpoints
+   saxo_openapi.definitions
    saxo_openapi.contrib
 
    examples
