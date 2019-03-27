@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ._rootservices import (
+from . import (  # noqa: F401
     diagnostics,
     features,
     sessions,
