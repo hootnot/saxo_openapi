@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from ._referencedata import (
+
+from . import (  # noqa: F401
     algostrategies,
     countries,
     cultures,
     currencies,
     exchanges,
+    instruments,
     languages,
     standarddates,
-    timezones,
-    instruments
-)
+    timezones)
