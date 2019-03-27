@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from ._trading import (
+from . import (  # noqa: F401
     allocationkeys,
     infoprices,
     messages,
     orders,
-    prices,
-    positions
-)
+    positions,
+    prices)
