@@ -1,7 +1,7 @@
 MarkMessageAsSeen
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.messages.MarkMessageAsSeen
+.. autoclass:: saxo_openapi.endpoints.trading.messages.MarkMessageAsSeen
     :members:
     :undoc-members:
     :inherited-members:

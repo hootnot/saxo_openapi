@@ -1,7 +1,7 @@
 Patch
 ~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.diagnostics.Patch
+.. autoclass:: saxo_openapi.endpoints.rootservices.diagnostics.Patch
     :members:
     :undoc-members:
     :inherited-members:

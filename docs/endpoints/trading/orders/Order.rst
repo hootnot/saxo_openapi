@@ -1,7 +1,7 @@
 Order
 ~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.orders.Order
+.. autoclass:: saxo_openapi.endpoints.trading.orders.Order
     :members:
     :undoc-members:
     :inherited-members:

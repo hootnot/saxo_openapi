@@ -1,7 +1,7 @@
 AccountPerformance
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._accounthistory.performance.AccountPerformance
+.. autoclass:: saxo_openapi.endpoints.accounthistory.performance.AccountPerformance
     :members:
     :undoc-members:
     :inherited-members:

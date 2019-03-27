@@ -1,7 +1,7 @@
 UserUpdate
 ~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.users.UserUpdate
+.. autoclass:: saxo_openapi.endpoints.portfolio.users.UserUpdate
     :members:
     :undoc-members:
     :inherited-members:

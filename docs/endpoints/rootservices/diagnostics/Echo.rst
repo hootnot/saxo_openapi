@@ -1,7 +1,7 @@
 Echo
 ~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.diagnostics.Echo
+.. autoclass:: saxo_openapi.endpoints.rootservices.diagnostics.Echo
     :members:
     :undoc-members:
     :inherited-members:

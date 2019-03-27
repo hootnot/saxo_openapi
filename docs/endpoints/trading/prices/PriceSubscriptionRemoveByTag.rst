@@ -1,7 +1,7 @@
 PriceSubscriptionRemoveByTag
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.prices.PriceSubscriptionRemoveByTag
+.. autoclass:: saxo_openapi.endpoints.trading.prices.PriceSubscriptionRemoveByTag
     :members:
     :undoc-members:
     :inherited-members:

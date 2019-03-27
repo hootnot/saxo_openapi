@@ -1,7 +1,7 @@
 FxSpotExposureMe
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.FxSpotExposureMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.FxSpotExposureMe
     :members:
     :undoc-members:
     :inherited-members:

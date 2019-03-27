@@ -1,7 +1,7 @@
 FXOptionExpiryDates
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.standarddates.FXOptionExpiryDates
+.. autoclass:: saxo_openapi.endpoints.referencedata.standarddates.FXOptionExpiryDates
     :members:
     :undoc-members:
     :inherited-members:

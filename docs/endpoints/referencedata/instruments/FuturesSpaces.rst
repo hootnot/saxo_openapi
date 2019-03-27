@@ -1,7 +1,7 @@
 FuturesSpaces
 ~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.instruments.FuturesSpaces
+.. autoclass:: saxo_openapi.endpoints.referencedata.instruments.FuturesSpaces
     :members:
     :undoc-members:
     :inherited-members:

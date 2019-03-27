@@ -1,7 +1,7 @@
 GetAlertDefinition
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.GetAlertDefinition
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.GetAlertDefinition
     :members:
     :undoc-members:
     :inherited-members:

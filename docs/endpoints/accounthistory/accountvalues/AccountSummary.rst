@@ -1,7 +1,7 @@
 AccountSummary
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._accounthistory.accountvalues.AccountSummary
+.. autoclass:: saxo_openapi.endpoints.accounthistory.accountvalues.AccountSummary
     :members:
     :undoc-members:
     :inherited-members:

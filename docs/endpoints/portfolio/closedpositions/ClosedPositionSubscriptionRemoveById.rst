@@ -1,7 +1,7 @@
 ClosedPositionSubscriptionRemoveById
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.closedpositions.ClosedPositionSubscriptionRemoveById
+.. autoclass:: saxo_openapi.endpoints.portfolio.closedpositions.ClosedPositionSubscriptionRemoveById
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 ClientDetailsMe
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.clients.ClientDetailsMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.clients.ClientDetailsMe
     :members:
     :undoc-members:
     :inherited-members:

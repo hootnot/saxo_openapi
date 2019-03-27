@@ -1,7 +1,7 @@
 PrecheckOrder
 ~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.orders.PrecheckOrder
+.. autoclass:: saxo_openapi.endpoints.trading.orders.PrecheckOrder
     :members:
     :undoc-members:
     :inherited-members:

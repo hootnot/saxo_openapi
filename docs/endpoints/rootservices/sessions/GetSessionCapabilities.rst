@@ -1,7 +1,7 @@
 GetSessionCapabilities
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.sessions.GetSessionCapabilities
+.. autoclass:: saxo_openapi.endpoints.rootservices.sessions.GetSessionCapabilities
     :members:
     :undoc-members:
     :inherited-members:

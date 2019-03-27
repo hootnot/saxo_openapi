@@ -1,7 +1,7 @@
 ModifyUserNotificationSettings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.ModifyUserNotificationSettings
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.ModifyUserNotificationSettings
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 PositionsMe
 ~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.positions.PositionsMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.positions.PositionsMe
     :members:
     :undoc-members:
     :inherited-members:

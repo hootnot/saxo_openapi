@@ -1,7 +1,7 @@
 PositionSubscriptionPageSize
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.positions.PositionSubscriptionPageSize
+.. autoclass:: saxo_openapi.endpoints.portfolio.positions.PositionSubscriptionPageSize
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 NetPositionSubscriptionRemove
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.netpositions.NetPositionSubscriptionRemove
+.. autoclass:: saxo_openapi.endpoints.portfolio.netpositions.NetPositionSubscriptionRemove
     :members:
     :undoc-members:
     :inherited-members:

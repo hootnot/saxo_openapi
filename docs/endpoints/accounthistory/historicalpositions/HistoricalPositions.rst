@@ -1,7 +1,7 @@
 HistoricalPositions
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._accounthistory.historicalpositions.HistoricalPositions
+.. autoclass:: saxo_openapi.endpoints.accounthistory.historicalpositions.HistoricalPositions
     :members:
     :undoc-members:
     :inherited-members:

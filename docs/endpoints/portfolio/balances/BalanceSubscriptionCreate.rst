@@ -1,7 +1,7 @@
 BalanceSubscriptionCreate
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.balances.BalanceSubscriptionCreate
+.. autoclass:: saxo_openapi.endpoints.portfolio.balances.BalanceSubscriptionCreate
     :members:
     :undoc-members:
     :inherited-members:

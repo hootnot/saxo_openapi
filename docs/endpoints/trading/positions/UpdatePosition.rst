@@ -1,7 +1,7 @@
 UpdatePosition
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.positions.UpdatePosition
+.. autoclass:: saxo_openapi.endpoints.trading.positions.UpdatePosition
     :members:
     :undoc-members:
     :inherited-members:

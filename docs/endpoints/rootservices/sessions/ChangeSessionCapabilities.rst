@@ -1,7 +1,7 @@
 ChangeSessionCapabilities
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.sessions.ChangeSessionCapabilities
+.. autoclass:: saxo_openapi.endpoints.rootservices.sessions.ChangeSessionCapabilities
     :members:
     :undoc-members:
     :inherited-members:

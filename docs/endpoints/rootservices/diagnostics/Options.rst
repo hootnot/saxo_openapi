@@ -1,7 +1,7 @@
 Options
 ~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.diagnostics.Options
+.. autoclass:: saxo_openapi.endpoints.rootservices.diagnostics.Options
     :members:
     :undoc-members:
     :inherited-members:

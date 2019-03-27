@@ -1,7 +1,7 @@
 InfoPrices
 ~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.infoprices.InfoPrices
+.. autoclass:: saxo_openapi.endpoints.trading.infoprices.InfoPrices
     :members:
     :undoc-members:
     :inherited-members:

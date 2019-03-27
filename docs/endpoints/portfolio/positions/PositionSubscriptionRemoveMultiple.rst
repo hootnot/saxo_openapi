@@ -1,7 +1,7 @@
 PositionSubscriptionRemoveMultiple
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.positions.PositionSubscriptionRemoveMultiple
+.. autoclass:: saxo_openapi.endpoints.portfolio.positions.PositionSubscriptionRemoveMultiple
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 Post
 ~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.diagnostics.Post
+.. autoclass:: saxo_openapi.endpoints.rootservices.diagnostics.Post
     :members:
     :undoc-members:
     :inherited-members:

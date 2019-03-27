@@ -1,7 +1,7 @@
 UserDetails
 ~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.users.UserDetails
+.. autoclass:: saxo_openapi.endpoints.portfolio.users.UserDetails
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 SinglePosition
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.positions.SinglePosition
+.. autoclass:: saxo_openapi.endpoints.portfolio.positions.SinglePosition
     :members:
     :undoc-members:
     :inherited-members:

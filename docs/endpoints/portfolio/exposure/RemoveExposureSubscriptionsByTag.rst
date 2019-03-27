@@ -1,7 +1,7 @@
 RemoveExposureSubscriptionsByTag
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.RemoveExposureSubscriptionsByTag
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.RemoveExposureSubscriptionsByTag
     :members:
     :undoc-members:
     :inherited-members:

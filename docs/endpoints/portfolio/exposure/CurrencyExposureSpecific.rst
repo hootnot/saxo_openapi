@@ -1,7 +1,7 @@
 CurrencyExposureSpecific
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.CurrencyExposureSpecific
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.CurrencyExposureSpecific
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 ChangeOrder
 ~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.orders.ChangeOrder
+.. autoclass:: saxo_openapi.endpoints.trading.orders.ChangeOrder
     :members:
     :undoc-members:
     :inherited-members:

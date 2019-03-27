@@ -1,7 +1,7 @@
 Countries
 ~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.countries.Countries
+.. autoclass:: saxo_openapi.endpoints.referencedata.countries.Countries
     :members:
     :undoc-members:
     :inherited-members:

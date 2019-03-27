@@ -1,7 +1,7 @@
 RemoveAvailabilitySubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.features.RemoveAvailabilitySubscription
+.. autoclass:: saxo_openapi.endpoints.rootservices.features.RemoveAvailabilitySubscription
     :members:
     :undoc-members:
     :inherited-members:

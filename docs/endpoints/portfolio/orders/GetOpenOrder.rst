@@ -1,7 +1,7 @@
 GetOpenOrder
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.orders.GetOpenOrder
+.. autoclass:: saxo_openapi.endpoints.portfolio.orders.GetOpenOrder
     :members:
     :undoc-members:
     :inherited-members:

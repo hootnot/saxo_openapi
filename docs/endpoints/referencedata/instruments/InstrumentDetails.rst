@@ -1,7 +1,7 @@
 InstrumentDetails
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.instruments.InstrumentDetails
+.. autoclass:: saxo_openapi.endpoints.referencedata.instruments.InstrumentDetails
     :members:
     :undoc-members:
     :inherited-members:

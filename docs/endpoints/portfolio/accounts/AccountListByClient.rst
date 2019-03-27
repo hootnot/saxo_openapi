@@ -1,7 +1,7 @@
 AccountListByClient
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accounts.AccountListByClient
+.. autoclass:: saxo_openapi.endpoints.portfolio.accounts.AccountListByClient
     :members:
     :undoc-members:
     :inherited-members:

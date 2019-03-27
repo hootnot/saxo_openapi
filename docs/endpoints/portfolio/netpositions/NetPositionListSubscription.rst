@@ -1,7 +1,7 @@
 NetPositionListSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.netpositions.NetPositionListSubscription
+.. autoclass:: saxo_openapi.endpoints.portfolio.netpositions.NetPositionListSubscription
     :members:
     :undoc-members:
     :inherited-members:

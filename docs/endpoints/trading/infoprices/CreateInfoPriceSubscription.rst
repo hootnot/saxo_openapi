@@ -1,7 +1,7 @@
 CreateInfoPriceSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.infoprices.CreateInfoPriceSubscription
+.. autoclass:: saxo_openapi.endpoints.trading.infoprices.CreateInfoPriceSubscription
     :members:
     :undoc-members:
     :inherited-members:

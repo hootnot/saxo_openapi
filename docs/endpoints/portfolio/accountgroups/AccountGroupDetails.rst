@@ -1,7 +1,7 @@
 AccountGroupDetails
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accountgroups.AccountGroupDetails
+.. autoclass:: saxo_openapi.endpoints.portfolio.accountgroups.AccountGroupDetails
     :members:
     :undoc-members:
     :inherited-members:

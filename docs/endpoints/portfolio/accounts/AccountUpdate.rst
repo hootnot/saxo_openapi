@@ -1,7 +1,7 @@
 AccountUpdate
 ~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accounts.AccountUpdate
+.. autoclass:: saxo_openapi.endpoints.portfolio.accounts.AccountUpdate
     :members:
     :undoc-members:
     :inherited-members:

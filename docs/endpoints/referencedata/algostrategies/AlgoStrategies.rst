@@ -1,7 +1,7 @@
 AlgoStrategies
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.algostrategies.AlgoStrategies
+.. autoclass:: saxo_openapi.endpoints.referencedata.algostrategies.AlgoStrategies
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 ClosedPositionList
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.closedpositions.ClosedPositionList
+.. autoclass:: saxo_openapi.endpoints.portfolio.closedpositions.ClosedPositionList
     :members:
     :undoc-members:
     :inherited-members:

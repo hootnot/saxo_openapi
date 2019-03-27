@@ -1,7 +1,7 @@
 RemoveInfoPriceSubscriptionById
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.infoprices.RemoveInfoPriceSubscriptionById
+.. autoclass:: saxo_openapi.endpoints.trading.infoprices.RemoveInfoPriceSubscriptionById
     :members:
     :undoc-members:
     :inherited-members:

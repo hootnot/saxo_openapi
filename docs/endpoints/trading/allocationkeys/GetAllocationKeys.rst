@@ -1,7 +1,7 @@
 GetAllocationKeys
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.allocationkeys.GetAllocationKeys
+.. autoclass:: saxo_openapi.endpoints.trading.allocationkeys.GetAllocationKeys
     :members:
     :undoc-members:
     :inherited-members:

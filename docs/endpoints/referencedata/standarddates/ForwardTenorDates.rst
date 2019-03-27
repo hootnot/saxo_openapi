@@ -1,7 +1,7 @@
 ForwardTenorDates
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.standarddates.ForwardTenorDates
+.. autoclass:: saxo_openapi.endpoints.referencedata.standarddates.ForwardTenorDates
     :members:
     :undoc-members:
     :inherited-members:

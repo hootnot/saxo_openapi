@@ -1,7 +1,7 @@
 NetInstrumentsExposureMe
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.NetInstrumentsExposureMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.NetInstrumentsExposureMe
     :members:
     :undoc-members:
     :inherited-members:

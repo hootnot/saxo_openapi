@@ -1,7 +1,7 @@
 CurrencyExposureMe
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.CurrencyExposureMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.CurrencyExposureMe
     :members:
     :undoc-members:
     :inherited-members:

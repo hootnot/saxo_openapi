@@ -1,7 +1,7 @@
 ExchangeDetails
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.exchanges.ExchangeDetails
+.. autoclass:: saxo_openapi.endpoints.referencedata.exchanges.ExchangeDetails
     :members:
     :undoc-members:
     :inherited-members:

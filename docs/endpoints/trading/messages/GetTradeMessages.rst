@@ -1,7 +1,7 @@
 GetTradeMessages
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.messages.GetTradeMessages
+.. autoclass:: saxo_openapi.endpoints.trading.messages.GetTradeMessages
     :members:
     :undoc-members:
     :inherited-members:

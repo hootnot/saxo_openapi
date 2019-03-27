@@ -1,7 +1,7 @@
 MarginOverview
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.balances.MarginOverview
+.. autoclass:: saxo_openapi.endpoints.portfolio.balances.MarginOverview
     :members:
     :undoc-members:
     :inherited-members:

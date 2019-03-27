@@ -1,7 +1,7 @@
 SubscriptionRemoveById
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accounts.SubscriptionRemoveById
+.. autoclass:: saxo_openapi.endpoints.portfolio.accounts.SubscriptionRemoveById
     :members:
     :undoc-members:
     :inherited-members:

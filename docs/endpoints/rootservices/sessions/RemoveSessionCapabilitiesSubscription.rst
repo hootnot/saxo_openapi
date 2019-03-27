@@ -1,7 +1,7 @@
 RemoveSessionCapabilitiesSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.sessions.RemoveSessionCapabilitiesSubscription
+.. autoclass:: saxo_openapi.endpoints.rootservices.sessions.RemoveSessionCapabilitiesSubscription
     :members:
     :undoc-members:
     :inherited-members:

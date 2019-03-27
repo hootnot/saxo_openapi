@@ -1,7 +1,7 @@
 CreateOpenOrdersSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.orders.CreateOpenOrdersSubscription
+.. autoclass:: saxo_openapi.endpoints.portfolio.orders.CreateOpenOrdersSubscription
     :members:
     :undoc-members:
     :inherited-members:

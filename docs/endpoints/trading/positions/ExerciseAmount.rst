@@ -1,7 +1,7 @@
 ExerciseAmount
 ~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.positions.ExerciseAmount
+.. autoclass:: saxo_openapi.endpoints.trading.positions.ExerciseAmount
     :members:
     :undoc-members:
     :inherited-members:

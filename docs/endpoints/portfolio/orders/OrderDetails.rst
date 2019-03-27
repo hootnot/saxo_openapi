@@ -1,7 +1,7 @@
 OrderDetails
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.orders.OrderDetails
+.. autoclass:: saxo_openapi.endpoints.portfolio.orders.OrderDetails
     :members:
     :undoc-members:
     :inherited-members:

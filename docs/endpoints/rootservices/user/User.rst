@@ -1,7 +1,7 @@
 User
 ~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.user.User
+.. autoclass:: saxo_openapi.endpoints.rootservices.user.User
     :members:
     :undoc-members:
     :inherited-members:

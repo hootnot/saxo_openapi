@@ -1,7 +1,7 @@
 DeleteAllocationKey
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.allocationkeys.DeleteAllocationKey
+.. autoclass:: saxo_openapi.endpoints.trading.allocationkeys.DeleteAllocationKey
     :members:
     :undoc-members:
     :inherited-members:

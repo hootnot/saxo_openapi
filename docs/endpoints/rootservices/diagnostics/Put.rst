@@ -1,7 +1,7 @@
 Put
 ~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.diagnostics.Put
+.. autoclass:: saxo_openapi.endpoints.rootservices.diagnostics.Put
     :members:
     :undoc-members:
     :inherited-members:

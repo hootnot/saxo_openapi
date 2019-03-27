@@ -1,7 +1,7 @@
 DeletePriceAlert
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.DeletePriceAlert
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.DeletePriceAlert
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 PositionByQuote
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.positions.PositionByQuote
+.. autoclass:: saxo_openapi.endpoints.trading.positions.PositionByQuote
     :members:
     :undoc-members:
     :inherited-members:

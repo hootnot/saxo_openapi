@@ -1,7 +1,7 @@
 ExercisePosition
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.positions.ExercisePosition
+.. autoclass:: saxo_openapi.endpoints.trading.positions.ExercisePosition
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 ClientSwitchPosNettingMode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.clients.ClientSwitchPosNettingMode
+.. autoclass:: saxo_openapi.endpoints.portfolio.clients.ClientSwitchPosNettingMode
     :members:
     :undoc-members:
     :inherited-members:

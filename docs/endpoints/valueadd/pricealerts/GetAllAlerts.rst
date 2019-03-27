@@ -1,7 +1,7 @@
 GetAllAlerts
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.GetAllAlerts
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.GetAllAlerts
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 RemoveMultipleActiveSubscriptions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.subscriptions.RemoveMultipleActiveSubscriptions
+.. autoclass:: saxo_openapi.endpoints.rootservices.subscriptions.RemoveMultipleActiveSubscriptions
     :members:
     :undoc-members:
     :inherited-members:

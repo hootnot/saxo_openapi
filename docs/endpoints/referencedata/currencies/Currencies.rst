@@ -1,7 +1,7 @@
 Currencies
 ~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.currencies.Currencies
+.. autoclass:: saxo_openapi.endpoints.referencedata.currencies.Currencies
     :members:
     :undoc-members:
     :inherited-members:

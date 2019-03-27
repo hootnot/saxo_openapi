@@ -1,7 +1,7 @@
 CreateTradeMessageSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.messages.CreateTradeMessageSubscription
+.. autoclass:: saxo_openapi.endpoints.trading.messages.CreateTradeMessageSubscription
     :members:
     :undoc-members:
     :inherited-members:

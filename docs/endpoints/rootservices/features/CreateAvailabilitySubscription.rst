@@ -1,7 +1,7 @@
 CreateAvailabilitySubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.features.CreateAvailabilitySubscription
+.. autoclass:: saxo_openapi.endpoints.rootservices.features.CreateAvailabilitySubscription
     :members:
     :undoc-members:
     :inherited-members:

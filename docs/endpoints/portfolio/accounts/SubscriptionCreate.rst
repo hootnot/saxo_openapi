@@ -1,7 +1,7 @@
 SubscriptionCreate
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accounts.SubscriptionCreate
+.. autoclass:: saxo_openapi.endpoints.portfolio.accounts.SubscriptionCreate
     :members:
     :undoc-members:
     :inherited-members:

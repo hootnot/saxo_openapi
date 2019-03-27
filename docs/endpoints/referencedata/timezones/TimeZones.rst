@@ -1,7 +1,7 @@
 TimeZones
 ~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._referencedata.timezones.TimeZones
+.. autoclass:: saxo_openapi.endpoints.referencedata.timezones.TimeZones
     :members:
     :undoc-members:
     :inherited-members:

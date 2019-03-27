@@ -1,7 +1,7 @@
 RemoveTradeMessageSubscriptions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.messages.RemoveTradeMessageSubscriptions
+.. autoclass:: saxo_openapi.endpoints.trading.messages.RemoveTradeMessageSubscriptions
     :members:
     :undoc-members:
     :inherited-members:

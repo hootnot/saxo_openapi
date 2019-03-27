@@ -1,7 +1,7 @@
 CreatePriceSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.prices.CreatePriceSubscription
+.. autoclass:: saxo_openapi.endpoints.trading.prices.CreatePriceSubscription
     :members:
     :undoc-members:
     :inherited-members:

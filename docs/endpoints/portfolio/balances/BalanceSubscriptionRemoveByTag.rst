@@ -1,7 +1,7 @@
 BalanceSubscriptionRemoveByTag
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.balances.BalanceSubscriptionRemoveByTag
+.. autoclass:: saxo_openapi.endpoints.portfolio.balances.BalanceSubscriptionRemoveByTag
     :members:
     :undoc-members:
     :inherited-members:

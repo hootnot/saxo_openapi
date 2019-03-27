@@ -1,7 +1,7 @@
 CancelOrders
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._trading.orders.CancelOrders
+.. autoclass:: saxo_openapi.endpoints.trading.orders.CancelOrders
     :members:
     :undoc-members:
     :inherited-members:

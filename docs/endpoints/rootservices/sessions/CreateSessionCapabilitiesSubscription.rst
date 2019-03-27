@@ -1,7 +1,7 @@
 CreateSessionCapabilitiesSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.sessions.CreateSessionCapabilitiesSubscription
+.. autoclass:: saxo_openapi.endpoints.rootservices.sessions.CreateSessionCapabilitiesSubscription
     :members:
     :undoc-members:
     :inherited-members:

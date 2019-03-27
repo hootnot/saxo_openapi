@@ -1,7 +1,7 @@
 RemoveOpenOrderSubscription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.orders.RemoveOpenOrderSubscription
+.. autoclass:: saxo_openapi.endpoints.portfolio.orders.RemoveOpenOrderSubscription
     :members:
     :undoc-members:
     :inherited-members:

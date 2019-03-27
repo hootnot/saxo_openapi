@@ -1,7 +1,7 @@
 AccountReset
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.accounts.AccountReset
+.. autoclass:: saxo_openapi.endpoints.portfolio.accounts.AccountReset
     :members:
     :undoc-members:
     :inherited-members:

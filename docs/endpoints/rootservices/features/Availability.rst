@@ -1,7 +1,7 @@
 Availability
 ~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._rootservices.features.Availability
+.. autoclass:: saxo_openapi.endpoints.rootservices.features.Availability
     :members:
     :undoc-members:
     :inherited-members:

@@ -1,7 +1,7 @@
 AccountBalancesMe
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.balances.AccountBalancesMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.balances.AccountBalancesMe
     :members:
     :undoc-members:
     :inherited-members:

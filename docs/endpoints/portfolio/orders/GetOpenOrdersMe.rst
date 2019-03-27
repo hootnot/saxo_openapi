@@ -1,7 +1,7 @@
 GetOpenOrdersMe
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.orders.GetOpenOrdersMe
+.. autoclass:: saxo_openapi.endpoints.portfolio.orders.GetOpenOrdersMe
     :members:
     :undoc-members:
     :inherited-members:

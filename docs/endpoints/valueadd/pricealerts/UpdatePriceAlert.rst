@@ -1,7 +1,7 @@
 UpdatePriceAlert
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.UpdatePriceAlert
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.UpdatePriceAlert
     :members:
     :undoc-members:
     :inherited-members:

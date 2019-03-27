@@ -1,7 +1,7 @@
 NetInstrumentExposureSpecific
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._portfolio.exposure.NetInstrumentExposureSpecific
+.. autoclass:: saxo_openapi.endpoints.portfolio.exposure.NetInstrumentExposureSpecific
     :members:
     :undoc-members:
     :inherited-members:

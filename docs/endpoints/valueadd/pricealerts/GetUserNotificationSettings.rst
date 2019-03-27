@@ -1,7 +1,7 @@
 GetUserNotificationSettings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: saxo_openapi.endpoints._valueadd.pricealerts.GetUserNotificationSettings
+.. autoclass:: saxo_openapi.endpoints.valueadd.pricealerts.GetUserNotificationSettings
     :members:
     :undoc-members:
     :inherited-members:
