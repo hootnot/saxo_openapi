@@ -32,6 +32,10 @@ definitions = {
         'StockIndexOption': 'Stock Index Option',
         'StockOption': 'Stock Option',
     },
+    'Direction': {
+         'Buy': 'Buy',
+         'Sell': 'Sell'
+    },
     'OrderType': {
         'Algorithmic': 'Algo order',
         'Limit': 'Limit Order',
