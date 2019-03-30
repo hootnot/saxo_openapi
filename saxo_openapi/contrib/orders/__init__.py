@@ -7,13 +7,13 @@ from .marketorder import (    # noqa: F401
 )
 from .helper import (
     direction_from_amount,
-    TieAccountToOrder
+    tie_account_to_order
 )
 
 
 __all__ = (
    'direction_from_amount',
-   'TieAccountToOrder',
+   'tie_account_to_order',
    'MarketOrder',
    'MarketOrderFxSpot'
    'MarketOrderStock'
