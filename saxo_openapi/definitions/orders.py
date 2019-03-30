@@ -36,6 +36,16 @@ definitions = {
          'Buy': 'Buy',
          'Sell': 'Sell'
     },
+    'OrderDurationType': {
+        'AtTheClose': 'At the close of the trading session',
+        'AtTheOpening': 'At the Opening of the trading session',
+        'DayOrder': 'Day order - Valid for the trading session',
+        'FillOrKill': 'Fill or Kill order',
+        'GoodForPeriod': 'Good for Period',
+        'GoodTillCancel': 'Good til Cancel',
+        'GoodTillDate': 'Good til Date',
+        'ImmediateOrCancel': 'Immediate or Cancel'
+    },
     'OrderType': {
         'Algorithmic': 'Algo order',
         'Limit': 'Limit Order',
@@ -51,16 +61,6 @@ definitions = {
         'Traspaso': 'Traspaso. Specific type of switch order. Only '
                     'available on select MutualFunds',
         'TraspasoIn': 'TraspasoIn. Specific type of switch order'
-    },
-    'OrderDurationType': {
-        'AtTheClose': 'At the close of the trading session',
-        'AtTheOpening': 'At the Opening of the trading session',
-        'DayOrder': 'Day order - Valid for the trading session',
-        'FillOrKill': 'Fill or Kill order',
-        'GoodForPeriod': 'Good for Period',
-        'GoodTillCancel': 'Good til Cancel',
-        'GoodTillDate': 'Good til Date',
-        'ImmediateOrCancel': 'Immediate or Cancel'
     },
     'ToOpenClose': {
         'ToClose': 'Order/Position is ToClose',
