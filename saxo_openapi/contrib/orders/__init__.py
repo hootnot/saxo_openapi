@@ -15,6 +15,6 @@ __all__ = (
    'direction_from_amount',
    'tie_account_to_order',
    'MarketOrder',
-   'MarketOrderFxSpot'
+   'MarketOrderFxSpot',
    'MarketOrderStock'
 )
