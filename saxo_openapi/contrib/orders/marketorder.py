@@ -87,8 +87,8 @@ class MarketOrder(BaseOrder):
         # by default for a Market order
         da = {
              'OrderType': OD.OrderType.Market,
-             'AmountType': OD.AmountType.Quantity,
-             'OrderDurationType': OD.OrderDurationType.FillOrKill,
+             'AmountType': AmountType,
+             'OrderDurationType': OrderDurationType
         }
 
         # allowed: FillOrKill / ImmediateOrCancel
