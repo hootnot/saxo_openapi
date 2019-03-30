@@ -282,7 +282,7 @@ Output:
 Or by using: contrib.orders
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The same orders but now using *MarketOrdeFxSpot* to create the orderbodies.
+The same orders but now using *MarketOrderFxSpot* to create the orderbodies.
 
 .. code-block:: python
 
