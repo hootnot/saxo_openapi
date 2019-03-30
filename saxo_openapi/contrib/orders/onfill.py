@@ -82,7 +82,7 @@ Before an order can be placed the account needs to be attached
 to the orderbody also:
 
 >>> ordr = tie_account_to_order(AccountKey=AccountKey,
-...             MarketOrderFxSPoit(
+...             MarketOrderFxSpot(
 ...                 Uic=21,
 ...                 Amount=10000,
 ...                 TakeProfitOnFill=TakeProfitDetails(price=1.14),
