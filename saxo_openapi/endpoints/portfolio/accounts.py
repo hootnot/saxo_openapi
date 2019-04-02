@@ -170,7 +170,7 @@ class AccountReset(Portfolio):
 
         No response data is returned.
         """
-        super(AccountReset, self).__init__()
+        super(AccountReset, self).__init__(AccountKey=AccountKey)
         self.data = data
 
 
