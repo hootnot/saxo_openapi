@@ -12,6 +12,15 @@ def direction_from_amount(Amount):
     return OD.Direction.Buy if Amount > 0 else OD.Direction.Sell
 
 
+def direction_invert(direction):
+    """direction_invert - Buy  becomes Sell, Sell becomes Buy."""
+    if direction not in [OD.Direction.Buy, OD.Direction.Sell]:
+        raise ValueError("wrong value for direction: {}".format(direction))
+
+    return OD.Direction.Buy if direction == OD.Direction.Sell \
+        else OD.Direction.Sell
+
+
 def tie_account_to_order(AccountKey, order):
     """tie_account_to_order - inject the AccountKey in the orderbody.
 
