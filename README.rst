@@ -537,6 +537,10 @@ States:
        Remove info pr subscr on an instrument    [x]
      Messages                                    [x]
      OptionChain
+       Create options chain subscription         [x]
+       Modify options chain subscription         [x]
+       Remove options chain subscription         [x]
+       ResetATM options chain subscription       [x]
      v1 Orders
      v2 Orders
        Place a new order                         [x]
