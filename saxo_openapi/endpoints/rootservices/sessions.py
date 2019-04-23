@@ -31,7 +31,7 @@ class GetSessionCapabilities(RootService):
         super(GetSessionCapabilities, self).__init__()
 
 
-@endpoint("openapi/root/v1/sessions/capabilities/", "PATCH", 202)
+@endpoint("openapi/root/v1/sessions/capabilities/", "PUT", 202)
 class ChangeSessionCapabilities(RootService):
     """Change sessions capabilities."""
 
@@ -63,14 +63,14 @@ class CreateSessionCapabilitiesSubscription(RootService):
 
     @dyndoc_insert(responses)
     def __init__(self, data):
-        """Instantiate a ChangeSessionCapabilities request.
+        """Instantiate a ChangeSessionCapabilitiesSubscription request.
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.rootservices as rs
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> data = {_v3_CreateSessionCapabilitiesSubscription_body}
-        >>> r = rs.sessions.ChangeSessionCapabilities(data=data)
+        >>> r = rs.sessions.ChangeSessionCapabilitiesSubscription(data=data)
         >>> rv = client.request(r)
         >>> print(rv)
 
@@ -94,7 +94,7 @@ class RemoveSessionCapabilitiesSubscription(RootService):
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
-        """Instantiate a ChangeSessionCapabilities request.
+        """Instantiate a RemoveSessionCapabilitiesSubscription request.
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.rootservices as rs
