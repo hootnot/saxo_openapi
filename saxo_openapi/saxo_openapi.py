@@ -90,7 +90,7 @@ class API(object):
         logger.info("setting up API-client for environment %s", environment)
         try:
             TRADING_ENVIRONMENTS[environment]
-        except:
+        except KeyError as e:  # noqa F841
             logger.error("unkown environment %s", environment)
             raise KeyError("Unknown environment: {}".format(environment))
         else:
@@ -193,7 +193,7 @@ class API(object):
         if method in ['get', 'delete', 'patch']:
             request_args['params'] = params
 
-        elif hasattr(endpoint, "data") and endpoint.data:
+        if hasattr(endpoint, "data") and endpoint.data:
             request_args['json'] = endpoint.data
 
         # if any parameter for request then merge them
@@ -209,13 +209,15 @@ class API(object):
                                       request_args,
                                       headers=headers)
             if (hasattr(endpoint, "RESPONSE_DATA") and
-                getattr(endpoint, "RESPONSE_DATA") == None):
+                    getattr(endpoint, "RESPONSE_DATA") is None):
                 content = None
+
             elif not (hasattr(endpoint, "RESPONSE_DATA") and
-                    getattr(endpoint, "RESPONSE_DATA") == 'text'):
+                      getattr(endpoint, "RESPONSE_DATA") == 'text'):
                 # if not explicitely set to 'text' asume JSON
                 content = response.content.decode('utf-8')
                 content = json.loads(content)
+
             else:
                 content = response.content.decode('utf-8')
 
