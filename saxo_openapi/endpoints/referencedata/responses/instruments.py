@@ -577,7 +577,8 @@ responses = {
         }
     },
     "_v3_ContractoptionSpaces": {
-        "url": "/openapi/ref/v1/instruments/contractoptionspaces/{OptionRootID}/",
+        "url": "/openapi/ref/v1/instruments/contractoptionspaces/"
+               "{OptionRootID}/",
         "params": {
             "ExpiryDates": "2019-05-01",
             "OptionSpaceSegment": "SpecificDates",
@@ -996,6 +997,58 @@ responses = {
               "9300675"
             ],
             "UnderlyingAssetType": "Stock"
+        }
+    },
+    "_v3_FuturesSpaces": {
+        "url": "/openapi/ref/v1/instruments/futuresspaces/"
+               "{ContinuousFuturesUic}",
+        "route": {'ContinuousFuturesUic': 28016},
+        "response": {
+            "BaseIdentifier": "W",
+            "Elements": [
+              {
+                "DaysToExpiry": 64,
+                "ExpiryDate": "2017-07-14",
+                "Symbol": "WQ7",
+                "Uic": 3406797
+              },
+              {
+                "DaysToExpiry": 127,
+                "ExpiryDate": "2017-09-15",
+                "Symbol": "WV7",
+                "Uic": 3844782
+              },
+              {
+                "DaysToExpiry": 188,
+                "ExpiryDate": "2017-11-15",
+                "Symbol": "WZ7",
+                "Uic": 4239352
+              },
+              {
+                "DaysToExpiry": 278,
+                "ExpiryDate": "2018-02-13",
+                "Symbol": "WH8",
+                "Uic": 4895721
+              },
+              {
+                "DaysToExpiry": 337,
+                "ExpiryDate": "2018-04-13",
+                "Symbol": "WK8",
+                "Uic": 5352847
+              },
+              {
+                "DaysToExpiry": 431,
+                "ExpiryDate": "2018-07-16",
+                "Symbol": "WQ8",
+                "Uic": 6112156
+              },
+              {
+                "DaysToExpiry": 491,
+                "ExpiryDate": "2018-09-14",
+                "Symbol": "WV8",
+                "Uic": 6609171
+              }
+            ]
         }
     },
     "_v3_TradingSchedule": {
