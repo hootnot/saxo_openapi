@@ -68,6 +68,8 @@ class ClientDetailsUpdate(Portfolio):
     mode of its own.
     """
 
+    RESPONSE_DATA = None
+
     @dyndoc_insert(responses)
     def __init__(self, data):
         """Instantiate a ClientDetailsUpdate request.
