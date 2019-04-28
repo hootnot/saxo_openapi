@@ -32,6 +32,7 @@ class TestSaxo_Referencedata(ReqMockTest):
         (rd.instruments, "InstrumentDetails", {'Uic': 23,
                                                'AssetType': 'FxForwards'}),
         (rd.instruments, "ContractoptionSpaces", {'OptionRootId': 231}),
+        (rd.instruments, "FuturesSpaces", {'ContinuousFuturesUic': 28016}),
         (rd.instruments, "TradingSchedule", {'Uic': 21, 'AssetType': 'Spot'}),
       ])
     @requests_mock.Mocker(kw='mock')
