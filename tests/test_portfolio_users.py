@@ -17,6 +17,7 @@ class TestSaxo_Portfolio_Users(ReqMockTest):
     @parameterized.expand([
         (pf.users, "UsersMe", {}),
         (pf.users, "Users", {}),
+        (pf.users, "UserDetails", {'UserKey': 'Cf4xZWiYL6W1nMKpygBLLA=='}),
         (pf.users, "UserUpdate", {}),
       ])
     @requests_mock.Mocker(kw='mock')
