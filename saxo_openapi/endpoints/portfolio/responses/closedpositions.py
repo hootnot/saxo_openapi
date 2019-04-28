@@ -467,5 +467,21 @@ responses = {
         "url": "/openapi/port/v1/closedpositions/subscriptions/{ContextId}/{ReferenceId}/",
         "body": {'NewPageSize': 25630},
         "response": ''
+    },
+    "_v3_ClosedPositionSubscriptionsRemove": {
+        "url": "/openapi/port/v1/closedpositions/subscriptions/{ContextId}/",
+        "route": {
+            'ContextId': 29931122,
+        },
+        "params": {'Tag': 2345223},
+        "response": ''
+    },
+    "_v3_ClosedPositionSubscriptionRemoveById": {
+        "url": "/openapi/port/v1/closedpositions/subscriptions/{ContextId}/{ReferenceId}/",
+        "route": {
+            'ContextId': 29931122,
+            'ReferenceId': '0f8fad5b-d9cb-469f-a165-70867728950e',
+        },
+        "response": ''
     }
 }

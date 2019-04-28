@@ -25,6 +25,13 @@ class TestSaxo_Portfolio_ClosedPositions(ReqMockTest):
         (pf.closedpositions, "ClosedPositionSubscriptionUpdate",
                              {'ContextId': 'explorer_1551913039211',
                               'ReferenceId': 'D_975'}),
+        (pf.closedpositions, "ClosedPositionSubscriptionsRemove",
+                             {'ContextId': 29931122,
+                              'params': {'Tag': 2345223}}),
+        (pf.closedpositions, "ClosedPositionSubscriptionRemoveById",
+         {'ContextId': 29931122,
+          'ReferenceId': '0f8fad5b-d9cb-469f-a165-70867728950e'}),
+
       ])
     @requests_mock.Mocker(kw='mock')
     def test_all(self, _mod, clsNm, route, **kwargs):
