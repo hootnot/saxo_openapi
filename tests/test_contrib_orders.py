@@ -26,7 +26,9 @@ class TestContribOrders(unittest.TestCase):
        # TakeProfitDetails
        (onfill.TakeProfitDetails,
            {"price": 1.10},
-           {'OrderDurationType': 'GoodTillCancel',    # the default
+           {'OrderDuration': {
+               'DurationType': 'GoodTillCancel'    # the default
+            },
             'OrderType': 'Limit',
             'OrderPrice': 1.10}
         ),
@@ -34,23 +36,30 @@ class TestContribOrders(unittest.TestCase):
        (onfill.TakeProfitDetails,
            {"price": 1.10,
             "OrderDurationType": OD.OrderDurationType.GoodTillDate},
-           {'OrderDurationType': 'GoodTillDate',
+           {'OrderDuration': {
+                'DurationType': 'GoodTillDate'
+            },
             'OrderType': 'Limit',
             'OrderPrice': 1.10},
-           ValueError
+           {'exception': ValueError, 'msg': 'GTDTime: value required when'}
         ),
        # .. raises ValueError because OrderDurationType must be GTC/GTD/GFD
        (onfill.TakeProfitDetails,
            {"price": 1.10,
             "OrderDurationType": OD.OrderDurationType.FillOrKill},
-           {'OrderDurationType': 'FillOrKill',
+           {'OrderDuration': {
+               'DurationType': 'FillOrKill'
+            },
             'OrderPrice': 1.10},
-           ValueError
+           {'exception': ValueError,
+            'msg': 'OrderDurationType: FillOrKill invalid'}
         ),
        # StopLossDetails
        (onfill.StopLossDetails,
            {"price": 1.10},
-           {'OrderDurationType': 'GoodTillCancel',
+           {'OrderDuration': {
+               'DurationType': 'GoodTillCancel'
+            },
             'OrderType': 'Stop',
             'OrderPrice': 1.10}
         ),
@@ -58,17 +67,22 @@ class TestContribOrders(unittest.TestCase):
        (onfill.StopLossDetails,
            {"price": 1.10,
             "OrderDurationType": OD.OrderDurationType.GoodTillDate},
-           {'OrderDurationType': 'GoodTillDate',
+           {'OrderDuration': {
+               'DurationType': 'GoodTillDate'
+            },
             'OrderPrice': 1.10},
-           ValueError
+           {'exception': ValueError, 'msg': 'GTDTime: value required when'}
         ),
        # .. raises ValueError because OrderDurationType must be GTC/GTD/GFD
        (onfill.StopLossDetails,
            {"price": 1.10,
             "OrderDurationType": OD.OrderDurationType.FillOrKill},
-           {'OrderDurationType': 'FOK',
+           {'OrderDuration': {
+                'DurationType': 'FOK'
+            },
             'OrderPrice': 1.10},
-           ValueError
+           {'exception': ValueError,
+            'msg': 'OrderDurationType: FillOrKill invalid'}
         ),
        # MO
        (order.MarketOrder,
@@ -76,7 +90,9 @@ class TestContribOrders(unittest.TestCase):
             "AssetType": 'FxSpot',
             "Amount": 10000},         # integer!
            {'Uic': 21,
-            'OrderDurationType': 'FillOrKill',    # the default
+            'OrderDuration': {   # the default
+                'DurationType': 'DayOrder'
+            },
             'Amount': 10000,
             'AmountType': 'Quantity',
             'BuySell': 'Buy',
@@ -89,49 +105,164 @@ class TestContribOrders(unittest.TestCase):
             "AssetType": 'FxSpot',
             "Amount": -10000},         # integer!
            {'Uic': 21,
-            'OrderDurationType': 'FillOrKill',    # the default
+            'OrderDuration': {   # the default
+                'DurationType': 'DayOrder'
+            },
             'Amount': 10000,
             'AmountType': 'Quantity',
             'BuySell': 'Sell',
             'AssetType': 'FxSpot',
             'OrderType': 'Market'}
         ),
-       # test GTD without a date, should result in a ValueError
+       # test MarketOrder with ...OnFill parameters
        (order.MarketOrder,
            {"Uic": 21,
             "AssetType": 'FxSpot',
-            "OrderDurationType": OD.OrderDurationType.GoodTillDate,
-            "Amount": -10000},
-           {'Uic': 21,
-            'OrderDurationType': 'FillOrKill',    # the default
-            'Amount': 10000,
-            'AmountType': 'Quantity',
-            'BuySell': 'Sell',
-            'AssetType': 'FxSpot',
-            'OrderType': 'Market'},
-           ValueError
+            "Amount": -10000,
+            "TakeProfitOnFill": onfill.TakeProfitDetails(price=1.13),
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Sell",
+             "OrderType": "Market",
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "OrderType": "Limit",
+                 "OrderPrice": 1.13,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Buy"
+               }
+             ]
+           }
         ),
-       # test validity of OrderDurationType, should result in a ValueError
+       # the same, but onFill passed as a dict instead of an instance
        (order.MarketOrder,
            {"Uic": 21,
             "AssetType": 'FxSpot',
-            "OrderDurationType": "WRONG",
-            "Amount": -10000},
-           {'Uic': 21,
-            'OrderDurationType': 'WRONG',
-            'Amount': 10000,
-            'AmountType': 'Quantity',
-            'BuySell': 'Sell',
-            'AssetType': 'FxSpot',
-            'OrderType': 'Market'},
-           ValueError
+            "Amount": -10000,
+            "TakeProfitOnFill": onfill.TakeProfitDetails(price=1.13).data,
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Sell",
+             "OrderType": "Market",
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "OrderType": "Limit",
+                 "OrderPrice": 1.13,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Buy"
+               }
+             ]
+           }
+        ),
+       (order.MarketOrder,
+           {"Uic": 21,
+            "AssetType": 'FxSpot',
+            "Amount":  10000,
+            "StopLossOnFill": onfill.StopLossDetails(price=1.1045),
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Buy",
+             "OrderType": "Market",
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "OrderType": "Stop",
+                 "OrderPrice": 1.1045,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Sell"
+               }
+             ]
+           }
+        ),
+       (order.MarketOrderFxSpot,
+           {"Uic": 21,
+            "Amount":  10000,
+            "StopLossOnFill": onfill.StopLossDetails(price=1.1045),
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Buy",
+             "OrderType": "Market",
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "OrderType": "Stop",
+                 "OrderPrice": 1.1045,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Sell"
+               }
+             ]
+           }
+        ),
+       (order.MarketOrderStock,
+           {"Uic": 16350,  # Royal Dutch Shell Plc A Amsterdam (RDSa:xams)
+            "Amount":  1000,
+            },
+           {
+             "Uic": 16350,
+             "AssetType": "Stock",
+             "Amount": 1000,
+             "BuySell": "Buy",
+             "OrderType": "Market",
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+           }
         ),
     ])
-    def test_all(self, cls, inpar, refpar, exc=None):
+    def test_all(self, cls, inpar, refpar, excpar=None):
 
-        if not exc:
+        if not excpar:
             r = cls(**inpar) if inpar else cls()
             self.assertTrue(r.data == refpar)
         else:
-            with self.assertRaises(exc):
+            with self.assertRaises(excpar['exception']) as err:
                 r = cls(**inpar)
+
+            errval = err.exception
+            if excpar['msg']:
+                self.assertTrue(excpar['msg'] in str(errval))
+            else:
+                self.assertTrue(1 == 0)

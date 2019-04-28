@@ -19,8 +19,7 @@ class MarketOrder(BaseOrder):
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
-                 TrailingStopLossOnFill=None,
-                 OrderDurationType=OD.OrderDurationType.FillOrKill):
+                 TrailingStopLossOnFill=None):
         """
         Instantiate a MarketOrder.
 
@@ -32,7 +31,8 @@ class MarketOrder(BaseOrder):
 
         Amount: decimal (required)
             the number of lots/shares/contracts or a monetary value
-            if amountType is set to CashAmount
+            if amountType is set to CashAmount. A value > 0 means 'buy',
+            a value < 0 means 'sell'
 
         AssetType: string (required)
             the assettype for the Uic
@@ -57,7 +57,7 @@ class MarketOrder(BaseOrder):
         >>> from saxo_openapi import API
         >>> import saxo_openapi.endpoints.trading as tr
         >>> from saxo_openapi.contrib.orders import MarketOrder
-        >>>
+        >>> # buy 10k EURUSD (Uic=21)
         >>> mo = MarketOrder(Uic=21,
         ...                  AssetType=OD.AssetType.FxSpot,
         ...                  Amount=10000)
@@ -69,7 +69,9 @@ class MarketOrder(BaseOrder):
           "BuySell": "Buy",
           "OrderType": "Market",
           "AmountType": "Quantity",
-          "OrderDurationType": "FillOrKill"
+          "OrderDuration": {
+              "DurationType": "DayOrder"
+          }
         }
         >>> # now we have the order specification, create the order request
         >>> r = tr.orders.Order(data=mo.data)
@@ -88,15 +90,10 @@ class MarketOrder(BaseOrder):
         da = {
              'OrderType': OD.OrderType.Market,
              'AmountType': AmountType,
-             'OrderDurationType': OrderDurationType
+             'OrderDuration': {   # the default
+                 'DurationType': OD.OrderDurationType.DayOrder
+             },
         }
-
-        # allowed: FillOrKill / ImmediateOrCancel
-        if da.get('OrderDurationType') not in [
-                OD.OrderDurationType.FillOrKill,
-                OD.OrderDurationType.ImmediateOrCancel]:
-            raise ValueError("OrderDurationType: {}".format(
-                             da.get('OrderDurationType')))
 
         # required
         self._data.update({"Uic": Uic})
@@ -105,13 +102,8 @@ class MarketOrder(BaseOrder):
         self._data.update({"BuySell": direction_from_amount(Amount)})
         self._data.update(da)
 
-        if not hasattr(OD.OrderDurationType, OrderDurationType):
-            raise ValueError("OrderDurationType: {}".format(OrderDurationType))
-
-        # update the default
-        self._data.update({"OrderDurationType": OrderDurationType})
-
-        # self._data.update({"clientExtensions": clientExtensions})
+        ospec = None
+        # add possible OCO orderspecs
         for onFillOrder in [TakeProfitOnFill,
                             StopLossOnFill,
                             TrailingStopLossOnFill]:
@@ -120,17 +112,20 @@ class MarketOrder(BaseOrder):
                 continue
 
             if not isinstance(onFillOrder, dict):
-                onFillOrder = onFillOrder.data.copy()
+                ospec = onFillOrder.data.copy()
+            else:
+                ospec = onFillOrder
 
-            if onFillOrder:
+            if ospec:
                 if 'Orders' not in self._data:
                     self._data.update({'Orders': []})
 
-                onFillOrder.update({'BuySell': direction_from_amount(Amount)})
-                onFillOrder.update({'AssetType': self._data['AssetType']})
-                if 'Amount' not in onFillOrder:
-                    onFillOrder.update({'Amount': self._data['Amount']})
-                self._data['Orders'].append(onFillOrder)
+                # we want the OCO-order in opposite direction of the main order
+                ospec.update({'BuySell': direction_from_amount(-Amount)})
+                ospec.update({'AssetType': self._data['AssetType']})
+                if 'Amount' not in ospec:
+                    ospec.update({'Amount': self._data['Amount']})
+                self._data['Orders'].append(ospec)
 
     @property
     def data(self):
