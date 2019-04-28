@@ -36,8 +36,10 @@ TP-details can simply be constructed by using TakeProfitDetails:
 >>> tpDetails = TakeProfitDetails(price=1.14)
 >>> print(tpDetails.data)
 {
-  "OrderDurationType": "GoodTillCancel",
   "OrderType": "Limit",
+  "OrderDuration": {
+      "DurationType": "GoodTillCancel"
+  },
   "OrderPrice": "1.14000"
 }
 
@@ -57,10 +59,14 @@ So, a MarketOrder with TP-details and SL-details:
   "BuySell": "Buy",
   "OrderType": "Market",
   "AmountType": "Quantity",
-  "OrderDurationType": "FillOrKill",
+  "OrderDuration": {
+      DurationType": "FillOrKill"
+  },
   "Orders": [
     {
-      "OrderDurationType": "GoodTillCancel",
+      "OrderDuration": {
+          DurationType": "GoodTillCancel"
+      },
       "OrderType": "Limit",
       "OrderPrice": "1.14000",
       "BuySell": "Sell",
@@ -68,7 +74,9 @@ So, a MarketOrder with TP-details and SL-details:
       "Amount": 10000
     },
     {
-      "OrderDurationType": "GoodTillCancel",
+      "OrderDuration": {
+          DurationType": "GoodTillCancel"
+      },
       "OrderType": "Stop",
       "OrderPrice": "1.12000",
       "BuySell": "Sell",
@@ -96,10 +104,14 @@ to the orderbody also:
   "BuySell": "Buy",
   "OrderType": "Market",
   "AmountType": "Quantity",
-  "OrderDurationType": "FillOrKill",
+  "OrderDuration": {
+      DurationType": "FillOrKill"
+  },
   "Orders": [
     {
-      "OrderDurationType": "GoodTillCancel",
+      "OrderDuration": {
+          DurationType": "GoodTillCancel"
+      },
       "OrderType": "Limit",
       "OrderPrice": "1.14000",
       "BuySell": "Sell",
@@ -108,7 +120,9 @@ to the orderbody also:
       "AccountKey": "fOA0tvOyQqW2aHpWi9P5bw=="
     },
     {
-      "OrderDurationType": "GoodTillCancel",
+      "OrderDuration": {
+          DurationType": "GoodTillCancel"
+      },
       "OrderType": "Stop",
       "OrderPrice": "1.12000",
       "BuySell": "Sell",
@@ -158,7 +172,8 @@ class OnFill(BaseOrder):
             raise ValueError("OrderDurationType: {} invalid".format(
                              OrderDurationType))
 
-        self._data.update({"OrderDurationType": OrderDurationType})
+        self._data.update({"OrderDuration":
+                          {"DurationType": OrderDurationType}})
         self._data.update({"OrderType": OrderType})
 
         # optional, but required if
