@@ -1,5 +1,9 @@
-Welcome to SAXO Bank OpenAPI's documentation
-============================================
+Welcome to the saxo_openapi documentation
+=========================================
+
+This is the documention of the *saxo_openapi* python wrapper for the
+*OpenAPI* REST-API of SAXO Bank. Full documentation of the *OpenAPI* REST-API
+itself can be found `here <https://www.developer.saxo/openapi/learn>`_.
 
 .. toctree::
    :maxdepth: 2
