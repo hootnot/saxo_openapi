@@ -106,6 +106,7 @@ class OptionsChainSubscriptionRemove(Trading):
         ReferenceId: string
             the ReferenceId
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
@@ -147,6 +148,7 @@ class OptionsChainSubscriptionResetATM(Trading):
 
         ReferenceId: string
             the ReferenceId
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
