@@ -154,16 +154,20 @@ Now the order can be placed:
 from abc import abstractmethod
 from .baseorder import BaseOrder
 import saxo_openapi.definitions.orders as OD
+from .helper import order_duration_spec
 
 
 class OnFill(BaseOrder):
     """baseclass for onFill requests."""
+    ALLOWED_DT = [OD.OrderDurationType.GoodTillCancel,
+                  OD.OrderDurationType.GoodTillDate,
+                  OD.OrderDurationType.DayOrder]
 
     @abstractmethod
     def __init__(self,
                  OrderType,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
-                 GTDTime=None):
+                 GTDDate=None):
         super(OnFill, self).__init__()
 
         if OrderDurationType not in [OD.OrderDurationType.GoodTillCancel,
@@ -172,16 +176,11 @@ class OnFill(BaseOrder):
             raise ValueError("OrderDurationType: {} invalid".format(
                              OrderDurationType))
 
-        self._data.update({"OrderDuration":
-                          {"DurationType": OrderDurationType}})
         self._data.update({"OrderType": OrderType})
-
-        # optional, but required if
-        if OrderDurationType == OD.OrderDurationType.GoodTillDate and \
-                not GTDTime:
-            raise ValueError("GTDTime: value required when "
-                             "OrderDurationType is GoodTillDate")
-        self._data.update({"GTDTime": GTDTime})
+        self._data.update({"OrderDuration":
+                           order_duration_spec(OrderDurationType,
+                                               self.ALLOWED_DT,
+                                               GTDDate)})
 
 
 class TakeProfitDetails(OnFill):
@@ -200,7 +199,7 @@ class TakeProfitDetails(OnFill):
     def __init__(self,
                  price,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
-                 GTDTime=None):
+                 GTDDate=None):
         """Instantiate TakeProfitDetails.
 
         Parameters
@@ -212,15 +211,15 @@ class TakeProfitDetails(OnFill):
         OrderDurationType : OrderDurationType (required)
             the duration, default is: OrderDurationType.GoodTillCancel
 
-        GTDTime : DateTime (optional)
-            GTDTime is required if OrderDurationType == OrderDurationType.GTD
+        GTDDate : string or datetime (optional)
+            GTD-datetime is required if OrderDurationType.GoodTillDate
 
         """
         OrderType = OD.OrderType.Limit
         super(TakeProfitDetails, self).__init__(
               OrderType=OrderType,
               OrderDurationType=OrderDurationType,
-              GTDTime=GTDTime)
+              GTDDate=GTDDate)
         self._data.update({"OrderPrice": price})
 
 
@@ -240,7 +239,7 @@ class StopLossDetails(OnFill):
     def __init__(self,
                  price,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
-                 GTDTime=None):
+                 GTDDate=None):
         """Instantiate StopLossDetails.
 
         Parameters
@@ -252,13 +251,13 @@ class StopLossDetails(OnFill):
         OrderDurationType : OrderDurationType (required)
             the duration, default is: OrderDurationType.GoodTillCancel
 
-        GTDTime : DateTime (optional)
-            GTDTime is required if OrderDurationType == OrderDurationType.GTD
+        GTDDate : string or datetim (optional)
+            GTD-datetime is required if OrderDurationType.GoodTillDate
 
         """
         OrderType = OD.OrderType.Stop
         super(StopLossDetails, self).__init__(
             OrderDurationType=OrderDurationType,
             OrderType=OrderType,
-            GTDTime=GTDTime)
+            GTDDate=GTDDate)
         self._data.update({"OrderPrice": price})

@@ -41,7 +41,7 @@ class TestContribOrders(unittest.TestCase):
             },
             'OrderType': 'Limit',
             'OrderPrice': 1.10},
-           {'exception': ValueError, 'msg': 'GTDTime: value required when'}
+           {'exception': ValueError, 'msg': 'Missing GTDDate'}
         ),
        # .. raises ValueError because OrderDurationType must be GTC/GTD/GFD
        (onfill.TakeProfitDetails,
@@ -71,7 +71,7 @@ class TestContribOrders(unittest.TestCase):
                'DurationType': 'GoodTillDate'
             },
             'OrderPrice': 1.10},
-           {'exception': ValueError, 'msg': 'GTDTime: value required when'}
+           {'exception': ValueError, 'msg': 'Missing GTDDate'}
         ),
        # .. raises ValueError because OrderDurationType must be GTC/GTD/GFD
        (onfill.StopLossDetails,
