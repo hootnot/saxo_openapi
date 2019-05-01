@@ -3,9 +3,10 @@
 from .baseorder import BaseOrder
 from .helper import direction_from_amount, order_duration_spec
 import saxo_openapi.definitions.orders as OD
+from .mixin import OnFillHnd
 
 
-class LimitOrder(BaseOrder):
+class LimitOrder(BaseOrder, OnFillHnd):
     """create a LimitOrder.
 
     LimitOrder is used to build the body for a LimitOrder. The body can be
@@ -122,29 +123,10 @@ class LimitOrder(BaseOrder):
         self._data.update({"BuySell": direction_from_amount(Amount)})
         self._data.update(da)
 
-        ospec = None
-        for onFillOrder in [TakeProfitOnFill,
-                            StopLossOnFill,
-                            TrailingStopLossOnFill]:
-
-            if onFillOrder is None:
-                continue
-
-            if not isinstance(onFillOrder, dict):
-                ospec = onFillOrder.data.copy()
-            else:
-                ospec = onFillOrder
-
-            if ospec:
-                if 'Orders' not in self._data:
-                    self._data.update({'Orders': []})
-
-                ospec.update({"Uic": self._data['Uic']})
-                ospec.update({'BuySell': direction_from_amount(-Amount)})
-                ospec.update({'AssetType': self._data['AssetType']})
-                if 'Amount' not in ospec:
-                    ospec.update({'Amount': self._data['Amount']})
-                self._data['Orders'].append(ospec)
+        # Handle possible onFill orders via the mixin
+        self.hndOnFill(TakeProfitOnFill=TakeProfitOnFill,
+                       StopLossOnFill=StopLossOnFill,
+                       TrailingStopLossOnFill=TrailingStopLossOnFill)
 
     @property
     def data(self):

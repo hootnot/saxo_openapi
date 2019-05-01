@@ -133,6 +133,7 @@ class TestContribOrders(unittest.TestCase):
              },
              "Orders": [
                {
+                 "Uic": 21,
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
@@ -164,6 +165,7 @@ class TestContribOrders(unittest.TestCase):
              },
              "Orders": [
                {
+                 "Uic": 21,
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
@@ -194,6 +196,7 @@ class TestContribOrders(unittest.TestCase):
              },
              "Orders": [
                {
+                 "Uic": 21,
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
@@ -223,6 +226,7 @@ class TestContribOrders(unittest.TestCase):
              },
              "Orders": [
                {
+                 "Uic": 21,
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
