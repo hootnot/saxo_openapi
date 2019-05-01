@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
 import saxo_openapi.definitions.orders as OD
 
 
@@ -46,3 +47,72 @@ def tie_account_to_order(AccountKey, order):
             o.update({'AccountKey': AccountKey})
 
     return _r
+
+
+def order_duration_spec(OrderDurationType, allowedDT, GTDDate=None):
+    """order_duration_spec - create a SAXO order duration from a date.
+
+    This function returns a dict containing the definition of the
+    duration. In case of an order where the GTDDate is specified the
+    definition is extended.
+
+    Parameters
+    ----------
+
+    GTDDate: string or datetime (required if Dur.Type == GTD)
+        the GTD-datetime
+
+
+    Examples
+    --------
+
+    >>> duration = OD.OrderDurationType.GoodTillDate
+    >>> d = order_duration_spec(duration, "2017-12-12"))
+    >>> print(json.dumps(d, indent=2))
+    {
+      "DurationType": "GoodTillDate",
+      "ExpirationDateContainsTime": true,
+      "ExpirationDateTime": "2017-12-12T00:00"
+    }
+    # Or by using datetime ...
+    >>> d = order_duration_spec(dt, datetime(2017, 12, 12))
+    >>> print(json.dumps(d, indent=2))
+    {
+      "DurationType": "GoodTillDate",
+      "ExpirationDateContainsTime": true,
+      "ExpirationDateTime": "2017-12-12T00:00"
+    }
+    >>> duration = OD.OrderDurationType.GoodTillCancel
+    >>> d = order_duration_spec(dt)
+    >>> print(json.dumps(d, indent=2))
+    {
+      "DurationType": "GoodTillCancel"
+    }
+
+    """
+
+    odspec = dict({'DurationType': OrderDurationType})
+
+    # allowed OrderDurationTypes:
+    if OrderDurationType not in allowedDT:
+        raise ValueError("OrderDurationType: {} is not supported".format(
+                         OrderDurationType))
+
+    if OrderDurationType == OD.OrderDurationType.GoodTillDate:
+        if not GTDDate:
+            raise ValueError("Missing GTDDate")
+
+        _gtdtime = GTDDate
+        if isinstance(GTDDate, str):
+            try:
+                _gtdtime = datetime.strptime(GTDDate, "%Y-%m-%d")
+            except ValueError:
+                # a ValueError is raised in case of wrong format
+                _gtdtime = datetime.strptime(GTDDate, "%Y-%m-%dT%H:%M")
+
+        _gtdtime = _gtdtime.strftime("%Y-%m-%dT%H:%M")
+
+        odspec.update({'ExpirationDateContainsTime': True,
+                       'ExpirationDateTime': _gtdtime})
+
+    return odspec
