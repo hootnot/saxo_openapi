@@ -44,3 +44,27 @@ class TestContribOrdersHelper(unittest.TestCase):
         reforder['Orders'][0].update({'AccountKey': AccountKey})
         o = hlp.tie_account_to_order(AccountKey, order)
         self.assertTrue(o, reforder)
+
+    def test_hlp_order_duration_spec(self):
+        r1 = {
+           "DurationType": "GoodTillDate",
+           "ExpirationDateContainsTime": True,
+           "ExpirationDateTime": "2017-12-12T00:00"
+        }
+        r2 = {
+           "DurationType": "DO",
+           "ExpirationDateContainsTime": True,
+           "ExpirationDateTime": "2017-12-12T14:00"
+        }
+        o1 = hlp.order_duration_spec("GoodTillDate",
+                                     ["GoodTillDate"], "2017-12-12")
+        o2 = hlp.order_duration_spec("GoodTillDate",
+                                     ["GoodTillDate"], "2017-12-12T14:00")
+        self.assertTrue([r1, r2], [o1, o2])
+
+    def test_hlp_order_duration_spec_excep(self):
+        with self.assertRaises(ValueError) as err:
+            hlp.order_duration_spec("GoodTillDat",
+                                    ["GoodTillDate"], "2017-12-12")
+        errval = err.exception
+        self.assertTrue("GoodTillDat is not supported" in str(errval))

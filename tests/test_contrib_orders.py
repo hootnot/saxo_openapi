@@ -251,12 +251,114 @@ class TestContribOrders(unittest.TestCase):
              },
            }
         ),
+       (order.LimitOrder,
+           {"Uic": 21,
+            "AssetType": 'FxSpot',
+            "Amount":  10000,
+            "OrderPrice": 1.1125,
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Buy",
+             "OrderType": "Limit",
+             "OrderPrice": 1.1125,
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+           }
+        ),
+       (order.LimitOrder,
+           {"Uic": 21,
+            "AssetType": 'FxSpot',
+            "Amount":  10000,
+            "OrderPrice": 1.1125,
+            "StopLossOnFill": onfill.StopLossDetails(1.1045),
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Buy",
+             "OrderType": "Limit",
+             "OrderPrice": 1.1125,
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "Uic": 21,
+                 "OrderType": "Stop",
+                 "OrderPrice": 1.1045,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Sell"
+               }
+             ]
+           }
+        ),
+       (order.LimitOrderFxSpot,
+           {"Uic": 21,
+            "Amount":  10000,
+            "OrderPrice": 1.1125,
+            "StopLossOnFill": onfill.StopLossDetails(1.1045).data,
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Buy",
+             "OrderType": "Limit",
+             "OrderPrice": 1.1125,
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+             "Orders": [
+               {
+                 "OrderDuration": {
+                   "DurationType": "GoodTillCancel"
+                 },
+                 "Uic": 21,
+                 "OrderType": "Stop",
+                 "OrderPrice": 1.1045,
+                 "AssetType": "FxSpot",
+                 "Amount": 10000,
+                 "BuySell": "Sell"
+               }
+             ]
+           }
+        ),
+       (order.LimitOrderStock,
+           {"Uic": 16350,
+            "Amount":  1000,
+            "OrderPrice": 28.15,
+            },
+           {
+             "Uic": 16350,
+             "AssetType": "Stock",
+             "Amount": 1000,
+             "BuySell": "Buy",
+             "OrderType": "Limit",
+             "OrderPrice": 28.15,
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+           }
+        ),
     ])
     def test_all(self, cls, inpar, refpar, excpar=None):
-
         if not excpar:
             r = cls(**inpar) if inpar else cls()
             self.assertTrue(r.data == refpar)
+
         else:
             with self.assertRaises(excpar['exception']) as err:
                 r = cls(**inpar)
