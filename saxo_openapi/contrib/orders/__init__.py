@@ -10,6 +10,10 @@ from .limitorder import (    # noqa: F401
     LimitOrderFxSpot,
     LimitOrderStock
 )
+from .stoporder import (    # noqa: F401
+    StopOrder,
+    StopOrderFxSpot,
+)
 from .helper import (        # noqa: F401
     direction_from_amount,
     tie_account_to_order

@@ -357,6 +357,70 @@ class TestContribOrders(unittest.TestCase):
              },
            }
         ),
+       (order.StopOrder,
+           {"Uic": 21,
+            "AssetType": 'FxSpot',
+            "Amount": -10000,
+            "OrderPrice": 1.10,
+            },
+           {
+             "Uic": 21,
+             "AssetType": "FxSpot",
+             "Amount": 10000,
+             "BuySell": "Sell",
+             "OrderType": "Stop",
+             "OrderPrice": 1.1,
+             "AmountType": "Quantity",
+             "OrderDuration": {
+               "DurationType": "DayOrder"
+             },
+           }
+        ),
+       # Go short by a stop order, if done activate the SL and TP
+       (order.StopOrderFxSpot,
+           {"Uic": 21,
+            "Amount": -10000,
+            "OrderPrice": 1.10,
+            "StopLossOnFill": onfill.StopLossDetails(1.1085),
+            "TakeProfitOnFill": onfill.TakeProfitDetails(1.0915)
+            },
+           {
+              "Uic": 21,
+              "AssetType": "FxSpot",
+              "Amount": 10000,
+              "OrderPrice": 1.1,
+              "BuySell": "Sell",
+              "OrderType": "Stop",
+              "AmountType": "Quantity",
+              "OrderDuration": {
+                "DurationType": "DayOrder"
+              },
+              "Orders": [
+                {
+                  "OrderType": "Limit",
+                  "OrderDuration": {
+                    "DurationType": "GoodTillCancel"
+                  },
+                  "OrderPrice": 1.0915,
+                  "Uic": 21,
+                  "BuySell": "Buy",
+                  "AssetType": "FxSpot",
+                  "Amount": 10000
+                },
+                {
+                  "OrderType": "Stop",
+                  "OrderDuration": {
+                    "DurationType": "GoodTillCancel"
+                  },
+                  "OrderPrice": 1.1085,
+                  "Uic": 21,
+                  "BuySell": "Buy",
+                  "AssetType": "FxSpot",
+                  "Amount": 10000
+                }
+              ]
+            }
+        )
     ])
     def test_all(self, cls, inpar, refpar, excpar=None):
         if not excpar:
