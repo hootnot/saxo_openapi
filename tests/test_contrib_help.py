@@ -45,6 +45,21 @@ class TestContribOrdersHelper(unittest.TestCase):
         o = hlp.tie_account_to_order(AccountKey, order)
         self.assertTrue(o, reforder)
 
+    def test_hlp_tie_account_to_closepos_order(self):
+        # inject the AccountKey in an order specification dict
+        order = {
+           'PositionId': 'ABC',
+           'Orders': [
+              {'Amount': 1000,
+               'etc': None}
+           ]
+        }
+        AccountKey = 'ABCDE'
+        reforder = order.copy()
+        reforder['Orders'][0].update({'AccountKey': AccountKey})
+        o = hlp.tie_account_to_order(AccountKey, order)
+        self.assertTrue(o, reforder)
+
     def test_hlp_order_duration_spec(self):
         r1 = {
            "DurationType": "GoodTillDate",

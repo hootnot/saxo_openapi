@@ -38,8 +38,10 @@ def tie_account_to_order(AccountKey, order):
     """
     _r = order.copy() if isinstance(order, dict) else order.data.copy()
 
-    # add the key to the orderbody
-    _r.update({'AccountKey': AccountKey})
+    # add the key to the orderbody, but ONLY if this is not a positionclose
+    # body
+    if "PositionId" not in _r:
+        _r.update({'AccountKey': AccountKey})
 
     # and add it to related orders in Orders (if any)
     if 'Orders' in _r:
