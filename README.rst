@@ -1,10 +1,11 @@
 saxo_openapi
 ============
 
+
 Python wrapper for Saxo Bank OpenAPI REST-API (see `here
 <https://www.developer.saxo/openapi/learn>`_)
 
-Currently this is code under development. There is no pypi-package yet.
+Most endpoints are covered by *saxo_openapi*. Check `Covered endpoints`_ for details.
 
 .. image:: https://travis-ci.org/hootnot/saxo_openapi.svg?branch=master
    :target: https://travis-ci.org/hootnot/saxo_openapi
@@ -31,6 +32,35 @@ Using the Jupyter `notebook`_ it is easy to experiment with the
 *saxo_openapi* library.
 
 .. _notebook: ./jupyter/index.ipynb
+
+TOC
+---
+
+   + `Install`_
+   + `Design`_
+   + `Documentation`_
+   + `Example`_
+   + `Some Trading`_
+       - `Or by using: contrib.orders`_
+   + `Covered endpoints`_
+
+
+Install
+-------
+
+.. code-block:: bash
+
+   $ pip install saxo_openapi
+
+or the latest development version from github:
+
+.. code-block:: bash
+
+   $ pip install git+https://github.com/hootnot/saxo_openapi.git
+
+
+Only python3 is supported.
+
 
 Design
 ------
@@ -67,7 +97,7 @@ Each request class representing an endpoint applies the following in a consisten
   | /trade/v2/orders/                             | tr.orders.Order(data={..})                          | *data*: required                                       |
   +-----------------------------------------------+-----------------------------------------------------+--------------------------------------------------------+
 
-
+Top `saxo_openapi`_
 
 Documentation
 -------------
@@ -81,17 +111,10 @@ Each request-class is documented with a straightforward usage example.
 .. _`https://www.developer.saxo/openapi/referencedocs`: https://www.developer.saxo/openapi/referencedocs
 .. _`https://saxo-openapi.readthedocs.io/en/latest`: https://saxo-openapi.readthedocs.io/en/latest
 
+Top `saxo_openapi`_
 
-Install
+Example
 -------
-
-.. code-block:: bash
-
-   $ pip install git+https://github.com/hootnot/saxo_openapi.git
-
-Only python3 is supported.
-
-Example:
 
 .. code-block:: python
 
@@ -130,6 +153,8 @@ Output:
       {'Available': True, 'Feature': 'Calendar'},
       {'Available': True, 'Feature': 'Chart'}]
     200
+
+Top `saxo_openapi`_
 
 Some Trading
 ------------
@@ -279,6 +304,8 @@ Output:
    }
 
 
+Top `saxo_openapi`_
+
 Or by using: contrib.orders
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -331,6 +358,8 @@ The same orders but now using *MarketOrderFxSpot* to create the orderbodies.
    rv = client.request(r)
    print(json.dumps(rv, indent=2))
 
+
+Top `saxo_openapi`_
 
 Covered endpoints
 -----------------
@@ -567,3 +596,5 @@ States:
        Delete price alert definitions                    [x]
        Get the current users's notification settings     [x]
        Modify the current users's notification settings  [x]
+
+Top `saxo_openapi`_
