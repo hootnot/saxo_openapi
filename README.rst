@@ -50,16 +50,27 @@ Install
 
 .. code-block:: bash
 
-   $ pip install saxo_openapi
+   # Setup a virtual environment
+   $ mkdir tst_saxo_openapi
+   $ cd tst_saxo_openapi
+   $ /usr/local/bin/python3.7 -m venv venv37
+   $ . ./venv37/bin/activate
+   (venv37) feite@oatr:~/tst_saxo_openapi$
 
-or the latest development version from github:
+   $ pip install saxo_openapi requests
+
+   # get a token from developer.saxo
+   # try some examples
+
+
+To use the latest development version from github:
 
 .. code-block:: bash
 
    $ pip install git+https://github.com/hootnot/saxo_openapi.git
 
 
-Only python3 is supported.
+.. note:: Only python3 is supported!
 
 
 Design
