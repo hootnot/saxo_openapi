@@ -18,6 +18,9 @@ Most endpoints are covered by *saxo_openapi*. Check `Covered endpoints`_ for det
    :target: https://coveralls.io/github/hootnot/saxo_openapi?branch=master
    :alt: Coverage
 
+.. image:: https://img.shields.io/pypi/v/saxo_openapi.svg
+   :alt: PyPI
+
 .. image:: https://api.codacy.com/project/badge/Grade/edcfcf6a416a4f94bb710413a35daa83
    :target: https://www.codacy.com/app/hootnot/saxo_openapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hootnot/saxo_openapi&amp;utm_campaign=Badge_Grade
 
