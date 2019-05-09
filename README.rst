@@ -437,6 +437,10 @@ States:
 
    Event Notification Services
      ClientActivities
+       create a subscription for client events   [x]
+       remove subscription                       [x]
+       remove subscriptions                      [x]
+       get activities for client/account         [x]
 
    Portfolio
      AccountGroups
