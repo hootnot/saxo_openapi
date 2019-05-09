@@ -106,7 +106,9 @@ def make_definition_classes(mod):
 
 definitionModules = [
     'accounthistory',
+    'activities',
     'orders',
+    'reportformats'
 ]
 
 # dynamically create all the definition classes from the modules
