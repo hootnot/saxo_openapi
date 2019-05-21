@@ -76,6 +76,11 @@ docs: ## generate Sphinx HTML documentation, including API docs
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
+changelog:  ## auto changelog from conventional commits
+	auto-changelog
+	pandoc --from=markdown --to=rst -o CHANGELOG.rst < CHANGELOG.md
+	rm CHANGELOG.md
+
 release: dist ## package and upload a release
 	twine upload dist/*
 

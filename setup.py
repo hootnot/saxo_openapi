@@ -8,10 +8,10 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with open('CHANGELOG.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = map(str.strip, open("requirements.txt").readlines())
 
 setup_requirements = [ ]
 
