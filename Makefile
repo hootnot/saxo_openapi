@@ -77,11 +77,15 @@ servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 changelog:  ## auto changelog from conventional commits
-	auto-changelog
+	python gitlog.py >CHANGELOG.md
 	pandoc --from=markdown --to=rst -o CHANGELOG.rst < CHANGELOG.md
 	rm CHANGELOG.md
 
-release: dist ## package and upload a release
+release: changelog ## bumpversion and auto-changes
+	git add CHANGELOG.rst
+	bumpversion --allow-dirty $(level)
+
+upload: dist ## package and upload a release
 	twine upload dist/*
 
 dist: clean ## builds source and wheel package

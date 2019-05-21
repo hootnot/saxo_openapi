@@ -5,7 +5,7 @@
 __title__ = "Saxo OpenAPI API Wrapper"
 __author__ = """Feite Brekeveld"""
 __email__ = 'f.brekeveld@gmail.com'
-__version__ = 'version='0.4.0''
+__version__ = '0.4.0'
 __copyright__ = "Copyright 2019 Feite Brekeveld"
 
 
