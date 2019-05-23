@@ -13,3 +13,5 @@ definitions appear throughout the documentation, see developer.saxo_.
 
    saxo_openapi.definitions.accounthistory
    saxo_openapi.definitions.orders
+   saxo_openapi.definitions.reportformats
+   saxo_openapi.definitions.activities

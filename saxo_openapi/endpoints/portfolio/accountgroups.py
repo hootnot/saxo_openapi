@@ -118,6 +118,8 @@ class AccountGroupUpdate(Portfolio):
     AccountValueProtectionLimit.
     """
 
+    RESPONSE_DATA = None
+
     @dyndoc_insert(responses)
     def __init__(self, AccountGroupKey, params, data):
         """Instantiate an AccountGroupUpdate request.
@@ -145,11 +147,7 @@ class AccountGroupUpdate(Portfolio):
         ...            params=params,
         ...            data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
-
-        Output::
-
-            {_v3_AccountGroupUpdate_resp}
+        >>> assert r.status_code == r.expected_status
 
         """
         super(AccountGroupUpdate, self).__init__(

@@ -193,7 +193,7 @@ class RemoveOpenOrderSubscriptionsByTag(Portfolio):
     resource. Optionally with with specified Tag.
     """
 
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = None
 
     def __init__(self, ContextId, params=None):
         """Instantiate a RemoveOpenOrderSubscriptionsByTag request.
@@ -232,7 +232,7 @@ class RemoveOpenOrderSubscription(Portfolio):
     subscription id
     """
 
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = None
 
     def __init__(self, ContextId, ReferenceId):
         """Instantiate a RemoveOpenOrderSubscription request.

@@ -15,15 +15,15 @@ dyndoc = """Definition representation of {cls}
     class provides the ID and the description of the definitions.
 
     >>> import {PTH} as def{mod}
-    >>> print def{mod}.{cls}.{firstItem}
+    >>> print(def{mod}.{cls}.{firstItem})
     {orig}
     >>> c = def{mod}.{cls}()
-    >>> print c[c.{firstItem}]
+    >>> print(c[c.{firstItem}])
     {firstItemVal}
     >>> # or
-    >>> print def{mod}.{cls}().definitions[c.{firstItem}]
+    >>> print(def{mod}.{cls}().definitions[c.{firstItem}])
     >>> # all keys
-    >>> print def{mod}.{cls}().definitions.keys()
+    >>> print(def{mod}.{cls}().definitions.keys())
     >>> ...
 
 """

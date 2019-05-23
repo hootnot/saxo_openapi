@@ -159,7 +159,7 @@ class BalanceSubscriptionRemoveByTag(Portfolio):
         >>> r = pf.BalanceSubscriptionRemoveByTag(ContextId=ContextId,
         ...                                       params=params)
         >>> client.request(r)
-        >>> assert r.status_code == r.expected_code
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -198,7 +198,7 @@ class BalanceSubscriptionRemoveById(Portfolio):
         >>> r = pf.BalanceSubscriptionRemoveById(ContextId=ContextId,
         ...                                      ReferenceId=ReferenceId)
         >>> client.request(r)
-        >>> assert r.status_code == r.expected_code
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """

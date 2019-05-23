@@ -76,10 +76,7 @@ class OptionsChainSubscriptionModify(Trading):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        Output::
-
-            {_v3_OptionsChainSubscriptionModify_resp}
-
+        No data is returned.
         """
         super(OptionsChainSubscriptionModify, self).__init__(
               ReferenceId=ReferenceId,
@@ -120,10 +117,7 @@ class OptionsChainSubscriptionRemove(Trading):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        Output::
-
-            {_v3_OptionsChainSubscriptionRemove_resp}
-
+        No data is returned.
         """
         super(OptionsChainSubscriptionRemove, self).__init__(
               ReferenceId=ReferenceId,
@@ -163,10 +157,7 @@ class OptionsChainSubscriptionResetATM(Trading):
         >>> client.request(r)
         >>> assert r.status_code == r.expected_status
 
-        Output::
-
-            {_v3_OptionsChainSubscriptionResetATM_resp}
-
+        No data is returned.
         """
         super(OptionsChainSubscriptionResetATM, self).__init__(
               ReferenceId=ReferenceId,

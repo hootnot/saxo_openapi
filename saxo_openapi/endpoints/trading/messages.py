@@ -52,6 +52,7 @@ class MarkMessageAsSeen(Trading):
         MessageId: string (required)
             the message-id of the message.
 
+
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.trading as tr
         >>> import json
@@ -105,7 +106,7 @@ class CreateTradeMessageSubscription(Trading):
 class RemoveTradeMessageSubscriptionById(Trading):
     """Removes a trade message subscription for the current session."""
 
-    RESPONSE_CODE = None
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
@@ -143,7 +144,7 @@ class RemoveTradeMessageSubscriptionById(Trading):
 class RemoveTradeMessageSubscriptions(Trading):
     """Removes trade message subscriptions for the current session."""
 
-    RESPONSE_CODE = None
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params):

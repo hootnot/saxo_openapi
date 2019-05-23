@@ -218,7 +218,7 @@ class NetPositionSubscriptionRemoveMultiple(Portfolio):
         ...         ContextId,
         ...         params=params)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -257,7 +257,7 @@ class NetPositionSubscriptionRemove(Portfolio):
         >>> r = pf.netpositions.NetPositionSubscriptionRemove(
         ...         ContextId, ReferenceId)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """

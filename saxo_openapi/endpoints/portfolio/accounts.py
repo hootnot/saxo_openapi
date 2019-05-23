@@ -166,7 +166,7 @@ class AccountReset(Portfolio):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = pf.accounts.AccountReset(AccountKey=AccountKey, data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         No response data is returned.
         """

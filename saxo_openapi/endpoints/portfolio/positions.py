@@ -224,7 +224,7 @@ class PositionSubscriptionPageSize(Portfolio):
         ...                                               ReferenceId,
         ...                                               data=data)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -264,7 +264,7 @@ class PositionSubscriptionRemoveMultiple(Portfolio):
         >>> r = pf.positions.PositionSubscriptionRemoveMultiple(ContextId,
         ...                                                     params=params)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -302,7 +302,7 @@ class PositionSubscriptionRemove(Portfolio):
         >>> ReferenceId = ...
         >>> r = pf.positions.PositionSubscriptionRemove(ContextId, ReferenceId)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """

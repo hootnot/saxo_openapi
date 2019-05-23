@@ -186,6 +186,11 @@ class ClosedPositionSubscription(Portfolio):
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
 
+
+        Output::
+
+            {_v3_ClosedPositionSubscription_resp}
+
         """
         super(ClosedPositionSubscription, self).__init__()
         self.data = data
@@ -230,7 +235,7 @@ class ClosedPositionSubscriptionUpdate(Portfolio):
         ...                                         ReferenceId=ReferenceId,
         ...                                         data=data)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -270,7 +275,7 @@ class ClosedPositionSubscriptionsRemove(Portfolio):
         ...             ContextId=ContextId,
         ...             params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -309,7 +314,7 @@ class ClosedPositionSubscriptionRemoveById(Portfolio):
         ...             ContextId=ContextId,
         ...             ReferenceId=ReferenceId)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """

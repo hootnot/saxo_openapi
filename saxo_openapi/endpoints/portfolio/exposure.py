@@ -109,7 +109,7 @@ class RemoveExposureSubscriptionsByTag(Portfolio):
     this resource, and frees all resources on the server.
     """
 
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, params=None):
@@ -133,7 +133,7 @@ class RemoveExposureSubscriptionsByTag(Portfolio):
         >>> r = pf.exposure.RemoveExposureSubscriptionsByTag(ContextId,
         ...                                                  params=params)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> assert r.status_code == r.expected_status
 
         No data returned.
         """
@@ -149,7 +149,7 @@ class RemoveExposureSubscription(Portfolio):
     subscription id.
     """
 
-    RESPONSE_TYPE = 'text'
+    RESPONSE_DATA = None
 
     @dyndoc_insert(responses)
     def __init__(self, ContextId, ReferenceId):
@@ -170,7 +170,7 @@ class RemoveExposureSubscription(Portfolio):
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = pf.exposure.RemoveExposureSubscription(ContextId, ReferenceId)
         >>> client.request(r)
-        >>> print(json.dumps(r.response, indent=2))
+        >>> assert r.status_code == r.expected_status
 
         No data returned.
         """

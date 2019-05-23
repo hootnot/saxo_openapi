@@ -4,15 +4,12 @@ Changelog
 [Unreleased]
 ------------
 
+Documentation Changes
+~~~~~~~~~~~~~~~~~~~~~
+
+-  various doc/docstring updates
+
 v0.4.1 (2019-05-23)
--------------------
-
-Bug Fixes
-~~~~~~~~~
-
--  corrected config causing broken build
-
-v0.4.0 (2019-05-22)
 -------------------
 
 New Features
@@ -20,6 +17,11 @@ New Features
 
 -  [endpoints] eventnotificationservices
 -  [definitions] activities and reportformats
+
+Bug Fixes
+~~~~~~~~~
+
+-  corrected config causing broken build
 
 Documentation Changes
 ~~~~~~~~~~~~~~~~~~~~~

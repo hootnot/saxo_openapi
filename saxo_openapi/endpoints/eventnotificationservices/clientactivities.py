@@ -74,7 +74,7 @@ class RemoveSubscription(ENS):
         >>> ReferenceId = ...
         >>> r = ens.clientactivities.RemoveSubscription(ContextId, ReferenceId)
         >>> client.request(r)
-        >>> assert r.status_code == r.expected_code
+        >>> assert r.status_code == r.expected_status
 
 
         No data is returned.
@@ -106,10 +106,9 @@ class RemoveSubscriptions(ENS):
             dict with querystring parameters
 
 
-        Example
-        -------
+        params example::
 
-        params = {_v3_RemoveSubscriptions_params}
+            params = {_v3_RemoveSubscriptions_params}
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.eventnotificationservices as ens
@@ -119,7 +118,7 @@ class RemoveSubscriptions(ENS):
         >>> r = ens.clientactivities.RemoveSubscriptions(ContextId,
         ...                                              params=params)
         >>> client.request(r)
-        >>> assert r.status_code == r.expected_code
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -142,10 +141,10 @@ class GetActivities(ENS):
             dict with querystring parameters
 
 
-        Example
-        -------
+        params example::
 
-        params = {_v3_GetActivities_params}
+            params = {_v3_GetActivities_params}
+
 
         >>> import saxo_openapi
         >>> import saxo_openapi.endpoints.eventnotificationservices as ens
@@ -154,6 +153,11 @@ class GetActivities(ENS):
         >>> r = ens.clientactivities.GetActivities(params=params)
         >>> client.request(r)
         >>> print(json.dumps(r.response, indent=4))
+
+
+        Output::
+
+            {_v3_GetActivities_resp}
 
         """
         super(GetActivities, self).__init__()

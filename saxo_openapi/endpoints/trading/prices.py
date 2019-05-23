@@ -72,7 +72,7 @@ class MarginImpactRequest(Trading):
         >>> r = tr.prices.MarginImpactRequest(ContextId=ContextId,
         ...                                   ReferenceId=ReferenceId)
         >>> client.request(r)
-        >>> print(json.dumps(rv, indent=2))
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -110,7 +110,7 @@ class PriceSubscriptionRemoveByTag(Trading):
         >>> r = tr.prices.PriceSubscriptionRemoveByTag(ContextId,
         ...                                            params=params)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
@@ -147,7 +147,7 @@ class PriceSubscriptionRemove(Trading):
         >>> ReferenceId = ...
         >>> r = tr.prices.PriceSubscriptionRemove(ContextId, ReferenceId)
         >>> client.request(r)
-        >>> assert r.status_code = r.expected_status
+        >>> assert r.status_code == r.expected_status
 
         No data is returned.
         """
