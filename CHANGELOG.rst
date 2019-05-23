@@ -4,6 +4,13 @@ Changelog
 [Unreleased]
 ------------
 
+v0.4.1 (2019-05-23)
+-------------------
+
+Bug Fixes
+~~~~~~~~~
+
+-  corrected config causing broken build
 
 v0.4.0 (2019-05-22)
 -------------------
@@ -11,8 +18,8 @@ v0.4.0 (2019-05-22)
 New Features
 ~~~~~~~~~~~~
 
--  [definitions] activities and reportformats
 -  [endpoints] eventnotificationservices
+-  [definitions] activities and reportformats
 
 Documentation Changes
 ~~~~~~~~~~~~~~~~~~~~~
