@@ -4,9 +4,18 @@ Changelog
 [Unreleased]
 ------------
 
+v0.5.0 (2019-09-10)
+-------------------
+
+New Features
+~~~~~~~~~~~~
+
+-  [endpoints] chart endpoints
+
 Documentation Changes
 ~~~~~~~~~~~~~~~~~~~~~
 
+-  [endpoints] chart endpoints documentation
 -  various doc/docstring updates
 
 v0.4.1 (2019-05-23)
