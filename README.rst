@@ -411,7 +411,7 @@ States:
      Trade Leaders
 
    Chart
-     Charts
+     Charts                     [x]
 
    Client Management
      Signups v1
