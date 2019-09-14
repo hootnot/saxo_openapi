@@ -431,9 +431,12 @@ States:
      Audit OrderActivities
      CashManagement - InterAcountTransfer
      CashManagement - Wiretransfers
+     ClientInfo
      Historical Report Data - Aggregated amounts
+     Historical Report Data - Bookings
+     Historical Report Data - Closed positions
      Historical Report Data - Trades
-     Trading Conditions
+     Support - Cases
 
    Event Notification Services
      ClientActivities
@@ -441,6 +444,20 @@ States:
        remove subscription                       [x]
        remove subscriptions                      [x]
        get activities for client/account         [x]
+
+   Partner Integration (Beta/Early Preview)
+     InteractiveIdVerification
+
+   Platform
+     Articles
+       Get a specific article from sitecore           [ ]
+       Get a list of articles from sitecore           [ ]
+     ConfigurationInvestor
+       Get the structure configuration for platform   [ ]
+       Get a specific page for not loading full site  [ ]
+     ConfigurationTrader
+       Get the structure configuration for platform   [ ]
+       Get a specific page for not loading full site  [ ]
 
    Portfolio
      AccountGroups
@@ -483,6 +500,7 @@ States:
        ClosedPositionSubscriptionUpdate       [x]
        ClosedPositionSubscriptionsRemove      [x]
        ClosedPositionSubscriptionRemoveById   [x]
+
      Exposure
        NetInstrumentsExposureMe                  [x]
        NetInstrumentsExposure                    [x]
