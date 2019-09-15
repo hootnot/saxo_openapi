@@ -2,17 +2,10 @@
 
 """Top-level package for SAXO OpenAPI."""
 
-__title__ = "Saxo OpenAPI API Wrapper"
-__author__ = """Feite Brekeveld"""
-__email__ = 'f.brekeveld@gmail.com'
-__version__ = '0.5.0'
-__copyright__ = "Copyright 2019 Feite Brekeveld"
-
-
-# Version synonym
-VERSION = __version__
-
 # Set default logging handler to avoid "No handler found" warnings.
+from .saxo_openapi import API   # noqa F401
+from .exceptions import OpenAPIError  # noqa F401
+
 import logging
 try:
     from logging import NullHandler
@@ -23,5 +16,13 @@ except ImportError:
 
 logging.getLogger(__name__).addHandler(NullHandler())
 
-from .saxo_openapi import API
-from .exceptions import OpenAPIError
+
+__title__ = "Saxo OpenAPI API Wrapper"
+__author__ = """Feite Brekeveld"""
+__email__ = 'f.brekeveld@gmail.com'
+__version__ = '0.5.0'
+__copyright__ = "Copyright 2019 Feite Brekeveld"
+
+
+# Version synonym
+VERSION = __version__

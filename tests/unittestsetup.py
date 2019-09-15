@@ -85,7 +85,8 @@ def test_generic(self, _mod, clsNm, route, **kwargs):
     try:
         r = cls(**stuf)
     except Exception as e:
-        raise ValueError("FAILURE instantiating {}: {}".format(clsNm, stuf))
+        raise ValueError("{}: FAILURE instantiating {}: {}".format(
+            e, clsNm, stuf))
 
     if hasattr(r, "RESPONSE_DATA"):
         if r.RESPONSE_DATA is not None:

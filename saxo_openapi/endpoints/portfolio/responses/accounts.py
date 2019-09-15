@@ -189,7 +189,8 @@ responses = {
         "response": '',
     },
     "_v3_SubscriptionRemoveById": {
-        "url": "/openapi/port/v1/accounts/subscriptions/{ContextId}/{ReferenceId}",
+        "url": "/openapi/port/v1/accounts/subscriptions/"
+               "{ContextId}/{ReferenceId}",
         "response": '',
     },
 }

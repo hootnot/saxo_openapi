@@ -16,14 +16,14 @@ def dyndoc_insert(src):
         if flag == 1:
             # strip the '[' and ']' in case of a list holding items
             # that stand on their own (example: tick records from a stream)
-            nw = re.findall('.*?\[(.*)\]', v, flags=re.S)
+            nw = re.findall('.*?[(.*)]', v, flags=re.S)
             v = nw[0]
         # add leading whitespace for each line and start with a newline
         return "\n{}".format("".join(["{0:>16}{1}\n".format("", L)
                              for L in v.split('\n')]))
 
     def dec(obj):
-        allSlots = re.findall("\{(_v3.*?)\}", obj.__doc__)
+        allSlots = re.findall("{(_v3.*?)}", obj.__doc__)
         docsub = {}
         sub = {}
         for k in allSlots:

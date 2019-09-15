@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .helper import direction_from_amount, direction_invert
+from .helper import direction_invert
 
 
 class OnFillHnd(object):

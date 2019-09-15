@@ -73,7 +73,8 @@ responses = {
                 "ClosedTradesAllocations": [
                   {
                     "AssetType": "ContractFutures",
-                    "InstrumentDescription": "30-Year U.S. Treasury Bond - Sep 2016",
+                    "InstrumentDescription": "30-Year U.S. "
+                                             "Treasury Bond - Sep 2016",
                     "InstrumentSymbol": "ZBU6",
                     "InstrumentUic": 3626018,
                     "ReturnAttribution": -0.15987101005684304,
