@@ -9,6 +9,11 @@ Style Fixes
 
 -  fixed flake8 style issues
 
+Documentation Changes
+~~~~~~~~~~~~~~~~~~~~~
+
+-  [sphinx config] fixed typo
+
 v0.5.0 (2019-09-10)
 -------------------
 

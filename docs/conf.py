@@ -264,7 +264,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'SAXO_OPENAPI.tex', u'AXO OpenAPI Documentation',
+    (master_doc, 'SAXO_OPENAPI.tex', u'SAXO OpenAPI Documentation',
      u'Feite Brekeveld', 'manual'),
 ]
 
