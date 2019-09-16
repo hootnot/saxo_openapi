@@ -10,6 +10,7 @@ responses = {
         "url": "/openapi/trade/v2/orders",
         "body": {
             "AccountKey": "Cf4xZWiYL6W1nMKpygBLLA==",
+            "ManualOrder": False,
             "Amount": "10000",
             "AssetType": "FxSpot",
             "BuySell": "Buy",
@@ -28,6 +29,7 @@ responses = {
             "AssetType": "FxSpot",
             "OrderId": "76289286",
             "OrderType": "Limit",
+            "ManualOrder": False,
             "OrderDuration": {
                 "DurationType": "DayOrder"
             }

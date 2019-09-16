@@ -40,6 +40,7 @@ TP-details can simply be constructed by using TakeProfitDetails:
   "OrderDuration": {
       "DurationType": "GoodTillCancel"
   },
+  "ManualOrder": False,
   "OrderPrice": "1.14000"
 }
 
@@ -58,6 +59,7 @@ So, a MarketOrder with TP-details and SL-details:
   "Amount": 10000,
   "BuySell": "Buy",
   "OrderType": "Market",
+  "ManualOrder": false,
   "AmountType": "Quantity",
   "OrderDuration": {
       DurationType": "FillOrKill"
@@ -67,6 +69,7 @@ So, a MarketOrder with TP-details and SL-details:
       "OrderDuration": {
           DurationType": "GoodTillCancel"
       },
+      "ManualOrder": false,
       "OrderType": "Limit",
       "OrderPrice": "1.14000",
       "BuySell": "Sell",
@@ -77,6 +80,7 @@ So, a MarketOrder with TP-details and SL-details:
       "OrderDuration": {
           DurationType": "GoodTillCancel"
       },
+      "ManualOrder": false,
       "OrderType": "Stop",
       "OrderPrice": "1.12000",
       "BuySell": "Sell",
@@ -104,6 +108,7 @@ to the orderbody also:
   "BuySell": "Buy",
   "OrderType": "Market",
   "AmountType": "Quantity",
+  "ManualOrder": false,
   "OrderDuration": {
       DurationType": "FillOrKill"
   },
@@ -112,6 +117,7 @@ to the orderbody also:
       "OrderDuration": {
           DurationType": "GoodTillCancel"
       },
+      "ManualOrder": false,
       "OrderType": "Limit",
       "OrderPrice": "1.14000",
       "BuySell": "Sell",
@@ -123,6 +129,7 @@ to the orderbody also:
       "OrderDuration": {
           DurationType": "GoodTillCancel"
       },
+      "ManualOrder": false,
       "OrderType": "Stop",
       "OrderPrice": "1.12000",
       "BuySell": "Sell",
@@ -166,6 +173,7 @@ class OnFill(BaseOrder):
     @abstractmethod
     def __init__(self,
                  OrderType,
+                 ManualOrder=False,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
                  GTDDate=None):
         super(OnFill, self).__init__()
@@ -176,6 +184,7 @@ class OnFill(BaseOrder):
             raise ValueError("OrderDurationType: {} invalid".format(
                              OrderDurationType))
 
+        self._data.update({"ManualOrder": ManualOrder})
         self._data.update({"OrderType": OrderType})
         self._data.update({"OrderDuration":
                            order_duration_spec(OrderDurationType,
@@ -198,6 +207,7 @@ class TakeProfitDetails(OnFill):
 
     def __init__(self,
                  price,
+                 ManualOrder=False,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
                  GTDDate=None):
         """Instantiate TakeProfitDetails.
@@ -211,6 +221,10 @@ class TakeProfitDetails(OnFill):
         OrderDurationType : OrderDurationType (required)
             the duration, default is: OrderDurationType.GoodTillCancel
 
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
+
         GTDDate : string or datetime (optional)
             GTD-datetime is required if OrderDurationType.GoodTillDate
 
@@ -219,6 +233,7 @@ class TakeProfitDetails(OnFill):
         super(TakeProfitDetails, self).__init__(
               OrderType=OrderType,
               OrderDurationType=OrderDurationType,
+              ManualOrder=ManualOrder,
               GTDDate=GTDDate)
         self._data.update({"OrderPrice": price})
 
@@ -238,6 +253,7 @@ class StopLossDetails(OnFill):
 
     def __init__(self,
                  price,
+                 ManualOrder=False,
                  OrderDurationType=OD.OrderDurationType.GoodTillCancel,
                  GTDDate=None):
         """Instantiate StopLossDetails.
@@ -251,6 +267,10 @@ class StopLossDetails(OnFill):
         OrderDurationType : OrderDurationType (required)
             the duration, default is: OrderDurationType.GoodTillCancel
 
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
+
         GTDDate : string or datetim (optional)
             GTD-datetime is required if OrderDurationType.GoodTillDate
 
@@ -258,6 +278,7 @@ class StopLossDetails(OnFill):
         OrderType = OD.OrderType.Stop
         super(StopLossDetails, self).__init__(
             OrderDurationType=OrderDurationType,
+            ManualOrder=ManualOrder,
             OrderType=OrderType,
             GTDDate=GTDDate)
         self._data.update({"OrderPrice": price})

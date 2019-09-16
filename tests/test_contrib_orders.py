@@ -29,6 +29,17 @@ class TestContribOrders(unittest.TestCase):
            {'OrderDuration': {
                'DurationType': 'GoodTillCancel'    # the default
             },
+            'ManualOrder': False,
+            'OrderType': 'Limit',
+            'OrderPrice': 1.10}
+        ),
+       # TakeProfitDetails: ManualOrder true
+       (onfill.TakeProfitDetails,
+           {"price": 1.10, "ManualOrder": True},
+           {'OrderDuration': {
+               'DurationType': 'GoodTillCancel'    # the default
+            },
+            'ManualOrder': True,
             'OrderType': 'Limit',
             'OrderPrice': 1.10}
         ),
@@ -50,6 +61,7 @@ class TestContribOrders(unittest.TestCase):
            {'OrderDuration': {
                'DurationType': 'FillOrKill'
             },
+            'ManualOrder': False,
             'OrderPrice': 1.10},
            {'exception': ValueError,
             'msg': 'OrderDurationType: FillOrKill invalid'}
@@ -60,6 +72,7 @@ class TestContribOrders(unittest.TestCase):
            {'OrderDuration': {
                'DurationType': 'GoodTillCancel'
             },
+            'ManualOrder': False,
             'OrderType': 'Stop',
             'OrderPrice': 1.10}
         ),
@@ -94,6 +107,7 @@ class TestContribOrders(unittest.TestCase):
                 'DurationType': 'DayOrder'
             },
             'Amount': 10000,
+            'ManualOrder': False,
             'AmountType': 'Quantity',
             'BuySell': 'Buy',
             'AssetType': 'FxSpot',
@@ -109,6 +123,7 @@ class TestContribOrders(unittest.TestCase):
                 'DurationType': 'DayOrder'
             },
             'Amount': 10000,
+            'ManualOrder': False,
             'AmountType': 'Quantity',
             'BuySell': 'Sell',
             'AssetType': 'FxSpot',
@@ -128,6 +143,7 @@ class TestContribOrders(unittest.TestCase):
              "BuySell": "Sell",
              "OrderType": "Market",
              "AmountType": "Quantity",
+             "ManualOrder": False,
              "OrderDuration": {
                "DurationType": "DayOrder"
              },
@@ -137,6 +153,7 @@ class TestContribOrders(unittest.TestCase):
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
+                 "ManualOrder": False,
                  "OrderType": "Limit",
                  "OrderPrice": 1.13,
                  "AssetType": "FxSpot",
@@ -160,6 +177,7 @@ class TestContribOrders(unittest.TestCase):
              "BuySell": "Sell",
              "OrderType": "Market",
              "AmountType": "Quantity",
+             "ManualOrder": False,
              "OrderDuration": {
                "DurationType": "DayOrder"
              },
@@ -169,6 +187,7 @@ class TestContribOrders(unittest.TestCase):
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
+                 "ManualOrder": False,
                  "OrderType": "Limit",
                  "OrderPrice": 1.13,
                  "AssetType": "FxSpot",
@@ -190,6 +209,7 @@ class TestContribOrders(unittest.TestCase):
              "Amount": 10000,
              "BuySell": "Buy",
              "OrderType": "Market",
+             "ManualOrder": False,
              "AmountType": "Quantity",
              "OrderDuration": {
                "DurationType": "DayOrder"
@@ -202,6 +222,7 @@ class TestContribOrders(unittest.TestCase):
                  },
                  "OrderType": "Stop",
                  "OrderPrice": 1.1045,
+                 "ManualOrder": False,
                  "AssetType": "FxSpot",
                  "Amount": 10000,
                  "BuySell": "Sell"
@@ -221,6 +242,7 @@ class TestContribOrders(unittest.TestCase):
              "BuySell": "Buy",
              "OrderType": "Market",
              "AmountType": "Quantity",
+             "ManualOrder": False,
              "OrderDuration": {
                "DurationType": "DayOrder"
              },
@@ -232,6 +254,7 @@ class TestContribOrders(unittest.TestCase):
                  },
                  "OrderType": "Stop",
                  "OrderPrice": 1.1045,
+                 "ManualOrder": False,
                  "AssetType": "FxSpot",
                  "Amount": 10000,
                  "BuySell": "Sell"
@@ -250,6 +273,7 @@ class TestContribOrders(unittest.TestCase):
              "BuySell": "Buy",
              "OrderType": "Market",
              "AmountType": "Quantity",
+             "ManualOrder": False,
              "OrderDuration": {
                "DurationType": "DayOrder"
              },
@@ -266,6 +290,7 @@ class TestContribOrders(unittest.TestCase):
              "AssetType": "FxSpot",
              "Amount": 10000,
              "BuySell": "Buy",
+             "ManualOrder": False,
              "OrderType": "Limit",
              "OrderPrice": 1.1125,
              "AmountType": "Quantity",
@@ -287,6 +312,7 @@ class TestContribOrders(unittest.TestCase):
              "Amount": 10000,
              "BuySell": "Buy",
              "OrderType": "Limit",
+             "ManualOrder": False,
              "OrderPrice": 1.1125,
              "AmountType": "Quantity",
              "OrderDuration": {
@@ -297,6 +323,7 @@ class TestContribOrders(unittest.TestCase):
                  "OrderDuration": {
                    "DurationType": "GoodTillCancel"
                  },
+                 "ManualOrder": False,
                  "Uic": 21,
                  "OrderType": "Stop",
                  "OrderPrice": 1.1045,
@@ -320,6 +347,7 @@ class TestContribOrders(unittest.TestCase):
              "BuySell": "Buy",
              "OrderType": "Limit",
              "OrderPrice": 1.1125,
+             "ManualOrder": False,
              "AmountType": "Quantity",
              "OrderDuration": {
                "DurationType": "DayOrder"
@@ -330,6 +358,7 @@ class TestContribOrders(unittest.TestCase):
                    "DurationType": "GoodTillCancel"
                  },
                  "Uic": 21,
+                 "ManualOrder": False,
                  "OrderType": "Stop",
                  "OrderPrice": 1.1045,
                  "AssetType": "FxSpot",
@@ -350,6 +379,7 @@ class TestContribOrders(unittest.TestCase):
              "Amount": 1000,
              "BuySell": "Buy",
              "OrderType": "Limit",
+             "ManualOrder": False,
              "OrderPrice": 28.15,
              "AmountType": "Quantity",
              "OrderDuration": {
@@ -369,6 +399,7 @@ class TestContribOrders(unittest.TestCase):
              "Amount": 10000,
              "BuySell": "Sell",
              "OrderType": "Stop",
+             "ManualOrder": False,
              "OrderPrice": 1.1,
              "AmountType": "Quantity",
              "OrderDuration": {
@@ -392,6 +423,7 @@ class TestContribOrders(unittest.TestCase):
               "BuySell": "Sell",
               "OrderType": "Stop",
               "AmountType": "Quantity",
+              "ManualOrder": False,
               "OrderDuration": {
                 "DurationType": "DayOrder"
               },
@@ -401,6 +433,7 @@ class TestContribOrders(unittest.TestCase):
                   "OrderDuration": {
                     "DurationType": "GoodTillCancel"
                   },
+                  "ManualOrder": False,
                   "OrderPrice": 1.0915,
                   "Uic": 21,
                   "BuySell": "Buy",
@@ -412,6 +445,7 @@ class TestContribOrders(unittest.TestCase):
                   "OrderDuration": {
                     "DurationType": "GoodTillCancel"
                   },
+                  "ManualOrder": False,
                   "OrderPrice": 1.1085,
                   "Uic": 21,
                   "BuySell": "Buy",

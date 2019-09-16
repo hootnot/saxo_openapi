@@ -23,6 +23,7 @@ class StopOrder(BaseOrder, OnFillHnd):
                  Amount,
                  AssetType,
                  OrderPrice,
+                 ManualOrder=False,
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
@@ -47,6 +48,10 @@ class StopOrder(BaseOrder, OnFillHnd):
 
         AssetType: string (required)
             the assettype for the Uic
+
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
 
         AmountType: AmountType (optional)
             the amountType, defaults to Quantity, see AmountType for
@@ -87,6 +92,7 @@ class StopOrder(BaseOrder, OnFillHnd):
           "Price": 1.1025,
           "BuySell": "Buy",
           "OrderType": "Stop",
+          "ManualOrder": false,
           "AmountType": "Quantity",
           "OrderDuration": {
              "DurationType": "DayOrder"
@@ -119,6 +125,7 @@ class StopOrder(BaseOrder, OnFillHnd):
         self._data.update({"Uic": Uic})
         self._data.update({"AssetType": AssetType})
         self._data.update({"Amount": abs(Amount)})
+        self._data.update({"ManualOrder": ManualOrder})
         self._data.update({"OrderPrice": OrderPrice})
         self._data.update({"BuySell": direction_from_amount(Amount)})
         self._data.update(da)
@@ -147,6 +154,7 @@ class StopOrderFxSpot(StopOrder):
                  Uic,
                  Amount,
                  OrderPrice,
+                 ManualOrder=False,
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
@@ -168,6 +176,10 @@ class StopOrderFxSpot(StopOrder):
 
         OrderPrice: decimal (required)
             the price indicating the limitprice
+
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
 
         AmountType: AmountType (optional)
             the amountType, defaults to Quantity, see AmountType for
@@ -211,6 +223,7 @@ class StopOrderFxSpot(StopOrder):
                  Uic=Uic,
                  Amount=Amount,
                  OrderPrice=OrderPrice,
+                 ManualOrder=ManualOrder,
                  AmountType=AmountType,
                  AssetType=OD.AssetType.FxSpot,
                  OrderDurationType=OrderDurationType,

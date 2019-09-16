@@ -4,6 +4,15 @@ Changelog
 [Unreleased]
 ------------
 
+New Features
+~~~~~~~~~~~~
+
+-  [order endpoints] added support for the ManualOrder attribute
+
+   BREAKING CHANGE: SAXO OpenApi will require this attribute in the
+   orderbodies, see:
+   https://www.developer.saxo/excel/blog/updated-requirements-for-order-placement?phrase=ManualOrder
+
 Style Fixes
 ~~~~~~~~~~~
 
@@ -22,10 +31,14 @@ New Features
 
 -  [endpoints] chart endpoints
 
+   addition of all chart endpoint classes
+
 Documentation Changes
 ~~~~~~~~~~~~~~~~~~~~~
 
 -  [endpoints] chart endpoints documentation
+
+   all chart endpoint classes documentation
 -  various doc/docstring updates
 
 v0.4.1 (2019-05-23)
@@ -35,17 +48,25 @@ New Features
 ~~~~~~~~~~~~
 
 -  [endpoints] eventnotificationservices
+
+   addition all eventnotificationservices endpoint classes
 -  [definitions] activities and reportformats
+
+   addition of definitions for 'activities' and 'reportformats'
 
 Bug Fixes
 ~~~~~~~~~
 
 -  corrected config causing broken build
 
+   replace auto-changelog
+
 Documentation Changes
 ~~~~~~~~~~~~~~~~~~~~~
 
 -  [endpoints] eventnotificationservices
+
+   addition all eventnotificationservices endpoint classes
 
 v0.3.1 (2019-05-04)
 -------------------

@@ -17,6 +17,7 @@ class MarketOrder(BaseOrder, OnFillHnd):
                  Uic,
                  Amount,
                  AssetType,
+                 ManualOrder=False,
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
@@ -37,6 +38,10 @@ class MarketOrder(BaseOrder, OnFillHnd):
 
         AssetType: string (required)
             the assettype for the Uic
+
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
 
         AmountType: AmountType (optional)
             the amountType, defaults to Quantity, see AmountType for
@@ -70,6 +75,7 @@ class MarketOrder(BaseOrder, OnFillHnd):
           "BuySell": "Buy",
           "OrderType": "Market",
           "AmountType": "Quantity",
+          "ManualOrder": False,
           "OrderDuration": {
               "DurationType": "DayOrder"
           }
@@ -101,6 +107,7 @@ class MarketOrder(BaseOrder, OnFillHnd):
         self._data.update({"AssetType": AssetType})
         self._data.update({"Amount": abs(Amount)})
         self._data.update({"BuySell": direction_from_amount(Amount)})
+        self._data.update({"ManualOrder": ManualOrder})
         self._data.update(da)
 
         self.hndOnFill(TakeProfitOnFill=TakeProfitOnFill,
@@ -125,6 +132,7 @@ class MarketOrderFxSpot(MarketOrder):
     def __init__(self,
                  Uic,
                  Amount,
+                 ManualOrder=False,
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
@@ -145,6 +153,10 @@ class MarketOrderFxSpot(MarketOrder):
         AmountType: AmountType (optional)
             the amountType, defaults to Quantity, see AmountType for
             other options
+
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
 
         TakeProfitOnFill: TakeProfitDetails instance or dict
             the take-profit order specification
@@ -178,6 +190,7 @@ class MarketOrderFxSpot(MarketOrder):
                  Uic=Uic,
                  Amount=Amount,
                  AmountType=AmountType,
+                 ManualOrder=ManualOrder,
                  AssetType=OD.AssetType.FxSpot,
                  TakeProfitOnFill=TakeProfitOnFill,
                  StopLossOnFill=StopLossOnFill,
@@ -193,6 +206,7 @@ class MarketOrderStock(MarketOrder):
     def __init__(self,
                  Uic,
                  Amount,
+                 ManualOrder=False,
                  AmountType=OD.AmountType.Quantity,
                  TakeProfitOnFill=None,
                  StopLossOnFill=None,
@@ -213,6 +227,10 @@ class MarketOrderStock(MarketOrder):
         AmountType: AmountType (optional)
             the amountType, defaults to Quantity, see AmountType for
             other options
+
+        ManualOrder: bool (required)
+            flag to identify if an order is from an automated origin,
+            default: False
 
         TakeProfitOnFill: TakeProfitDetails instance or dict
             the take-profit order specification
@@ -246,6 +264,7 @@ class MarketOrderStock(MarketOrder):
                  Uic=Uic,
                  Amount=Amount,
                  AmountType=AmountType,
+                 ManualOrder=ManualOrder,
                  AssetType=OD.AssetType.Stock,
                  TakeProfitOnFill=TakeProfitOnFill,
                  StopLossOnFill=StopLossOnFill,
