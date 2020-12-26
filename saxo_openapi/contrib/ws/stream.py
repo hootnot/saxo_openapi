@@ -4,7 +4,7 @@ import struct
 import json
 
 
-def decode_ws_msg(raw):
+def decode_ws_msg(rawData):
     """decode a websocket message and return the decoded message.
 
     Since the stream may contain messages from different sources
@@ -20,25 +20,41 @@ def decode_ws_msg(raw):
     The value assigned to msg can be parsed JSON data, so a dict, or
     a string.
     """
-    (msgIdentifier,), raw = struct.unpack_from("Q", raw[:8]), raw[8+2:]
-    # (Reserved,), raw = struct.unpack_from("h", raw[:2]), raw[2:]
 
-    (Srefid,), raw = struct.unpack_from("B", raw[:1]), raw[1:]
-    FS = "{}s".format(Srefid)
-    (refid,), raw = struct.unpack_from(FS, raw[:Srefid]), raw[Srefid:]
-    (payloadFmt,), raw = struct.unpack_from("B", raw[:1]), raw[1:]
-    (payloadSize,), raw = struct.unpack_from("i", raw[:4]), raw[4:]
+    msgList = [];
+    done : bool = False;
+    offset : int = 0;
 
-    FS = "{}s".format(payloadSize)
-    (payload,) = struct.unpack_from(FS, raw[:payloadSize])
+    print(len(rawData))
+    while(not done):
+        raw = rawData[offset:];
+        (msgIdentifier,), raw = struct.unpack_from("Q", raw[:8]), raw[8+2:]
+        # (Reserved,), raw = struct.unpack_from("h", raw[:2]), raw[2:]
 
-    msg = {'refid': refid,
-           'msgId': msgIdentifier}
+        (Srefid,), raw = struct.unpack_from("B", raw[:1]), raw[1:]
+        FS = "{}s".format(Srefid)
+        (refid,), raw = struct.unpack_from(FS, raw[:Srefid]), raw[Srefid:]
+        (payloadFmt,), raw = struct.unpack_from("B", raw[:1]), raw[1:]
+        (payloadSize,), raw = struct.unpack_from("i", raw[:4]), raw[4:]
 
-    if payloadFmt == 0:
-        msg.update({'msg': json.loads(str(payload, 'utf-8'))})
+        FS = "{}s".format(payloadSize)
+        (payload,) = struct.unpack_from(FS, raw[:payloadSize])
 
-    else:
-        msg.update({'msg': payload})
+        msg = {'refid': refid,
+            'msgId': msgIdentifier}
 
-    return msg
+        if payloadFmt == 0:
+            msg.update({'msg': json.loads(str(payload, 'utf-8'))})
+
+        else:
+            msg.update({'msg': payload})
+
+        msgList.append(msg);
+        
+        offset = offset + 16 + Srefid + payloadSize;
+
+        if(len(raw) < offset):
+            done = True;
+
+
+    return msgList
