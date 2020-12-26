@@ -3,7 +3,7 @@
 import struct
 import json
 
-
+#now returns a list of msg's
 def decode_ws_msg(rawData):
     """decode a websocket message and return the decoded message.
 
