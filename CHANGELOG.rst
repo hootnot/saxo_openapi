@@ -4,6 +4,20 @@ Changelog
 [Unreleased]
 ------------
 
+Bug Fixes
+~~~~~~~~~
+
+-  [streaming quotes] fixed to handle multiple messages bundled in 1
+   websocket message
+
+   BREAKING CHANGE: decode\_ws\_msg() is now a generator returning 1 or
+   more decoded messages. See documentation for details.
+
+Documentation Changes
+~~~~~~~~~~~~~~~~~~~~~
+
+-  [decode\_ws\_msg] updated for change
+
 v0.6.0 (2019-09-16)
 -------------------
 
