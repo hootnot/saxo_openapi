@@ -19,15 +19,19 @@ These subscriptions create messages that can be identified by the *referenceId*.
    from saxo_openapi.contrib.ws import stream
 
 
-   async def echo(ContextId, token):
+   async def Echo(ContextId, token):
        hdrs = {
            "Authorization": "Bearer {}".format(token),
        }
        URL = "wss://streaming.saxotrader.com/sim/openapi/streamingws/connect?" + \
              "contextId={ContextId}".format(ContextId=ContextId)
        async with websockets.connect(URL, extra_headers=hdrs) as websocket:
-           async for message in websocket:
-               print(stream.decode_ws_msg(message))
+           async for raw_message in websocket:
+               # get all messages from the raw message, nr. of messages varies
+               print("----------------------------------")
+               for message in stream.decode_ws_msg(raw_message):
+                   print(message)
+
 
    if __name__ == "__main__":
        import sys
@@ -181,5 +185,58 @@ Now create the price subscriptions with the program above:
    check the stream for data ...
 
 The new instruments will show up in the stream output.
+
+ ::
+
+   ----------------------------------
+   {'refid': 'EURAUD', 'msgId': 1, 'msg': {'LastUpdated': '2021-02-22T17:19:07.708000Z'}}
+   ----------------------------------
+   {'refid': 'EURUSD', 'msgId': 2, 'msg': {'LastUpdated': '2021-02-22T17:19:07.863000Z'}}
+   {'refid': 'EURNZD', 'msgId': 3, 'msg': {'LastUpdated': '2021-02-22T17:19:07.708000Z'}}
+   ----------------------------------
+   {'refid': 'EURCAD', 'msgId': 4, 'msg': {'LastUpdated': '2021-02-22T17:19:08.546000Z', 'Quote': {'Ask': 1.53309, 'Bid': 1.53219, 'Mid': 1.53264}}}
+   ----------------------------------
+   {'refid': 'EURCHF', 'msgId': 5, 'msg': {'LastUpdated': '2021-02-22T17:19:08.553000Z', 'Quote': {'Ask': 1.08896, 'Bid': 1.08866, 'Mid': 1.08881}}}
+   ----------------------------------
+   {'refid': 'EURJPY', 'msgId': 6, 'msg': {'LastUpdated': '2021-02-22T17:19:08.751000Z'}}
+   ----------------------------------
+   {'refid': 'GBPAUD', 'msgId': 7, 'msg': {'LastUpdated': '2021-02-22T17:19:08.726000Z'}}
+   ----------------------------------
+   {'refid': 'GBPNZD', 'msgId': 8, 'msg': {'LastUpdated': '2021-02-22T17:19:08.926000Z', 'Quote': {'Ask': 1.92071, 'Bid': 1.91951, 'Mid': 1.92011}}}
+   ----------------------------------
+   {'refid': 'GBPUSD', 'msgId': 9, 'msg': {'LastUpdated': '2021-02-22T17:19:08.726000Z'}}
+   ----------------------------------
+   {'refid': 'GBPCAD', 'msgId': 10, 'msg': {'LastUpdated': '2021-02-22T17:19:08.750000Z'}}
+   ----------------------------------
+   {'refid': 'EURAUD', 'msgId': 11, 'msg': {'LastUpdated': '2021-02-22T17:19:08.546000Z', 'Quote': {'Ask': 1.53641, 'Bid': 1.53571, 'Mid': 1.53606}}}
+   {'refid': 'GBPCHF', 'msgId': 12, 'msg': {'LastUpdated': '2021-02-22T17:19:08.762000Z', 'Quote': {'Ask': 1.26101, 'Bid': 1.26031, 'Mid': 1.26066}}}
+   ----------------------------------
+   {'refid': 'GBPJPY', 'msgId': 13, 'msg': {'LastUpdated': '2021-02-22T17:19:09.346000Z'}}
+   ----------------------------------
+   {'refid': 'AUDNZD', 'msgId': 14, 'msg': {'LastUpdated': '2021-02-22T17:19:09.561000Z'}}
+   ----------------------------------
+   {'refid': 'AUDUSD', 'msgId': 15, 'msg': {'LastUpdated': '2021-02-22T17:19:09.561000Z'}}
+   ----------------------------------
+   {'refid': 'EURCHF', 'msgId': 16, 'msg': {'LastUpdated': '2021-02-22T17:19:09.312000Z', 'Quote': {'Ask': 1.08894, 'Bid': 1.08864, 'Mid': 1.08879}}}
+   ----------------------------------
+   {'refid': 'AUDCHF', 'msgId': 17, 'msg': {'LastUpdated': '2021-02-22T17:19:09.704000Z'}}
+   ----------------------------------
+   {'refid': 'GBPAUD', 'msgId': 18, 'msg': {'LastUpdated': '2021-02-22T17:19:09.883000Z', 'Quote': {'Ask': 1.77896, 'Bid': 1.77806, 'Mid': 1.77851}}}
+   {'refid': 'GBPNZD', 'msgId': 19, 'msg': {'LastUpdated': '2021-02-22T17:19:09.883000Z', 'Quote': {'Ask': 1.92072, 'Bid': 1.91952, 'Mid': 1.92012}}}
+   {'refid': 'AUDJPY', 'msgId': 20, 'msg': {'LastUpdated': '2021-02-22T17:19:09.561000Z'}}
+   ----------------------------------
+   {'refid': 'GBPUSD', 'msgId': 21, 'msg': {'LastUpdated': '2021-02-22T17:19:10.062000Z', 'Quote': {'Ask': 1.40796, 'Bid': 1.40766, 'Mid': 1.40781}}}
+   {'refid': 'NZDCAD', 'msgId': 22, 'msg': {'LastUpdated': '2021-02-22T17:19:10.073000Z', 'Quote': {'Ask': 0.92461, 'Bid': 0.92381, 'Mid': 0.92421}}}
+   {'refid': 'GBPCAD', 'msgId': 23, 'msg': {'LastUpdated': '2021-02-22T17:19:10.087000Z', 'Quote': {'Ask': 1.77496, 'Bid': 1.77416, 'Mid': 1.77456}}}
+   ----------------------------------
+   {'refid': 'EURAUD', 'msgId': 24, 'msg': {'LastUpdated': '2021-02-22T17:19:10.297000Z', 'Quote': {'Ask': 1.53638, 'Bid': 1.53568, 'Mid': 1.53603}}}
+   {'refid': 'GBPCHF', 'msgId': 25, 'msg': {'LastUpdated': '2021-02-22T17:19:10.332000Z', 'Quote': {'Ask': 1.26102, 'Bid': 1.26032, 'Mid': 1.26067}}}
+   {'refid': 'NZDCHF', 'msgId': 26, 'msg': {'LastUpdated': '2021-02-22T17:19:10.348000Z', 'Quote': {'Ask': 0.65691, 'Bid': 0.65621, 'Mid': 0.65656}}}
+   ----------------------------------
+   {'refid': 'GBPJPY', 'msgId': 27, 'msg': {'LastUpdated': '2021-02-22T17:19:10.365000Z', 'Quote': {'Ask': 147.906, 'Bid': 147.836, 'Mid': 147.871}}}
+   {'refid': 'NZDJPY', 'msgId': 28, 'msg': {'LastUpdated': '2021-02-22T17:19:10.348000Z', 'Quote': {'Ask': 77.044, 'Bid': 76.984, 'Mid': 77.014}}}
+   ----------------------------------
+   {'refid': 'USDCAD', 'msgId': 29, 'msg': {'LastUpdated': '2021-02-22T17:19:10.566000Z'}}
+
 
 .. _www.developer.saxo: https://www.developer.saxo/openapi/explorer#
