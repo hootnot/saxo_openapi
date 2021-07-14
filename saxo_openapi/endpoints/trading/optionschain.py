@@ -39,7 +39,7 @@ class OptionsChainSubscriptionCreate(Trading):
         self.data = data
 
 
-@endpoint("openapi/trade/v1/optionschain/subscriptions"
+@endpoint("openapi/trade/v1/optionschain/subscriptions/"
           "{ContextId}/{ReferenceId}", "PATCH", 204)
 class OptionsChainSubscriptionModify(Trading):
     """Modify an existing options chain subscription."""
