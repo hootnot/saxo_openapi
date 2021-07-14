@@ -4,6 +4,23 @@ Changelog
 [Unreleased]
 ------------
 
+v0.8.0 (2021-07-14)
+-------------------
+
+Bug Fixes
+~~~~~~~~~
+
+-  endpoint missing / added
+
+Administration and Chores
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  [travis] bring python versions in sync with tox.ini
+
+-  [tox] devrequirements.txt added
+
+-  [tox] tox.ini changes
+
 v0.7.0 (2021-02-23)
 -------------------
 
