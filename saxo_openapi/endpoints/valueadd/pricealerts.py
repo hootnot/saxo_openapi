@@ -30,7 +30,7 @@ class GetAllAlerts(ValueAdd):
         >>> client = saxo_openapi.API(access_token=...)
         >>> params = {_v3_GetAllAlerts_params}
         >>> r = va.pricealerts.GetAllAlerts(params=params)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -62,7 +62,7 @@ class GetAlertDefinition(ValueAdd):
         >>> client = saxo_openapi.API(access_token=...)
         >>> AlertDefinitionId = 30384
         >>> r = va.pricealerts.GetAlertDefinition(AlertDefinitionId)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -97,7 +97,7 @@ class CreatePriceAlert(ValueAdd):
         >>> client = saxo_openapi.API(access_token=...)
         >>> data = {_v3_CreatePriceAlert_body}
         >>> r = va.pricealerts.CreatePriceAlert(AlertDefinitionId)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -195,7 +195,7 @@ class GetUserNotificationSettings(ValueAdd):
         >>> import json
         >>> client = saxo_openapi.API(access_token=...)
         >>> r = va.pricealerts.GetUserNotificationSettings()
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::

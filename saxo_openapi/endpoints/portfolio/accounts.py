@@ -28,7 +28,7 @@ class AccountDetails(Portfolio):
         >>> AccountKey = 'f4xZWiYL6W1nMKpygBLLA=='
         >>> r = pf.accounts.AccountDetails(AccountKey=AccountKey)
         >>> rv = client.request(r)
-        >>> print(json.dumps(r.response, indent=4))
+        >>> print(json.dumps(rv, indent=4))
 
         Output::
 

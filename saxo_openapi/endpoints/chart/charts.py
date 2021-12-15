@@ -28,7 +28,7 @@ class GetChartData(Charts):
         >>> client = saxo_openapi.API(access_token=...)
         >>> params = {_v3_GetChartData_params}
         >>> r = chart.charts.GetChartData(params=params)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
