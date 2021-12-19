@@ -20,7 +20,7 @@ logging.getLogger(__name__).addHandler(NullHandler())
 __title__ = "Saxo OpenAPI API Wrapper"
 __author__ = """Feite Brekeveld"""
 __email__ = 'f.brekeveld@gmail.com'
-__version__ = '0.8.1'
+__version__ = '0.8.2'
 __copyright__ = "Copyright 2019 Feite Brekeveld"
 
 

@@ -4,6 +4,19 @@ Changelog
 [Unreleased]
 ------------
 
+v0.8.2 (2021-12-19)
+-------------------
+
+Documentation Changes
+~~~~~~~~~~~~~~~~~~~~~
+
+-  fix some request/response issues
+
+Administration and Chores
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  fix travis link from .org -> .com
+
 v0.8.1 (2021-12-19)
 -------------------
 
