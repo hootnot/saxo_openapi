@@ -29,7 +29,7 @@ class CreatePriceSubscription(Trading):
         >>> client = saxo_openapi.API(access_token=...)
         >>> data = {_v3_CreatePriceSubscription_body}
         >>> r = tr.prices.CreatePriceSubscription(data=data)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::

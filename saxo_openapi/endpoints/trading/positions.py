@@ -31,7 +31,7 @@ class PositionByQuote(Trading):
         >>> client = saxo_openapi.API(access_token=...)
         >>> data = {_v3_PositionByQuote_body}
         >>> r = tr.positions.PositionByQuote(data=data)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -69,7 +69,7 @@ class UpdatePosition(Trading):
         >>> data = {_v3_UpdatePosition_body}
         >>> PositionId = 1019942425
         >>> r = tr.positions.UpdatePosition(PositionId, data=data)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -107,7 +107,7 @@ class ExercisePosition(Trading):
         >>> data = {_v3_ExercisePosition_body}
         >>> PositionId = 1019942425
         >>> r = tr.positions.ExercisePosition(PositionId, data=data)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
@@ -142,7 +142,7 @@ class ExerciseAmount(Trading):
         >>> client = saxo_openapi.API(access_token=...)
         >>> data = {_v3_ExerciseAmount_body}
         >>> r = tr.positions.ExerciseAmount(data=data)
-        >>> client.request(r)
+        >>> rv = client.request(r)
         >>> print(json.dumps(rv, indent=2))
 
         ::
