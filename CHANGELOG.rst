@@ -4,6 +4,16 @@ Changelog
 [Unreleased]
 ------------
 
+v0.8.1 (2021-12-19)
+-------------------
+
+Administration and Chores
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  MANIFEST.in added
+
+-  pip version adjustment
+
 v0.8.0 (2021-07-14)
 -------------------
 
