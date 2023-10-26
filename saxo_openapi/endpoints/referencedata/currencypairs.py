@@ -25,7 +25,7 @@ class CurrencyPairs(ReferenceData):
 
         ::
 
-            {_v3_Currencypairs_resp}
+            {_v3_CurrencyPairs_resp}
 
         """
         super(CurrencyPairs, self).__init__()
