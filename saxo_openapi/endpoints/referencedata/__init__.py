@@ -6,6 +6,7 @@ from . import (  # noqa: F401
     countries,
     cultures,
     currencies,
+    currencypairs,
     exchanges,
     instruments,
     languages,
