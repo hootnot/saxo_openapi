@@ -4,7 +4,7 @@
 
 from ..decorators import dyndoc_insert, endpoint
 from .base import ReferenceData
-from .responses.currencies import responses
+from .responses.currencypairs import responses
 
 
 @endpoint("openapi/ref/v1/currencypairs/")
