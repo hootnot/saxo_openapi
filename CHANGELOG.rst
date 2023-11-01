@@ -4,16 +4,13 @@ Changelog
 [Unreleased]
 ------------
 
-v0.8.2 (2021-12-19)
+v0.8.3 (2023-11-01)
 -------------------
-
-Documentation Changes
-~~~~~~~~~~~~~~~~~~~~~
-
--  fix some request/response issues
 
 Administration and Chores
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  update wheel version to 0.41.3
 
 -  fix travis link from .org -> .com
 
