@@ -21,6 +21,7 @@ class TestSaxo_Referencedata(ReqMockTest):
         (rd.countries, "Countries", {}),
         (rd.cultures, "Cultures", {}),
         (rd.currencies, "Currencies", {}),
+        (rd.currencypairs, "CurrencyPairs", {}),
         (rd.exchanges, "ExchangeList", {}),
         (rd.exchanges, "ExchangeDetails", {'ExchangeId': 'NYSE_ARCA'}),
         (rd.languages, "Languages", {}),
