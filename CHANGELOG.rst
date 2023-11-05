@@ -4,6 +4,11 @@ Changelog
 [Unreleased]
 ------------
 
+New Features
+~~~~~~~~~~~~
+
+-  Implement referencedata/currencypairs endpoint, see issue #25
+
 v0.8.3 (2023-11-01)
 -------------------
 
