@@ -9,6 +9,11 @@ New Features
 
 -  Implement referencedata/currencypairs endpoint, see issue #25
 
+Administration and Chores
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  [requirements\_dev] require pip version 23.3.1
+
 v0.8.3 (2023-11-01)
 -------------------
 
