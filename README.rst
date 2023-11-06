@@ -7,8 +7,9 @@ Python wrapper for Saxo Bank OpenAPI REST-API (see `here
 
 Most endpoints are covered by *saxo_openapi*. Check `Covered endpoints`_ for details.
 
-.. image:: https://travis-ci.com/hootnot/saxo_openapi.svg?branch=master
-   :target: https://travis-ci.com/github/hootnot/saxo_openapi
+.. image:: https://github.com/hootnot/saxo_openapi/workflows/CI/badge.svg
+   :target: https://github.com/hootnot/saxo_openapi/actions?query=workflow%3ACI
+   :alt: CI
 
 .. image:: https://readthedocs.org/projects/saxo-openapi/badge/?version=latest
    :target: https://saxo-openapi.readthedocs.io/en/latest/?badge=latest
