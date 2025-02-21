@@ -7,7 +7,7 @@ from ..decorators import dyndoc_insert, endpoint
 from .responses.charts import responses
 
 
-@endpoint("openapi/chart/v1/charts")
+@endpoint("openapi/chart/v3/charts")
 class GetChartData(Charts):
     """Return chart data as specified by request parameters."""
 
@@ -40,7 +40,7 @@ class GetChartData(Charts):
         self.params = params
 
 
-@endpoint("openapi/chart/v1/charts/subscriptions", "POST", 201)
+@endpoint("openapi/chart/v3/charts/subscriptions", "POST", 201)
 class CreateChartDataSubscription(Charts):
     """Sets up a subscription and returns an initial snapshot of most recently
     completed samples specified by the parameters in the request.
@@ -80,7 +80,7 @@ class CreateChartDataSubscription(Charts):
         self.data = data
 
 
-@endpoint("openapi/chart/v1/charts/subscriptions/{ContextId}", "DELETE", 202)
+@endpoint("openapi/chart/v3/charts/subscriptions/{ContextId}", "DELETE", 202)
 class ChartDataRemoveSubscriptions(Charts):
     """Removes all subscriptions for the current session on this resource, and
     frees all resources on the server.
@@ -119,7 +119,7 @@ class ChartDataRemoveSubscriptions(Charts):
         self.params = params
 
 
-@endpoint("openapi/chart/v1/charts/subscriptions/{ContextId}/{ReferenceId}",
+@endpoint("openapi/chart/v3/charts/subscriptions/{ContextId}/{ReferenceId}",
           "DELETE", 202)
 class ChartDataRemoveSubscription(Charts):
     """Removes subscriptions for the given reference id on this resource, and
